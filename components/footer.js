@@ -7,14 +7,25 @@ function loadFooter() {
                     <h4>ABOUT</h4>
                     <p>SEO HQ is a brutalist blog dedicated to raw insights on search engine optimization, AI integration, and content strategy.</p>
                 </div>
+                <!-- Added PAGES section before CATEGORIES -->
+                <div class="footer-section">
+                    <h4>PAGES</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Use</a></li>
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                    </ul>
+                </div>
                 <div class="footer-section">
                     <h4>CATEGORIES</h4>
                     <ul class="footer-links">
-                        <li><a href="#">Technical SEO</a></li>
-                        <li><a href="#">AI in SEO</a></li>
-                        <li><a href="#">Semantic SEO</a></li>
-                        <li><a href="#">Content Optimization</a></li>
-                        <li><a href="#">Case Studies</a></li>
+                        <li><a href="technical-seo.html">Technical SEO</a></li>
+                        <li><a href="ai-in-seo.html">AI in SEO</a></li>
+                        <li><a href="semantic-seo.html">Semantic SEO</a></li>
+                        <li><a href="content-optimization.html">Content Optimization</a></li>
+                        <li><a href="case-studies.html">Case Studies</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
