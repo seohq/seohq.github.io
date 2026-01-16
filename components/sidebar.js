@@ -3,7 +3,7 @@ function loadSidebar() {
   const sidebarHTML = `
         <div class="sidebar-content">
             <div class="sidebar-title">NAVIGATION</div>
-            <a href="#" class="sidebar-item">Latest Articles</a>
+            <a href="/#latest-articles-container" class="sidebar-item">Latest Articles</a>
             <a href="#" class="sidebar-item">Popular</a>
             <a href="#" class="sidebar-item">Archive</a>
             <a href="#" class="sidebar-item">Resources</a>
