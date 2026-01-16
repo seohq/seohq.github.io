@@ -399,12 +399,17 @@ aside {
   }
 
   .layout-wrapper {
-    grid-template-columns: 1fr;
+    display: flex; /* Change grid to flex for easier ordering */
+    flex-direction: column;
     padding: var(--spacing-md);
     gap: var(--spacing-md);
   }
+   .main-content {
+    order: 1; /* Moves main content to the top */
+  }
 
   aside {
+    order: 2; /* Moves sidebar to the bottom */
     position: static;
     border: var(--border-width-thin) var(--border-style) var(--border-color);
   }
