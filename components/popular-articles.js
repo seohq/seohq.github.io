@@ -4,13 +4,13 @@ const popularArticlesData = [
         title: "Core Web Vitals: The Technical Foundation",
         category: "Technical SEO",
         views: "15k+ reads",
-        link: "core-web-vitals.html"
+        link: "core-web-vitals"
     },
     {
         title: "From 0 to 100k Monthly Organic Traffic",
         category: "Case Studies",
         views: "12k+ reads",
-        link: "case-studies/scaling-traffic.html"
+        link: "case-studies/from-0-to-100k-organic-traffic"
     }
 ];
 
