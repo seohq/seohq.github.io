@@ -22,7 +22,7 @@ function loadYouMayLike() {
                     <h4>Link Building in 2025</h4>
                     <p>Modern approaches to acquiring high-quality backlinks without violating search guidelines.</p>
                 </div>
-                <div class="you-may-like-item" data-url="/mobile-first-indexing">
+                <div class="you-may-like-item" data-url="/mobile-first-indexing-2026">
                     <h4>Mobile-First Indexing</h4>
                     <p>Why mobile performance matters more than ever and how to optimize your site accordingly.</p>
                 </div>
