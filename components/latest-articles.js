@@ -4,15 +4,15 @@ const latestArticlesData = [
         title: "Advanced Log File Analysis for SEO",
         category: "Technical SEO",
         readTime: "12 min read",
-        link: "articles/log-file-analysis.html",
-        date: "2026-01-15"
+        link: "/log-file-analysis.html",
+        date: "2026-01-17"
     },
     {
         title: "Vector Search and the Future of Rankings",
         category: "Semantic SEO",
         readTime: "9 min read",
-        link: "articles/vector-search.html",
-        date: "2026-01-10"
+        link: "/vector-search.html",
+        date: "2026-01-17"
     }
 ];
 
