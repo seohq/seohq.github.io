@@ -4,7 +4,7 @@ const latestArticlesData = [
         title: "Advanced Log File Analysis for SEO",
         category: "Technical SEO",
         readTime: "12 min read",
-        link: "/log-file-analysis",
+        link: "/advanced-log-file-analysis",
         date: "2026-01-17"
     },
     {
