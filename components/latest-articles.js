@@ -11,7 +11,7 @@ const latestArticlesData = [
         title: "Vector Search and the Future of Rankings",
         category: "Semantic SEO",
         readTime: "9 min read",
-        link: "/vector-search",
+        link: "/vector-search-future-rankings",
         date: "2026-01-17"
     }
 ];
