@@ -10,7 +10,7 @@ const popularArticlesData = [
         title: "From 0 to 100k Monthly Organic Traffic",
         category: "Case Studies",
         views: "12k+ reads",
-        link: "case-studies/from-0-to-100k-organic-traffic"
+        link: "/from-0-to-100k-organic-traffic"
     }
 ];
 
