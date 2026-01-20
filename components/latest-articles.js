@@ -8,11 +8,11 @@ const latestArticlesData = [
         date: "2026-01-17"
     },
     {
-        title: "Vector Search and the Future of Rankings",
-        category: "Semantic SEO",
-        readTime: "9 min read",
-        link: "/vector-search-future-rankings",
-        date: "2026-01-17"
+        title: "Optimizing for AI Agents and Autonomous Search in 2026",
+        category: "AI in SEO",
+        readTime: "11 min read",
+        link: "/ai-agents-autonomous-search",
+        date: "2026-01-20"
     }
 ];
 
