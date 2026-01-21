@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-55VW7WFNC5"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-55VW7WFNC5"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -18,14 +17,12 @@
     <meta name="robots" content="index, follow">
     <meta name="language" content="English">
     
-    <!-- Open Graph Tags -->
     <meta property="og:title" content="SEO HQ - Mastering Search Engine Optimization">
     <meta property="og:description" content="A brutalist SEO blog covering Technical SEO, AI in SEO, Semantic SEO, Content Optimization, and Case Studies.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://seohq.github.io/">
     <meta property="og:image" content="https://seohq.github.io/og-image.jpg">
     
-    <!-- Twitter Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="SEO HQ - Mastering Search Engine Optimization">
     <meta name="twitter:description" content="A brutalist SEO blog covering Technical SEO, AI in SEO, Semantic SEO, Content Optimization, and Case Studies.">
@@ -37,7 +34,6 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="stylesheet" href="styles.css">
     
-    <!-- JSON-LD Schema Markup -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -76,29 +72,29 @@
     </script>
 </head>
 <body>
-    <!-- Header Component -->
     <header id="header-container"></header>
 
     <div class="layout-wrapper">
-        <!-- Sidebar Component -->
         <aside id="sidebar-container"></aside>
 
         <main class="main-content">
-            <!-- Hero Section -->
-            <section class="hero">
-                <h1>SEO HQ</h1>
-                <p class="tagline">MASTERING SEARCH ENGINE OPTIMIZATION</p>
-                <div class="hero-divider"></div>
-                <p class="hero-description">Raw insights on SEO, AI integration, semantic search, and content strategy. Built on principles of clarity and substance.</p>
+            <section class="hero hero-split">
+                <div class="hero-text-content">
+                    <h1>SEO HQ</h1>
+                    <p class="tagline">MASTERING SEARCH ENGINE OPTIMIZATION</p>
+                    <div class="hero-divider"></div>
+                    <p class="hero-description">Raw insights on SEO, AI integration, semantic search, and content strategy. Built on principles of clarity and substance.</p>
+                </div>
+                <div class="hero-image-container">
+                    <img src="/images/hero.webp" alt="SEO HQ Conceptual Illustration" class="hero-visual">
+                </div>
             </section>
 
-            <!-- Categories Section -->
             <section class="categories-section">
                 <h2>EXPLORE CATEGORIES</h2>
                 <div id="categories-container"></div>
             </section>
 
-            <!-- Featured Articles -->
             <section class="featured-articles">
                 <h2>FEATURED ARTICLES</h2>
                 <div class="articles-grid">                    
@@ -164,15 +160,12 @@
             <div id="latest-articles-container"></div>
             <div id="popular-articles-container"></div>
 
-            <!-- You May Like Section -->
             <section id="you-may-like-container"></section>
 
-            <!-- Navigation bar repositioned after you-may-like for mobile view -->
             <section id="mobile-nav-section"></section>
         </main>
     </div>
 
-    <!-- Footer Component -->
     <footer id="footer-container"></footer>
 
     <script src="components/header.js"></script>
