@@ -1,6 +1,13 @@
 // components/latest-articles.js
 const latestArticlesData = [
     {
+        title: "SEO for Augmented Reality & Spatial Search",
+        category: "VISUAL SEARCH",
+        readTime: "13 min read",
+        link: "/seo-augmented-reality",
+        date: "2026-01-22"
+    },
+    {
         title: "Advanced Log File Analysis for SEO",
         category: "Technical SEO",
         readTime: "12 min read",
