@@ -16,6 +16,7 @@ function loadFooter() {
                         <li><a href="privacy">Privacy Policy</a></li>
                         <li><a href="terms">Terms of Use</a></li>
                         <li><a href="disclaimer">Disclaimer</a></li>
+                        <li><a href="services">Services</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
