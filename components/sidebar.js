@@ -6,7 +6,7 @@ function loadSidebar() {
             <a href="/#latest-articles-container" class="sidebar-item">Latest Articles</a>
             <a href="/#popular-articles-container" class="sidebar-item">Popular</a>
             <a href="#" class="sidebar-item">Archive</a>
-            <a href="#" class="sidebar-item">Resources</a>
+            <a href="services" class="sidebar-item">Services</a>
             
             <div class="sidebar-title" style="margin-top: var(--spacing-lg);">TAGS</div>
             <div style="display: flex; flex-wrap: wrap; gap: 8px;">
