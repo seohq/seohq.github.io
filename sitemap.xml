@@ -2,37 +2,55 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://seohq.github.io/</loc>
-    <lastmod>2024-01-01</lastmod>
-    <changefreq>daily</changefreq>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://seohq.github.io/categories/technical-seo</loc>
-    <lastmod>2024-01-01</lastmod>
+    <loc>https://seohq.github.io/advanced-log-file-analysis</loc>
+    <lastmod>2026-01-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://seohq.github.io/categories/ai-seo</loc>
-    <lastmod>2024-01-01</lastmod>
+    <loc>https://seohq.github.io/ai-agents-autonomous-search</loc>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://seohq.github.io/categories/semantic-seo</loc>
-    <lastmod>2024-01-01</lastmod>
+    <loc>https://seohq.github.io/core-web-vitals</loc>
+    <lastmod>2025-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://seohq.github.io/categories/content-optimization</loc>
-    <lastmod>2024-01-01</lastmod>
+    <loc>https://seohq.github.io/entity-recognition-semantic-search</loc>
+    <lastmod>2026-01-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://seohq.github.io/categories/case-studies</loc>
-    <lastmod>2024-01-01</lastmod>
+    <loc>https://seohq.github.io/from-0-to-100k-organic-traffic</loc>
+    <lastmod>2026-01-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://seohq.github.io/schema-markup-advanced-implementation</loc>
+    <lastmod>2026-01-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://seohq.github.io/topical-authority-content-clustering</loc>
+    <lastmod>2026-01-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://seohq.github.io/video-seo-multimedia-integration</loc>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
