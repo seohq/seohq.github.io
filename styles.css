@@ -105,7 +105,6 @@ p {
   line-height: 1.7;
 }
 
-/* Improved color contrast for accessibility */
 a {
   color: var(--color-black);
   text-decoration: none;
@@ -139,22 +138,40 @@ a:hover {
 }
 
 /* ============================================
-   HERO SECTION
+   HERO SECTION (FIXED PADDING & LAYOUT)
    ============================================ */
 
 .hero {
-  padding: var(--spacing-xl) 0;
+  /* Layout */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-lg);
+  
+  /* Borders & Spacing */
   border: var(--border-width-thin) var(--border-style) var(--border-color);
   border-left: var(--border-width-thick) var(--border-style) var(--color-accent);
   border-right: var(--border-width-thick) var(--border-style) var(--color-accent);
-  padding: var(--spacing-xl) var(--spacing-lg);
+  padding: var(--spacing-xl); /* Increased padding to stop touching borders */
   background: var(--color-white);
+  box-sizing: border-box;
+}
+
+.hero-text-content {
+  flex: 1.2; /* Slightly more space for text than image */
+}
+
+.hero-image-container {
+  flex: 0.8;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .hero h1 {
   border: none;
   padding: 0;
-  margin: 0 0 var(--spacing-md) 0;
+  margin: 0 0 var(--spacing-sm) 0;
+  font-size: var(--font-size-3xl); /* Adjusted for better split-view fit */
 }
 
 .tagline {
@@ -175,47 +192,15 @@ a:hover {
   font-size: var(--font-size-lg);
   max-width: 600px;
   line-height: 1.8;
-  /* Darker gray for better contrast ratio */
   color: var(--color-gray-500);
 }
 
-/* Hero Split Layout */
-.hero-split {
-    display: flex;
-    align-items: center; /* Vertically centers text and image */
-    justify-content: space-between;
-    gap: 40px; /* Space between text and image */
-    padding: 60px 0;
-}
-
-.hero-text-content {
-    flex: 1; /* Takes up 50% or remaining space */
-}
-
-.hero-image-container {
-    flex: 1; /* Takes up 50% */
-    display: flex;
-    justify-content: flex-end;
-}
-
 .hero-visual {
-    max-width: 100%;
-    height: auto;
-    border: 4px solid #000; /* Brutalist style matching your blog */
-    box-shadow: 10px 10px 0px #000;
-}
-
-/* Mobile Responsiveness: Stack them back on small screens */
-@media (max-width: 768px) {
-    .hero-split {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .hero-image-container {
-        justify-content: center;
-        margin-top: 20px;
-    }
+  max-width: 100%;
+  height: auto;
+  border: var(--border-width-thick) var(--border-style) var(--color-black);
+  box-shadow: 8px 8px 0px var(--color-black);
+  display: block;
 }
 
 /* ============================================
@@ -269,7 +254,6 @@ a:hover {
   margin-top: var(--spacing-lg);
 }
 
-/* Featured image styling for article cards */
 .article-featured-image {
   width: 100%;
   height: 200px;
@@ -301,7 +285,6 @@ a:hover {
 
 .article-meta {
   font-size: var(--font-size-xs);
-  /* Darker gray for better contrast ratio */
   color: var(--color-gray-500);
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -312,7 +295,6 @@ a:hover {
 .article-card p {
   flex-grow: 1;
   margin-bottom: var(--spacing-md);
-  /* Darker gray for better contrast ratio */
   color: var(--color-gray-500);
 }
 
@@ -408,28 +390,15 @@ aside {
   box-shadow: 0 2px 0px var(--color-accent);
 }
 
-.you-may-like-item h4 {
-  margin: 0 0 var(--spacing-sm) 0;
-  font-size: var(--font-size-base);
-}
-
-.you-may-like-item p {
-  font-size: var(--font-size-sm);
-  /* Darker gray for better contrast ratio */
-  color: var(--color-gray-500);
-}
-
 /* ============================================
    MOBILE RESPONSIVE
    ============================================ */
 
-/* Mobile navigation section styling */
 #mobile-nav-section {
   display: none;
 }
 
 @media (max-width: 768px) {
-  /* Show navigation section after you-may-like on mobile */
   #mobile-nav-section {
     display: block;
     margin-top: var(--spacing-xl);
@@ -438,19 +407,32 @@ aside {
   }
 
   .layout-wrapper {
-    display: flex; /* Change grid to flex for easier ordering */
+    display: flex;
     flex-direction: column;
     padding: var(--spacing-md);
     gap: var(--spacing-md);
   }
    .main-content {
-    order: 1; /* Moves main content to the top */
+    order: 1;
   }
 
   aside {
-    order: 2; /* Moves sidebar to the bottom */
+    order: 2;
     position: static;
     border: var(--border-width-thin) var(--border-style) var(--border-color);
+  }
+
+  /* Hero Section Mobile Fix */
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: var(--spacing-lg) var(--spacing-md);
+    gap: var(--spacing-md);
+  }
+
+  .hero-image-container {
+    justify-content: center;
+    margin-top: var(--spacing-md);
   }
 
   h1 {
@@ -461,20 +443,12 @@ aside {
     font-size: var(--font-size-xl);
   }
 
-  .hero {
-    padding: var(--spacing-lg) var(--spacing-md);
-  }
-
   .articles-grid {
     grid-template-columns: 1fr;
   }
 
   .categories-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .you-may-like-items {
-    grid-template-columns: 1fr;
   }
 }
 
@@ -485,24 +459,7 @@ aside {
     --spacing-lg: 24px;
   }
 
-  h1 {
-    font-size: var(--font-size-2xl);
-  }
-
-  h2 {
-    font-size: var(--font-size-lg);
-  }
-
-  .layout-wrapper {
-    padding: var(--spacing-sm);
-    gap: var(--spacing-sm);
-  }
-
   .categories-grid {
     grid-template-columns: 1fr;
-  }
-
-  .tagline {
-    font-size: 11px;
   }
 }
