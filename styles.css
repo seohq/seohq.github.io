@@ -179,6 +179,45 @@ a:hover {
   color: var(--color-gray-500);
 }
 
+/* Hero Split Layout */
+.hero-split {
+    display: flex;
+    align-items: center; /* Vertically centers text and image */
+    justify-content: space-between;
+    gap: 40px; /* Space between text and image */
+    padding: 60px 0;
+}
+
+.hero-text-content {
+    flex: 1; /* Takes up 50% or remaining space */
+}
+
+.hero-image-container {
+    flex: 1; /* Takes up 50% */
+    display: flex;
+    justify-content: flex-end;
+}
+
+.hero-visual {
+    max-width: 100%;
+    height: auto;
+    border: 4px solid #000; /* Brutalist style matching your blog */
+    box-shadow: 10px 10px 0px #000;
+}
+
+/* Mobile Responsiveness: Stack them back on small screens */
+@media (max-width: 768px) {
+    .hero-split {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .hero-image-container {
+        justify-content: center;
+        margin-top: 20px;
+    }
+}
+
 /* ============================================
    CATEGORIES SECTION
    ============================================ */
