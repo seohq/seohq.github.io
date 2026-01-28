@@ -33,9 +33,10 @@ function loadFooter() {
                     <h4>CONNECT</h4>
                     <ul class="footer-links">
                         <li><a href="#">Twitter</a></li>
-                        <li><a href="#">LinkedIn</a></li>
-                        <li><a href="#">GitHub</a></li>
+                        <li><a href="https://www.linkedin.com/in/waqas-bukhari-6a5912389/">LinkedIn</a></li>
+                        <li><a href="https://github.com/seohq/seohq.github.io">GitHub</a></li>
                         <li><a href="#">Email</a></li>
+                        <li><a href="https://wa.me/923402324446">Whatsapp</a></li>
                     </ul>
                 </div>
             </div>
