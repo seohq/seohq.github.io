@@ -1,6 +1,13 @@
 // components/latest-articles.js
 const latestArticlesData = [
     {
+        title: "The Ultimate Guide to Google Search Console",
+        category: "TECHNICAL SEO",
+        readTime: "12 min read",
+        link: "/google-search-console-guide",
+        date: "2026-01-28"
+    },
+    {
         title: "SEO for Augmented Reality & Spatial Search",
         category: "VISUAL SEARCH",
         readTime: "13 min read",
