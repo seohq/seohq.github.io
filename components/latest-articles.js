@@ -1,6 +1,13 @@
 // components/latest-articles.js
 const latestArticlesData = [
     {
+        title: "The Rise of AI-Built SEO Blogs",
+        category: "AI In SEO",
+        readTime: "10 min read",
+        link: "/ai-built-seo-blog",
+        date: "2026-01-30"
+    },
+    {
         title: "The Ultimate Guide to Google Search Console",
         category: "TECHNICAL SEO",
         readTime: "12 min read",
