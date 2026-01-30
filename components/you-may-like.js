@@ -26,9 +26,9 @@ function loadYouMayLike() {
                     <h4>Mobile-First Indexing</h4>
                     <p>Why mobile performance matters more than ever and how to optimize your site accordingly.</p>
                 </div>
-                <div class="you-may-like-item" data-url="/voice-search-optimization">
-                    <h4>Voice Search Optimization</h4>
-                    <p>Preparing your content for the rise of voice-activated search and featured snippets.</p>
+                <div class="you-may-like-item" data-url="/ai-built-seo-blog">
+                    <h4>AI-Built SEO Blogs</h4>
+                    <p>Key Achievements of SEO HQ Blog.</p>
                 </div>
             </div>
         </div>
