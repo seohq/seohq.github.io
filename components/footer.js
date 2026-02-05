@@ -37,6 +37,7 @@ function loadFooter() {
                         <li><a href="https://github.com/seohq/seohq.github.io">GitHub</a></li>
                         <li><a href="#">Email</a></li>
                         <li><a href="https://wa.me/923402324446">Whatsapp</a></li>
+                        <li><a href="/author">Author</a></li>
                     </ul>
                 </div>
             </div>
