@@ -1,11 +1,11 @@
 // components/latest-articles.js
 const latestArticlesData = [
     {
-        title: "The Rise of AI-Built SEO Blogs",
+        title: "Answer Engine Optimization (AEO)",
         category: "AI In SEO",
-        readTime: "10 min read",
-        link: "/ai-built-seo-blog",
-        date: "2026-01-30"
+        readTime: "15 min read",
+        link: "/answer-engine-optimization",
+        date: "2026-02-06"
     },
     {
         title: "The Ultimate Guide to Google Search Console",
