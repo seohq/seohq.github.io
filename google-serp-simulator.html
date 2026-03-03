@@ -6,6 +6,9 @@
 <title>Google SERP Simulator | SEO HQ</title>
 <meta name="description" content="Free Google SERP Simulator. Preview title tags, meta descriptions, rich snippets and more in a live Google-style preview.">
 <meta name="robots" content="index, follow">
+<link rel="canonical" href="https://seohq.github.io/google-serp-simulator">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="styles.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Google SERP Simulator","description":"Free tool to preview how your web page appears in Google search results.","applicationCategory":"SEOApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"SEO HQ"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How long should a title tag be?","acceptedAnswer":{"@type":"Answer","text":"50–60 characters for optimal Google display."}},{"@type":"Question","name":"How long should a meta description be?","acceptedAnswer":{"@type":"Answer","text":"120–158 characters. Google may truncate longer descriptions."}},{"@type":"Question","name":"Does meta description affect rankings?","acceptedAnswer":{"@type":"Answer","text":"Not directly, but it strongly influences click-through rate."}}]}</script>
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -13,11 +16,7 @@
 :root{--bk:#0a0a0a;--wh:#fafafa;--g50:#f7f7f7;--g100:#ebebeb;--g200:#d1d1d1;--g400:#888;--g600:#555;--g800:#222;--ac:#c8401a;--ok:#1a7a3c;--wn:#c47a00;--bd:#c81a1a;--gb:#1a0dab;--gg:#545454;--gs:#f5a623;--fm:'Space Mono',monospace;--fb:'DM Sans',sans-serif;}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:var(--fb);background:var(--g50);color:var(--bk);font-size:15px;line-height:1.6;}
-/* HEADER */
-.hdr{background:var(--bk);color:var(--wh);padding:13px 28px;display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid var(--ac);position:sticky;top:0;z-index:100;}
-.logo{font-family:var(--fm);font-size:17px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--wh);text-decoration:none;}
-.logo span{color:var(--ac);}
-.hdrtag{font-family:var(--fm);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--g400);background:var(--g800);border:1px solid var(--g600);padding:4px 10px;}
+
 /* HERO */
 .hero{background:var(--bk);color:var(--wh);padding:44px 28px 36px;border-bottom:3px solid var(--bk);position:relative;overflow:hidden;}
 .hero::before{content:'';position:absolute;top:0;right:0;width:300px;height:100%;background:repeating-linear-gradient(45deg,transparent,transparent 12px,rgba(200,64,26,.07) 12px,rgba(200,64,26,.07) 13px);pointer-events:none;}
@@ -178,16 +177,10 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 .db p{font-size:14px;color:#d1d1d1;line-height:1.8;}
 .db ul{list-style:none;font-size:14px;color:#d1d1d1;line-height:1.8;}
 .db ul li::before{content:'→ ';color:var(--ac);font-family:var(--fm);}
-/* FOOTER */
-footer{background:var(--g800);color:var(--g400);padding:20px 28px;font-family:var(--fm);font-size:11px;text-transform:uppercase;letter-spacing:1px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;border-top:3px solid var(--ac);}
-footer a{color:var(--g400);text-decoration:none;}
-footer a:hover{color:var(--ac);}
-@media(max-width:880px){.wrap{grid-template-columns:1fr;}.main{border-right:none;border-bottom:1px solid var(--bk);}.dgrid{grid-template-columns:1fr;gap:24px;}}
-@media(max-width:580px){.ta,.hts,.faqs,.ds{padding:16px;}.tgrid{grid-template-columns:1fr;}.sgrid{grid-template-columns:1fr;}.scard{border-right:none;}}
 </style>
 </head>
 <body>
-
+<header id="header-container"></header>
 <header class="hdr">
   <a href="#" class="logo">SEO<span>HQ</span></a>
   <span class="hdrtag">SERP Simulator v2</span>
@@ -436,11 +429,6 @@ footer a:hover{color:var(--ac);}
   </div>
 </section>
 
-<div class="ad" style="padding:18px;background:var(--wh);border-top:1px solid var(--g200);">
-  <!-- AdSense Bottom Banner -->
-  ADVERTISEMENT — 728×90
-</div>
-
 <footer>
   <span>© 2026 SEO HQ — SERP Simulator</span>
   <span><a href="#">Home</a> · <a href="#how-to">How To</a> · <a href="#faq">FAQ</a> · <a href="#about">About</a></span>
@@ -567,5 +555,13 @@ eU.value='https://seohq.github.io/serp-simulator';
 eQ.value='google serp simulator free';
 sync();render();
 </script>
+<footer id="footer-container"></footer>
+
+    <script src="components/header.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="components/sidebar.js"></script>
+    <script src="components/categories.js"></script>
+    <script src="components/latest-articles.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
