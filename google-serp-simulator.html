@@ -6,7 +6,6 @@
 <title>Google SERP Simulator | SEO HQ</title>
 <meta name="description" content="Free Google SERP Simulator. Preview title tags, meta descriptions, rich snippets and more in a live Google-style preview.">
 <meta name="robots" content="index, follow">
-<link rel="stylesheet" href="styles.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Google SERP Simulator","description":"Free tool to preview how your web page appears in Google search results.","applicationCategory":"SEOApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"SEO HQ"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How long should a title tag be?","acceptedAnswer":{"@type":"Answer","text":"50–60 characters for optimal Google display."}},{"@type":"Question","name":"How long should a meta description be?","acceptedAnswer":{"@type":"Answer","text":"120–158 characters. Google may truncate longer descriptions."}},{"@type":"Question","name":"Does meta description affect rankings?","acceptedAnswer":{"@type":"Answer","text":"Not directly, but it strongly influences click-through rate."}}]}</script>
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -189,6 +188,7 @@ footer a:hover{color:var(--ac);}
 </head>
 <body>
 <header id="header-container"></header>
+
 <div class="hero">
   <p class="slbl">Free SEO Tool</p>
   <h1>Google SERP<br><em>Snippet Simulator</em></h1>
@@ -351,7 +351,13 @@ footer a:hover{color:var(--ac);}
     </div>
   </div>
 
-  <!-- SIDEBAR -->  
+  <!-- SIDEBAR -->
+  <div class="side">
+    <div class="ad ad-sb" style="margin-bottom:20px;">
+      <!-- AdSense 300x250: replace with your ad unit -->
+      <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="XXXXXXXX"></ins> -->
+      ADVERTISEMENT<br><small>300×250</small>
+    </div>
     <div style="font-family:var(--fm);font-size:9px;text-transform:uppercase;letter-spacing:2px;color:var(--g400);margin-bottom:12px;">Snippet Analysis</div>
     <div class="mc"><div class="ml">Title Length</div><div class="mv" id="mTV" style="color:var(--g400)">0</div><div class="ms" id="mTS">Enter a title above</div></div>
     <div class="mc"><div class="ml">Description Length</div><div class="mv" id="mDV" style="color:var(--g400)">0</div><div class="ms" id="mDS">Enter a description above</div></div>
@@ -372,7 +378,11 @@ footer a:hover{color:var(--ac);}
       → Summarise page value clearly<br>→ Include a CTA ("Learn", "Try")<br>→ Use target keyword naturally<br><br>
       <strong style="font-family:var(--fm);font-size:10px;display:block;margin-bottom:5px;color:var(--bk);">URL STRUCTURE</strong>
       → Short, descriptive slugs<br>→ Hyphens, not underscores<br>→ Avoid extra parameters
-    </div>    
+    </div>
+    <div class="ad ad-sb" style="margin-top:20px;">
+      <!-- AdSense 300x600 -->
+      ADVERTISEMENT<br><small>300×600</small>
+    </div>
   </div>
 </div>
 
@@ -415,6 +425,17 @@ footer a:hover{color:var(--ac);}
     <div class="db"><h3>Best Practices</h3><ul><li>Front-load keywords in title tags</li><li>Write descriptions for humans, not bots</li><li>Include a clear value proposition in 155 chars</li><li>Match intent: informational vs transactional</li><li>Test variations and compare CTR in Search Console</li><li>Update low-CTR pages using this tool first</li></ul></div>
   </div>
 </section>
+
+<div class="ad" style="padding:18px;background:var(--wh);border-top:1px solid var(--g200);">
+  <!-- AdSense Bottom Banner -->
+  ADVERTISEMENT — 728×90
+</div>
+
+<footer>
+  <span>© 2026 SEO HQ — SERP Simulator</span>
+  <span><a href="#">Home</a> · <a href="#how-to">How To</a> · <a href="#faq">FAQ</a> · <a href="#about">About</a></span>
+  <span>Free SEO Tool by SEO HQ</span>
+</footer>
 
 <script>
 const G={title:'',desc:'',url:'',query:'',date:'',snippet:'none',sitelinks:false,showDate:true,showStats:true,showTabs:true,view:'desktop'};
@@ -536,11 +557,11 @@ eU.value='https://seohq.github.io/serp-simulator';
 eQ.value='google serp simulator free';
 sync();render();
 </script>
-</body>
   <footer id="footer-container"></footer>
 
     <script src="components/header.js"></script>
     <script src="components/footer.js"></script>
     
     <script src="script.js"></script>
+</body>
 </html>
