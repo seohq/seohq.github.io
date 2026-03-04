@@ -240,18 +240,7 @@ footer a:hover{color:var(--accent);}
 </style>
 </head>
 <body>
-
-<header class="sh">
-  <a href="https://seohq.github.io/" class="sl">SEO<span>HQ</span></a>
-  <span class="ht">SERP Simulator v2.0</span>
-</header>
-
-<div class="ad ad-top" style="padding:10px;">
-  <!-- AdSense: Replace with your ad unit -->
-  <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="XXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins> -->
-  ADVERTISEMENT — 728×90
-</div>
-
+<header id="header-container"></header>
 <div class="th">
   <p class="slb">Free SEO Tool</p>
   <h1>Google SERP<br><em>Snippet Simulator</em></h1>
@@ -430,10 +419,6 @@ footer a:hover{color:var(--accent);}
 
   <!-- SIDEBAR -->
   <div class="asb">
-    <div class="ad ad-sb" style="margin-bottom:22px;">
-      <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="XXXXXXXX" data-ad-format="auto"></ins> -->
-      ADVERTISEMENT<br><span style="font-size:9px;">300×250</span>
-    </div>
     <div style="font-family:var(--fm);font-size:9px;text-transform:uppercase;letter-spacing:2px;color:var(--g400);margin-bottom:14px;">Snippet Analysis</div>
     <div class="mc"><div class="ml">Title Length</div><div class="mv" id="mtv" style="color:var(--g400)">0</div><div class="ms" id="mts">Enter a title above</div></div>
     <div class="mc"><div class="ml">Description Length</div><div class="mv" id="mdv" style="color:var(--g400)">0</div><div class="ms" id="mds">Enter a description above</div></div>
@@ -454,10 +439,6 @@ footer a:hover{color:var(--accent);}
       → Summarise page value clearly<br>→ Include a CTA ("Learn", "Try")<br>→ Use target keyword naturally<br><br>
       <strong style="font-family:var(--fm);font-size:10px;display:block;margin-bottom:6px;color:var(--black);">URL STRUCTURE</strong>
       → Short, descriptive slugs<br>→ Hyphens, not underscores<br>→ Avoid extra parameters
-    </div>
-    <div class="ad ad-sb" style="margin-top:22px;">
-      <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="XXXXXXXX" data-ad-format="auto"></ins> -->
-      ADVERTISEMENT<br><span style="font-size:9px;">300×600</span>
     </div>
   </div>
 </div>
@@ -502,16 +483,13 @@ footer a:hover{color:var(--accent);}
   </div>
 </section>
 
-<div class="ad ad-bot" style="padding:18px;background:var(--white);text-align:center;">
-  <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="XXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins> -->
-  ADVERTISEMENT — 728×90
-</div>
-
 <footer>
-  <span>© 2026 SEO HQ — SERP Simulator</span>
-  <span><a href="https://seohq.github.io/">Home</a> · <a href="#how-to">How To</a> · <a href="#faq">FAQ</a> · <a href="#about">About</a></span>
-  <span>Free SEO Tool by SEO HQ</span>
+  <footer id="footer-container"></footer>
 </footer>
+
+<script src="components/header.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="script.js"></script>
 
 <script>
 // ── STATE ──
