@@ -8,6 +8,7 @@ function loadSidebar() {
             <a href="#" class="sidebar-item">Archive</a>
             <a href="services" class="sidebar-item">Services</a>
             <a href="/serp-simulator" class="sidebar-item">SERP Simulator</a>
+            <a href="/useful-tools" class="sidebar-item">Useful Tools</a>
             
             <div class="sidebar-title" style="margin-top: var(--spacing-lg);">TAGS</div>
             <div style="display: flex; flex-wrap: wrap; gap: 8px;">
