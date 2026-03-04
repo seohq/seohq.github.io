@@ -28,7 +28,7 @@ function loadHeader() {
                     <li class="dropdown">
                         <a href="#" class="nav-link dropdown-toggle">Useful Tools <span class="dropdown-arrow">▼</span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="/meta-tag-generator" class="dropdown-item">Meta Tag Generator</a></li>
+                            <li><a href="/meta-tags-generator" class="dropdown-item">Meta Tags Generator</a></li>
                             <li><a href="/keyword-density-analyzer" class="dropdown-item">Keyword Density Analyzer</a></li>
                             <li><a href="/xml-sitemap-generator" class="dropdown-item">XML Sitemap Generator</a></li>
                             <li><a href="/robots-txt-generator" class="dropdown-item">Robots.txt Generator</a></li>
