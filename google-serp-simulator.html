@@ -188,17 +188,93 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 .cb-btn.out:hover{background:var(--g100);}
 
 /* HOW TO */
-.hts{background:var(--white);border-top:var(--bt);padding:64px 32px;}
-.slb{font-family:var(--fm);font-size:10px;text-transform:uppercase;letter-spacing:3px;color:var(--accent);margin-bottom:8px;}
-.stt{font-family:var(--fm);font-size:clamp(22px,4vw,36px);font-weight:700;text-transform:uppercase;letter-spacing:1px;line-height:1.2;margin-bottom:36px;}
-.stt em{font-style:normal;color:var(--accent);}
-.sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));border:var(--b);max-width:1200px;}
-.scard{padding:26px;border-right:var(--b);border-bottom:var(--b);background:var(--white);transition:background .15s;}
-.scard:hover{background:var(--g50);}
-.snum{font-family:var(--fm);font-size:48px;font-weight:700;color:var(--g100);line-height:1;margin-bottom:10px;}
-.stit{font-family:var(--fm);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:9px;color:var(--black);}
-.sdescb{font-size:13px;color:var(--g600);line-height:1.6;}
-.sacc{display:block;width:32px;height:3px;background:var(--accent);margin-bottom:12px;}
+.hts {
+  background: var(--white);
+  border-top: var(--bt);
+  padding: 64px 32px;
+  /* Centers the inline content (text) */
+  text-align: center; 
+}
+
+.slb {
+  font-family: var(--fm);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.stt {
+  font-family: var(--fm);
+  font-size: clamp(22px, 4vw, 36px);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1.2;
+  margin-bottom: 36px;
+}
+
+.stt em {
+  font-style: normal;
+  color: var(--accent);
+}
+
+.sg {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  border: var(--b);
+  max-width: 1200px;
+  /* This centers the grid box itself within the section */
+  margin: 0 auto; 
+  /* Keeps text inside cards left-aligned for readability */
+  text-align: left; 
+}
+
+.scard {
+  padding: 26px;
+  border-right: var(--b);
+  border-bottom: var(--b);
+  background: var(--white);
+  transition: background .15s;
+}
+
+.scard:hover {
+  background: var(--g50);
+}
+
+.snum {
+  font-family: var(--fm);
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--g100);
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.stit {
+  font-family: var(--fm);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 9px;
+  color: var(--black);
+}
+
+.sdescb {
+  font-size: 13px;
+  color: var(--g600);
+  line-height: 1.6;
+}
+
+.sacc {
+  display: block;
+  width: 32px;
+  height: 3px;
+  background: var(--accent);
+  margin-bottom: 12px;
+}
 
 /* FAQ */
 .faqs{background:var(--g50);border-top:var(--b);padding:64px 32px;}
