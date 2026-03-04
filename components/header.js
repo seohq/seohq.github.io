@@ -28,12 +28,12 @@ function loadHeader() {
                     <li class="dropdown">
                         <a href="#" class="nav-link dropdown-toggle">Useful Tools <span class="dropdown-arrow">▼</span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="/tools/meta-tag-generator" class="dropdown-item">Meta Tag Generator</a></li>
-                            <li><a href="/tools/keyword-density-analyzer" class="dropdown-item">Keyword Density Analyzer</a></li>
-                            <li><a href="/tools/xml-sitemap-generator" class="dropdown-item">XML Sitemap Generator</a></li>
-                            <li><a href="/tools/robots-txt-generator" class="dropdown-item">Robots.txt Generator</a></li>
-                            <li><a href="/tools/hreflang-tag-generator" class="dropdown-item">Hreflang Tag Generator</a></li>
-                            <li><a href="/tools/structured-data-validator" class="dropdown-item">Structured Data Validator</a></li>
+                            <li><a href="/meta-tag-generator" class="dropdown-item">Meta Tag Generator</a></li>
+                            <li><a href="/keyword-density-analyzer" class="dropdown-item">Keyword Density Analyzer</a></li>
+                            <li><a href="/xml-sitemap-generator" class="dropdown-item">XML Sitemap Generator</a></li>
+                            <li><a href="/robots-txt-generator" class="dropdown-item">Robots.txt Generator</a></li>
+                            <li><a href="/hreflang-tag-generator" class="dropdown-item">Hreflang Tag Generator</a></li>
+                            <li><a href="/structured-data-validator" class="dropdown-item">Structured Data Validator</a></li>
                         </ul>
                     </li>
                     <li><a href="/contact" class="nav-link">Contact</a></li>
