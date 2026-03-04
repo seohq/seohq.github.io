@@ -1,6 +1,13 @@
 // components/latest-articles.js
 const latestArticlesData = [
     {
+        title: "Introducing Free SEO Tools",
+        category: "Technical SEO",
+        readTime: "10 min read",
+        link: "/essential-seo-tools",
+        date: "2026-03-04"
+    },
+    {
         title: "Answer Engine Optimization (AEO)",
         category: "AI In SEO",
         readTime: "15 min read",
@@ -27,13 +34,6 @@ const latestArticlesData = [
         readTime: "12 min read",
         link: "/advanced-log-file-analysis",
         date: "2026-01-17"
-    },
-    {
-        title: "Optimizing for AI Agents and Autonomous Search in 2026",
-        category: "AI in SEO",
-        readTime: "11 min read",
-        link: "/ai-agents-autonomous-search",
-        date: "2026-01-20"
     }
 ];
 
