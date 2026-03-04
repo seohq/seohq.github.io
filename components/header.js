@@ -26,7 +26,7 @@ function loadHeader() {
                         <a href="/services" class="nav-link">Services</a>
                     </li>
                     <li class="dropdown">
-                        <a href="#" class="nav-link dropdown-toggle">Useful Tools <span class="dropdown-arrow">▼</span></a>
+                        <a href="#" class="nav-link dropdown-toggle">SEO Tools <span class="dropdown-arrow">▼</span></a>
                         <ul class="dropdown-menu">
                             <li><a href="/meta-tags-generator" class="dropdown-item">Meta Tags Generator</a></li>
                             <li><a href="/keyword-density-analyzer" class="dropdown-item">Keyword Density Analyzer</a></li>
