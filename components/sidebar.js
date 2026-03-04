@@ -7,6 +7,7 @@ function loadSidebar() {
             <a href="/#popular-articles-container" class="sidebar-item">Popular</a>
             <a href="#" class="sidebar-item">Archive</a>
             <a href="services" class="sidebar-item">Services</a>
+            <a href="/serp-simulators" class="sidebar-item">SERP Simulators</a>
             
             <div class="sidebar-title" style="margin-top: var(--spacing-lg);">TAGS</div>
             <div style="display: flex; flex-wrap: wrap; gap: 8px;">
@@ -16,6 +17,7 @@ function loadSidebar() {
                 <span class="tag">#Rankings</span>
                 <span class="tag">#Keywords</span>
                 <span class="tag">#Backlinks</span>
+                <span class="tag">#SERP</span>
             </div>
         </div>
     `
