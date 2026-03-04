@@ -1,356 +1,710 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google SERP Simulator | SEO HQ</title>
-    <meta name="description" content="Advanced Google SERP Simulator for 2026. Preview Meta Titles, Descriptions, and Rich Snippets with our real-time SEO tool.">
-    
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "Google SERP Simulator - SEO HQ",
-      "description": "Preview how your website appears in Google search results with our real-time SERP simulator.",
-      "breadcrumb": {
-        "@type": "BreadcrumbList",
-        "itemListElement": [{
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://seohq.github.io/"
-        },{
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Google SERP Simulator"
-        }]
-      }
-    }
-    </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google SERP Simulator | SEO HQ – Preview Your Search Snippet</title>
+<meta name="description" content="Free Google SERP Simulator tool. Preview how your page title, meta description, and URL appear in Google search results. Advanced options for rich snippets, sitelinks, and more.">
+<meta name="keywords" content="SERP simulator, Google snippet preview, meta description preview, title tag preview, SEO tool, search result preview">
+<meta name="author" content="SEO HQ">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Google SERP Simulator | SEO HQ">
+<meta property="og:description" content="Preview how your page appears in Google search results. Simulate title tags, meta descriptions, rich snippets and more.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://seohq.github.io/serp-simulator">
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Google SERP Simulator",
-      "url": "https://seohq.github.io/serp-simulator",
-      "applicationCategory": "SEO Tool",
-      "operatingSystem": "Web",
-      "description": "A professional-grade SERP preview tool for optimizing meta tags, rich snippets, and mobile/desktop appearance.",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      }
-    }
-    </script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Google SERP Simulator","url":"https://seohq.github.io/serp-simulator","description":"Free tool to preview how your web page appears in Google search results.","applicationCategory":"SEOApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"SEO HQ","url":"https://seohq.github.io/"},"featureList":["Title tag preview with character counter","Meta description preview","URL display simulation","Rich snippet simulation","Sitelinks simulation","Mobile and desktop view toggle"]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"HowTo","name":"How to Use the Google SERP Simulator","description":"Step-by-step guide to previewing your search snippet.","step":[{"@type":"HowToStep","position":1,"name":"Enter Your Page Title","text":"Type your page title. Keep it between 50–60 characters for optimal Google display."},{"@type":"HowToStep","position":2,"name":"Enter Your Meta Description","text":"Write a compelling meta description between 120–158 characters."},{"@type":"HowToStep","position":3,"name":"Enter Your URL","text":"Input the full URL. The simulator displays it in Google breadcrumb format."},{"@type":"HowToStep","position":4,"name":"Choose Advanced Options","text":"Select rich snippet type, toggle sitelinks, switch mobile/desktop views."},{"@type":"HowToStep","position":5,"name":"Preview Your Snippet","text":"The live preview updates in real-time. Refine for maximum click-through rate."}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How long should a Google title tag be?","acceptedAnswer":{"@type":"Answer","text":"Google typically displays 50–60 characters before truncating. Aim for under 600px pixel width, roughly 60 characters."}},{"@type":"Question","name":"How long should a meta description be?","acceptedAnswer":{"@type":"Answer","text":"Meta descriptions should be between 120–158 characters. Google may truncate descriptions longer than 158 characters."}},{"@type":"Question","name":"Does the meta description affect rankings?","acceptedAnswer":{"@type":"Answer","text":"Meta descriptions are not a direct ranking factor, but they strongly influence click-through rate (CTR), which can indirectly impact SEO performance."}},{"@type":"Question","name":"What are rich snippets in Google SERP?","acceptedAnswer":{"@type":"Answer","text":"Rich snippets are enhanced search results with extra information like star ratings, FAQs, video thumbnails, or product prices. They require Schema.org structured data markup."}}]}
+</script>
 
-    <style>
-        /* INHERITED BRUTALIST STYLES */
-        :root {
-            --color-black: #000000;
-            --color-white: #ffffff;
-            --color-gray-900: #111111;
-            --color-gray-700: #2a2a2a;
-            --color-gray-500: #4d4d4d;
-            --color-gray-100: #f0f0f0;
-            --color-accent: #d95a1a;
-            --spacing-md: 24px;
-            --spacing-lg: 40px;
-            --spacing-xl: 64px;
-            --font-sans: "Courier New", "Courier", monospace;
-            --border-width-thin: 1px;
-            --border-width-thick: 3px;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--black:#0a0a0a;--white:#fafafa;--g50:#f7f7f7;--g100:#ebebeb;--g200:#d1d1d1;--g400:#888;--g600:#555;--g800:#222;--accent:#c8401a;--ok:#1a7a3c;--warn:#c47a00;--bad:#c81a1a;--gb:#1a0dab;--gg:#006621;--ggray:#545454;--gstar:#f5a623;--fm:'Space Mono',monospace;--fb:'DM Sans',sans-serif;--b:1px solid #0a0a0a;--bt:3px solid #0a0a0a;--ba:3px solid #c8401a;--sh:4px 4px 0 #0a0a0a;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--fb);background:var(--g50);color:var(--black);font-size:16px;line-height:1.6;}
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: var(--font-sans); line-height: 1.6; background: var(--color-white); color: var(--color-black); }
-        
-        /* LAYOUT CENTERED */
-        .layout-wrapper {
-            display: grid;
-            grid-template-columns: 250px 1fr;
-            gap: var(--spacing-lg);
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: var(--spacing-lg);
-        }
+/* HEADER */
+.sh{background:var(--black);color:var(--white);padding:14px 32px;display:flex;align-items:center;justify-content:space-between;border-bottom:var(--ba);position:sticky;top:0;z-index:100;}
+.sl{font-family:var(--fm);font-size:18px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--white);text-decoration:none;}
+.sl span{color:var(--accent);}
+.ht{font-family:var(--fm);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--g400);background:var(--g800);border:1px solid var(--g600);padding:4px 10px;}
 
-        .main-content {
-            display: flex;
-            flex-direction: column;
-            gap: var(--spacing-xl);
-            max-width: 900px; /* Centering constraint */
-            margin: 0 auto;   /* Centers main content within its grid cell */
-            width: 100%;
-        }
+/* HERO */
+.th{background:var(--black);color:var(--white);padding:48px 32px 40px;border-bottom:var(--bt);position:relative;overflow:hidden;}
+.th::before{content:'';position:absolute;top:0;right:0;width:350px;height:100%;background:repeating-linear-gradient(45deg,transparent,transparent 12px,rgba(200,64,26,.08) 12px,rgba(200,64,26,.08) 13px);pointer-events:none;}
+.th h1{font-family:var(--fm);font-size:clamp(28px,5vw,52px);font-weight:700;text-transform:uppercase;letter-spacing:2px;line-height:1.1;max-width:700px;}
+.th h1 em{font-style:normal;color:var(--accent);}
+.th p{margin-top:16px;font-size:16px;color:#d1d1d1;max-width:600px;line-height:1.7;}
+.hbg{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px;}
+.badge{font-family:var(--fm);font-size:10px;text-transform:uppercase;letter-spacing:1.5px;padding:5px 12px;border:1px solid var(--g600);color:var(--g400);}
+.badge.ac{border-color:var(--accent);color:var(--accent);}
 
-        h1 {
-            font-size: 48px;
-            font-weight: 700;
-            text-transform: uppercase;
-            border-bottom: var(--border-width-thick) solid var(--color-black);
-            padding-bottom: var(--spacing-md);
-            margin-bottom: var(--spacing-sm);
-        }
+/* AD SLOTS */
+.ad{background:var(--white);border:1px dashed var(--g200);text-align:center;padding:8px;font-family:var(--fm);font-size:10px;color:var(--g400);letter-spacing:1px;text-transform:uppercase;}
+.ad-top{border-left:none;border-right:none;}
+.ad-sb{min-height:250px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;}
+.ad-bot{margin:40px 0 0;border-top:var(--b);border-bottom:var(--b);}
 
-        .tagline {
-            font-size: 13px;
-            letter-spacing: 3px;
-            color: var(--color-gray-700);
-            text-transform: uppercase;
-            margin-bottom: var(--spacing-md);
-        }
+/* LAYOUT */
+.al{display:grid;grid-template-columns:1fr 340px;max-width:1400px;margin:0 auto;}
+.am{border-right:var(--b);}
+.asb{padding:28px 20px;background:var(--white);}
 
-        /* TOOL SPECIFIC STYLES */
-        .simulator-container {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 30px;
-            border: var(--border-width-thin) solid var(--color-black);
-            padding: var(--spacing-lg);
-            background: var(--color-white);
-        }
+/* TOOL AREA */
+.ta{padding:28px;}
 
-        .input-panel {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
+/* PANEL */
+.pn{background:var(--white);border:var(--b);margin-bottom:20px;}
+.ph{background:var(--black);color:var(--white);padding:10px 18px;font-family:var(--fm);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;display:flex;align-items:center;gap:8px;}
+.ph .dot{width:8px;height:8px;background:var(--accent);flex-shrink:0;}
+.pb{padding:22px;}
 
-        .input-group {
-            display: flex;
-            flex-direction: column;
-        }
+/* FIELDS */
+.fg{margin-bottom:18px;}
+.fg:last-child{margin-bottom:0;}
+label{display:block;font-family:var(--fm);font-size:10px;text-transform:uppercase;letter-spacing:2px;font-weight:700;margin-bottom:7px;color:var(--g600);}
+.fr{position:relative;}
+input[type=text],input[type=url],input[type=number],textarea,select{width:100%;background:var(--white);border:var(--b);font-family:var(--fb);font-size:14px;color:var(--black);padding:10px 14px;outline:none;transition:border-color .15s,box-shadow .15s;appearance:none;border-radius:0;}
+input:focus,textarea:focus,select:focus{border-color:var(--accent);box-shadow:2px 2px 0 var(--accent);}
+textarea{resize:vertical;min-height:78px;line-height:1.5;}
+select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M0 0l6 8 6-8z' fill='%230a0a0a'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;cursor:pointer;}
 
-        label {
-            font-weight: bold;
-            text-transform: uppercase;
-            font-size: 12px;
-            margin-bottom: 8px;
-        }
+/* CHAR COUNTER */
+.cc{position:absolute;right:0;top:-24px;font-family:var(--fm);font-size:10px;font-weight:700;letter-spacing:1px;padding:2px 8px;border:1px solid;transition:all .2s;}
+.c-ok{color:var(--ok);border-color:var(--ok);background:#f0fff4;}
+.c-warn{color:var(--warn);border-color:var(--warn);background:#fffbeb;}
+.c-bad{color:var(--bad);border-color:var(--bad);background:#fff0f0;}
+.cb{height:3px;background:var(--g100);margin-top:6px;}
+.cbf{height:100%;transition:width .2s,background .2s;}
 
-        input, textarea {
-            padding: 12px;
-            border: var(--border-width-thin) solid var(--color-black);
-            font-family: inherit;
-            outline: none;
-            background: #fafafa;
-        }
+/* TOGGLES */
+.tg{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.ti{display:flex;align-items:center;justify-content:space-between;border:var(--b);padding:10px 14px;cursor:pointer;transition:background .15s;}
+.ti:hover{background:var(--g50);}
+.tl{font-family:var(--fm);font-size:10px;text-transform:uppercase;letter-spacing:1px;font-weight:700;}
+.ts{position:relative;width:36px;height:20px;flex-shrink:0;}
+.ts input{opacity:0;width:0;height:0;}
+.tt{position:absolute;inset:0;background:var(--g200);cursor:pointer;transition:background .2s;}
+.tt::after{content:'';position:absolute;width:14px;height:14px;left:3px;top:3px;background:var(--white);transition:transform .2s;}
+.ts input:checked+.tt{background:var(--accent);}
+.ts input:checked+.tt::after{transform:translateX(16px);}
 
-        input:focus, textarea:focus { border-color: var(--color-accent); background: #fff; }
+/* VIEW TABS */
+.vt{display:flex;border-bottom:var(--b);padding:0 22px;}
+.vtb{font-family:var(--fm);font-size:11px;text-transform:uppercase;letter-spacing:1.5px;font-weight:700;padding:10px 18px;border:none;background:none;cursor:pointer;color:var(--g400);border-bottom:3px solid transparent;margin-bottom:-1px;transition:all .15s;}
+.vtb:hover{color:var(--black);}
+.vtb.active{color:var(--black);border-bottom-color:var(--accent);}
 
-        .preview-panel {
-            background: var(--color-gray-100);
-            padding: 30px;
-            border: var(--border-width-thin) solid var(--color-black);
-        }
+/* PREVIEW */
+.po{border:var(--b);background:var(--white);}
+.pc{background:var(--g50);border-bottom:var(--b);padding:10px 16px;display:flex;align-items:center;gap:12px;}
+.pcd{display:flex;gap:5px;}
+.pcdot{width:11px;height:11px;border-radius:50%;background:var(--g200);}
+.pcu{flex:1;background:var(--white);border:var(--b);border-radius:20px;padding:5px 14px;font-size:12px;color:var(--g400);font-family:var(--fb);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 
-        /* GOOGLE STYLE MOCKUP */
-        .google-result {
-            font-family: arial, sans-serif;
-            max-width: 600px;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 1px 6px rgba(32,33,36,0.28);
-            margin: 0 auto; /* Center preview card */
-        }
+/* SERP */
+.sw{padding:22px 26px;font-family:arial,sans-serif;}
+.sw.desktop{font-size:14px;}
+.sw.mobile{font-size:14px;max-width:420px;}
+.ssb{display:flex;align-items:center;gap:12px;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid #dfe1e5;}
+.gl{font-family:arial,sans-serif;font-size:20px;font-weight:400;letter-spacing:-1px;flex-shrink:0;}
+.gl span:nth-child(1){color:#4285f4;}.gl span:nth-child(2){color:#ea4335;}.gl span:nth-child(3){color:#fbbc05;}.gl span:nth-child(4){color:#4285f4;}.gl span:nth-child(5){color:#34a853;}.gl span:nth-child(6){color:#ea4335;}
+.gsb{flex:1;border:1px solid #dfe1e5;border-radius:24px;padding:8px 16px;font-size:14px;color:#202124;display:flex;align-items:center;justify-content:space-between;box-shadow:0 1px 6px rgba(32,33,36,.12);overflow:hidden;}
+.gst{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1;font-size:14px;color:#202124;}
+.gsi{font-size:18px;color:#4285f4;flex-shrink:0;margin-left:8px;}
+.stabs{display:flex;gap:4px;margin-bottom:14px;font-size:13px;color:#70757a;flex-wrap:wrap;}
+.stab{padding:8px 12px;cursor:pointer;display:flex;align-items:center;gap:4px;border-bottom:3px solid transparent;color:#70757a;}
+.stab.active{color:#1a73e8;border-bottom-color:#1a73e8;}
+.sstats{font-size:12px;color:#70757a;margin-bottom:14px;}
+.sr{max-width:600px;margin-bottom:24px;}
+.sbc{font-size:12px;color:#202124;margin-bottom:4px;display:flex;align-items:center;gap:6px;}
+.sfav{width:18px;height:18px;background:var(--g100);border:1px solid var(--g200);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:var(--g600);flex-shrink:0;overflow:hidden;}
+.sdom{color:#202124;}
+.spath{color:#70757a;}
+.skeb{margin-left:auto;color:#70757a;font-size:16px;line-height:1;cursor:pointer;}
+.sti{font-size:20px;font-weight:400;color:var(--gb);margin-bottom:4px;line-height:1.3;cursor:pointer;word-break:break-word;}
+.sti:hover{text-decoration:underline;}
+.sti .trunc{color:#70757a;}
+.sdesc{font-size:14px;color:var(--ggray);line-height:1.6;word-break:break-word;}
+.sdp{color:#70757a;}
 
-        .g-url { color: #202124; font-size: 14px; margin-bottom: 4px; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .g-title { color: #1a0dab; font-size: 20px; line-height: 1.3; margin-bottom: 3px; cursor: pointer; text-decoration: none; display: block; }
-        .g-title:hover { text-decoration: underline; }
-        .g-desc { color: #4d5156; font-size: 14px; line-height: 1.58; word-wrap: break-word; }
-        .g-date { color: #70757a; margin-right: 5px; }
+/* SITELINKS */
+.slinks{display:grid;grid-template-columns:1fr 1fr;gap:4px 32px;margin-top:10px;}
+.sli{display:flex;flex-direction:column;padding:4px 0;}
+.slit{font-size:14px;color:var(--gb);text-decoration:underline;cursor:pointer;}
+.slid{font-size:12px;color:var(--ggray);margin-top:2px;}
 
-        .rich-snippet {
-            display: flex;
-            align-items: center;
-            color: #70757a;
-            font-size: 14px;
-            margin-bottom: 5px;
-        }
-        .stars { color: #fabb05; margin-right: 5px; letter-spacing: 2px; }
+/* RICH */
+.rstars{display:flex;align-items:center;gap:4px;margin-top:4px;font-size:13px;color:#70757a;}
+.rsd{color:var(--gstar);letter-spacing:1px;font-size:14px;}
+.rsv{font-weight:600;}
+.rsc{color:#70757a;}
+.faqsnip{margin-top:8px;border:1px solid #dfe1e5;border-radius:8px;overflow:hidden;}
+.faqsi{padding:14px 16px;border-bottom:1px solid #dfe1e5;cursor:pointer;display:flex;align-items:center;justify-content:space-between;font-size:14px;color:#202124;transition:background .15s;}
+.faqsi:last-child{border-bottom:none;}
+.faqsi:hover{background:#f8f9fa;}
+.faqch{color:#70757a;font-size:12px;}
+.vsnip{display:flex;gap:12px;margin-top:8px;align-items:flex-start;}
+.vth{width:120px;height:68px;background:linear-gradient(135deg,#1a1a1a,#333);border-radius:6px;flex-shrink:0;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.vplay{width:32px;height:32px;background:rgba(255,255,255,.9);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;color:#000;padding-left:3px;}
+.vdur{position:absolute;bottom:4px;right:6px;font-size:10px;background:rgba(0,0,0,.8);color:white;padding:1px 4px;border-radius:2px;}
+.vmeta{font-size:12px;color:#70757a;line-height:1.7;}
+.psnip{display:flex;gap:12px;margin-top:10px;flex-wrap:wrap;}
+.pcard{border:1px solid #dfe1e5;border-radius:8px;padding:12px;width:140px;font-size:12px;color:#202124;}
+.pimg{width:100%;height:80px;background:linear-gradient(135deg,#f0f0f0,#e0e0e0);border-radius:4px;margin-bottom:8px;display:flex;align-items:center;justify-content:center;font-size:22px;}
+.pprice{font-weight:600;color:#202124;font-size:14px;margin-bottom:2px;}
+.pname{color:#70757a;line-height:1.4;}
 
-        /* DOCS SECTION */
-        .info-section {
-            border-top: var(--border-width-thin) solid var(--color-black);
-            padding-top: var(--spacing-lg);
-        }
+/* PLACEHOLDER RESULTS */
+.or{margin-top:20px;}
+.pr{max-width:600px;margin-bottom:20px;opacity:.4;}
+.phl{height:8px;background:var(--g100);border-radius:2px;margin-bottom:8px;}
 
-        h2 {
-            font-size: 32px;
-            text-transform: uppercase;
-            border-left: var(--border-width-thick) solid var(--color-accent);
-            padding-left: var(--spacing-md);
-            margin-bottom: var(--spacing-md);
-        }
+/* METRICS */
+.mc{border:var(--b);margin-bottom:10px;background:var(--white);}
+.ml{font-family:var(--fm);font-size:9px;text-transform:uppercase;letter-spacing:2px;color:var(--g400);padding:8px 12px 4px;border-bottom:var(--b);background:var(--g50);}
+.mv{padding:10px 12px;font-size:22px;font-family:var(--fm);font-weight:700;line-height:1;}
+.mv.good{color:var(--ok);}
+.mv.warn{color:var(--warn);}
+.mv.bad{color:var(--bad);}
+.ms{padding:0 12px 10px;font-size:11px;color:var(--g400);font-family:var(--fm);}
 
-        .ad-placeholder {
-            background: var(--color-gray-100);
-            border: 1px dashed var(--color-gray-500);
-            min-height: 90px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 20px 0;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+/* COPY BTN */
+.cb-btn{font-family:var(--fm);font-size:10px;text-transform:uppercase;letter-spacing:2px;font-weight:700;padding:10px 20px;background:var(--black);color:var(--white);border:var(--bt);cursor:pointer;transition:all .15s;display:inline-flex;align-items:center;gap:6px;}
+.cb-btn:hover{background:var(--accent);border-color:var(--accent);box-shadow:var(--sh);}
+.cb-btn:active{transform:translate(2px,2px);box-shadow:none;}
+.bg{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px;}
+.cb-btn.out{background:var(--white);color:var(--black);}
+.cb-btn.out:hover{background:var(--g100);}
 
-        @media (max-width: 1024px) {
-            .layout-wrapper { grid-template-columns: 1fr; }
-            aside { display: none; }
-        }
-    </style>
+/* HOW TO */
+.hts{background:var(--white);border-top:var(--bt);padding:64px 32px;}
+.slb{font-family:var(--fm);font-size:10px;text-transform:uppercase;letter-spacing:3px;color:var(--accent);margin-bottom:8px;}
+.stt{font-family:var(--fm);font-size:clamp(22px,4vw,36px);font-weight:700;text-transform:uppercase;letter-spacing:1px;line-height:1.2;margin-bottom:36px;}
+.stt em{font-style:normal;color:var(--accent);}
+.sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));border:var(--b);max-width:1200px;}
+.scard{padding:26px;border-right:var(--b);border-bottom:var(--b);background:var(--white);transition:background .15s;}
+.scard:hover{background:var(--g50);}
+.snum{font-family:var(--fm);font-size:48px;font-weight:700;color:var(--g100);line-height:1;margin-bottom:10px;}
+.stit{font-family:var(--fm);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:9px;color:var(--black);}
+.sdescb{font-size:13px;color:var(--g600);line-height:1.6;}
+.sacc{display:block;width:32px;height:3px;background:var(--accent);margin-bottom:12px;}
+
+/* FAQ */
+.faqs{background:var(--g50);border-top:var(--b);padding:64px 32px;}
+.flist{max-width:800px;}
+.fio{border:var(--b);margin-bottom:-1px;background:var(--white);overflow:hidden;}
+.fq{font-family:var(--fm);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:18px 20px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;transition:background .15s;user-select:none;}
+.fq:hover{background:var(--g50);}
+.fq .ico{flex-shrink:0;font-family:var(--fm);font-size:18px;font-weight:700;color:var(--accent);transition:transform .2s;width:20px;text-align:center;}
+.fio.open .fq{background:var(--black);color:var(--white);}
+.fio.open .fq .ico{color:var(--accent);transform:rotate(45deg);}
+.fa{padding:0 20px;max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s ease;font-size:14px;color:var(--g600);line-height:1.7;}
+.fio.open .fa{max-height:300px;padding:16px 20px 20px;}
+
+/* DESCRIPTION */
+.ds{background:var(--black);color:var(--white);padding:64px 32px;border-top:var(--ba);}
+.dgrid{display:grid;grid-template-columns:1fr 1fr;gap:48px;max-width:1100px;margin-top:36px;}
+.db h3{font-family:var(--fm);font-size:13px;text-transform:uppercase;letter-spacing:2px;margin-bottom:12px;color:var(--accent);}
+.db p{font-size:14px;color:#d1d1d1;line-height:1.8;}
+.db ul{list-style:none;font-size:14px;color:#d1d1d1;line-height:1.8;}
+.db ul li::before{content:'→ ';color:var(--accent);font-family:var(--fm);}
+
+/* FOOTER */
+footer{background:var(--g800);color:var(--g400);padding:22px 32px;font-family:var(--fm);font-size:11px;text-transform:uppercase;letter-spacing:1px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;border-top:var(--ba);}
+footer a{color:var(--g400);text-decoration:none;}
+footer a:hover{color:var(--accent);}
+
+/* SCORE BARS */
+.srow{display:flex;align-items:center;gap:8px;margin-bottom:8px;font-size:12px;font-family:var(--fm);}
+.sname{width:80px;color:var(--g600);font-size:10px;text-transform:uppercase;letter-spacing:1px;flex-shrink:0;}
+.strk{flex:1;height:6px;background:var(--g100);border:1px solid var(--g200);}
+.sfil{height:100%;transition:width .4s,background .4s;}
+.sval{width:30px;text-align:right;font-size:11px;font-weight:700;}
+
+/* TIP */
+.tip{position:relative;display:inline-block;cursor:help;margin-left:5px;font-family:var(--fm);font-size:9px;background:var(--g200);color:var(--g600);border-radius:50%;width:15px;height:15px;line-height:15px;text-align:center;vertical-align:middle;}
+.tip:hover::after{content:attr(data-tip);position:absolute;left:50%;bottom:calc(100% + 8px);transform:translateX(-50%);background:var(--black);color:var(--white);font-size:11px;padding:6px 10px;white-space:nowrap;pointer-events:none;z-index:99;border:1px solid var(--accent);letter-spacing:.5px;font-family:var(--fb);text-transform:none;font-weight:400;}
+
+@media(max-width:900px){.al{grid-template-columns:1fr;}.am{border-right:none;border-bottom:var(--b);}.dgrid{grid-template-columns:1fr;gap:28px;}}
+@media(max-width:600px){.th,.hts,.faqs,.ds{padding:40px 16px;}.ta{padding:16px;}.tg{grid-template-columns:1fr;}.sh{padding:12px 16px;}.sg{grid-template-columns:1fr;}.scard{border-right:none;}}
+</style>
 </head>
 <body>
 
-<header id="header-container"></header>
+<header class="sh">
+  <a href="https://seohq.github.io/" class="sl">SEO<span>HQ</span></a>
+  <span class="ht">SERP Simulator v2.0</span>
+</header>
 
-<div class="layout-wrapper">
-    <aside id="sidebar-container">
-        <p class="sidebar-title">NAVIGATE</p>
-        <a href="/" class="sidebar-item">HOME</a>
-        <a href="#how-to" class="sidebar-item">HOW TO USE</a>
-        <a href="#best-practices" class="sidebar-item">SEO BEST PRACTICES</a>
-        <div class="ad-placeholder">Sidebar Ad Slot</div>
-    </aside>
-
-    <main class="main-content">
-        <section>
-            <h1>SERP SIMULATOR</h1>
-            <p class="tagline">MASTERING SEARCH ENGINE APPEARANCE</p>
-
-            <div class="simulator-container">
-                <div class="input-panel">
-                    <div class="input-group">
-                        <label>Page Title</label>
-                        <input type="text" id="title-input" placeholder="Enter meta title..." value="Google SERP Simulator | SEO HQ Tool">
-                        <small id="title-count">0 / 60 characters</small>
-                    </div>
-
-                    <div class="input-group">
-                        <label>Meta Description</label>
-                        <textarea id="desc-input" rows="3" placeholder="Enter meta description...">Check how your website looks in Google's search results with our advanced 2026 SERP preview tool. Optimize for clicks and higher rankings.</textarea>
-                        <small id="desc-count">0 / 160 characters</small>
-                    </div>
-
-                    <div class="input-group">
-                        <label>URL / Slug</label>
-                        <input type="text" id="url-input" value="https://seohq.github.io/serp-simulator">
-                    </div>
-
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                        <div class="input-group">
-                            <label>Publish Date</label>
-                            <input type="date" id="date-input">
-                        </div>
-                        <div class="input-group">
-                            <label>Star Rating (0-5)</label>
-                            <input type="number" id="rating-input" min="0" max="5" step="0.1" value="4.9">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="preview-panel">
-                    <label style="display:block; text-align:center; margin-bottom:15px;">Live Desktop Preview</label>
-                    <div class="google-result">
-                        <span class="g-url" id="p-url">https://seohq.github.io › serp-simulator</span>
-                        <a class="g-title" id="p-title">Google SERP Simulator | SEO HQ Tool</a>
-                        <div class="rich-snippet" id="p-rich">
-                            <span class="stars">★★★★★</span>
-                            <span>Rating: <span id="p-rating">4.9</span> - 1,240 votes</span>
-                        </div>
-                        <p class="g-desc">
-                            <span class="g-date" id="p-date"></span>
-                            <span id="p-desc">Check how your website looks in Google's search results with our advanced 2026 SERP preview tool.</span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div class="ad-placeholder">Horizontal Ad Content Slot</div>
-
-        <section id="how-to" class="info-section">
-            <h2>HOW TO USE THIS TOOL</h2>
-            <p>Your search snippet is the first interaction a user has with your brand. Use this simulator to ensure your messaging is impactful and within technical limits.</p>
-            <ul style="list-style: none; margin-top: 20px;">
-                <li style="margin-bottom: 15px;"><strong>01. TITLE TAG:</strong> Focus on the primary keyword within the first 60 characters.</li>
-                <li style="margin-bottom: 15px;"><strong>02. DESCRIPTION:</strong> Write a compelling call-to-action (CTA) to improve organic CTR.</li>
-                <li style="margin-bottom: 15px;"><strong>03. RICH SNIPPETS:</strong> Use the rating tool to visualize how reviews change your result's footprint.</li>
-            </ul>
-        </section>
-
-        <section id="best-practices" class="info-section">
-            <h2>SEO BEST PRACTICES</h2>
-            <p>In 2026, search engines prioritize clarity and entity relevance. While the visual length is important, ensure your metadata accurately reflects the content of the page to reduce bounce rates.</p>
-            <div class="ad-placeholder">In-Article Ad Slot</div>
-        </section>
-    </main>
+<div class="ad ad-top" style="padding:10px;">
+  <!-- AdSense: Replace with your ad unit -->
+  <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="XXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins> -->
+  ADVERTISEMENT — 728×90
 </div>
 
-<footer id="footer-container"></footer>
+<div class="th">
+  <p class="slb">Free SEO Tool</p>
+  <h1>Google SERP<br><em>Snippet Simulator</em></h1>
+  <p>Preview exactly how your page looks in Google search results before publishing. Fine-tune your title, description and URL for maximum click-through rate.</p>
+  <div class="hbg">
+    <span class="badge ac">Live Preview</span>
+    <span class="badge">Rich Snippets</span>
+    <span class="badge">Mobile + Desktop</span>
+    <span class="badge">Char Counters</span>
+    <span class="badge">Score Analysis</span>
+  </div>
+</div>
+
+<div class="al">
+  <div class="am">
+    <div class="ta">
+
+      <!-- INPUTS -->
+      <div class="pn">
+        <div class="ph"><span class="dot"></span>SNIPPET INPUTS</div>
+        <div class="pb">
+          <div class="fg">
+            <label for="t">Title Tag <span class="tip" data-tip="Optimal: 50–60 chars. Google truncates ~600px wide.">?</span></label>
+            <div class="fr">
+              <span class="cc" id="ct">0/60</span>
+              <input type="text" id="t" placeholder="e.g. Google SERP Simulator | SEO HQ – Free Snippet Preview" maxlength="120" autocomplete="off">
+              <div class="cb"><div class="cbf" id="bt"></div></div>
+            </div>
+          </div>
+          <div class="fg">
+            <label for="d">Meta Description <span class="tip" data-tip="Optimal: 120–158 chars. Google may rewrite if off-topic.">?</span></label>
+            <div class="fr">
+              <span class="cc" id="cd">0/158</span>
+              <textarea id="d" placeholder="e.g. Preview your Google search snippet instantly. Simulate title tags, meta descriptions, rich snippets and more — all for free." maxlength="320"></textarea>
+              <div class="cb"><div class="cbf" id="bd"></div></div>
+            </div>
+          </div>
+          <div class="fg">
+            <label for="u">Page URL</label>
+            <input type="url" id="u" placeholder="https://yoursite.com/your-page" autocomplete="off">
+          </div>
+          <div class="fg">
+            <label for="q">Search Query (for keyword highlighting) <span class="tip" data-tip="Google bolds matched keywords in your snippet.">?</span></label>
+            <input type="text" id="q" placeholder="e.g. google serp preview tool" autocomplete="off">
+          </div>
+          <div class="fg">
+            <label for="dp">Date Prefix (optional)</label>
+            <input type="text" id="dp" placeholder="e.g. Mar 3, 2026 —" maxlength="30" autocomplete="off">
+          </div>
+        </div>
+      </div>
+
+      <!-- ADVANCED -->
+      <div class="pn">
+        <div class="ph"><span class="dot"></span>ADVANCED OPTIONS</div>
+        <div class="pb">
+          <div class="fg">
+            <label for="sn">Rich Snippet Type <span class="tip" data-tip="Requires Schema.org markup on your actual page.">?</span></label>
+            <select id="sn">
+              <option value="none">None (standard result)</option>
+              <option value="review">⭐ Review / Rating</option>
+              <option value="faq">❓ FAQ Snippets</option>
+              <option value="video">▶ Video Result</option>
+              <option value="product">🛒 Product / Shopping</option>
+            </select>
+          </div>
+          <div class="fg" id="gr" style="display:none;">
+            <label>Rating (1–5) &amp; Review Count</label>
+            <div style="display:flex;gap:12px;">
+              <input type="number" id="rv" value="4.7" min="1" max="5" step="0.1" style="width:100px;">
+              <input type="number" id="rc" value="128" min="1" style="flex:1;" placeholder="Review count">
+            </div>
+          </div>
+          <div class="fg" id="gf" style="display:none;">
+            <label>FAQ Question 1</label>
+            <input type="text" id="fq1" placeholder="What is a SERP simulator?" autocomplete="off">
+            <label style="margin-top:10px;">FAQ Question 2</label>
+            <input type="text" id="fq2" placeholder="How long should a title tag be?" autocomplete="off">
+            <label style="margin-top:10px;">FAQ Question 3</label>
+            <input type="text" id="fq3" placeholder="Does meta description affect rankings?" autocomplete="off">
+          </div>
+          <div class="fg" id="gv" style="display:none;">
+            <label>Video Duration</label>
+            <input type="text" id="vd" value="8:24" placeholder="e.g. 8:24" maxlength="10" autocomplete="off">
+          </div>
+          <div class="fg" id="gp" style="display:none;">
+            <label>Product Price</label>
+            <input type="text" id="pp" value="$29.99" placeholder="e.g. $29.99" maxlength="20" autocomplete="off">
+          </div>
+          <div class="fg">
+            <label>Display Options</label>
+            <div class="tg">
+              <label class="ti">
+                <span class="tl">Sitelinks</span>
+                <span class="ts"><input type="checkbox" id="tog-s"><span class="tt"></span></span>
+              </label>
+              <label class="ti">
+                <span class="tl">Date in snippet</span>
+                <span class="ts"><input type="checkbox" id="tog-d" checked><span class="tt"></span></span>
+              </label>
+              <label class="ti">
+                <span class="tl">Stats bar</span>
+                <span class="ts"><input type="checkbox" id="tog-st" checked><span class="tt"></span></span>
+              </label>
+              <label class="ti">
+                <span class="tl">SERP tabs</span>
+                <span class="ts"><input type="checkbox" id="tog-t" checked><span class="tt"></span></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PREVIEW -->
+      <div class="pn">
+        <div class="ph"><span class="dot"></span>LIVE PREVIEW</div>
+        <div class="pb" style="padding:0;">
+          <div class="vt">
+            <button class="vtb active" data-v="desktop" onclick="setView('desktop')">🖥 Desktop</button>
+            <button class="vtb" data-v="mobile" onclick="setView('mobile')">📱 Mobile</button>
+          </div>
+          <div style="padding:0 22px 22px;">
+            <div class="po">
+              <div class="pc">
+                <div class="pcd"><div class="pcdot"></div><div class="pcdot"></div><div class="pcdot"></div></div>
+                <div class="pcu" id="curl">google.com/search?q=serp+simulator</div>
+              </div>
+              <div class="sw desktop" id="serp">
+                <div class="ssb">
+                  <div class="gl"><span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span></div>
+                  <div class="gsb">
+                    <span class="gst" id="sqd">serp simulator</span>
+                    <span class="gsi">🔍</span>
+                  </div>
+                </div>
+                <div class="stabs" id="stabs">
+                  <div class="stab active">🔍 All</div><div class="stab">🖼 Images</div><div class="stab">📰 News</div><div class="stab">▶ Videos</div><div class="stab">⋯ More</div>
+                </div>
+                <div class="sstats" id="sstats">About 12,400,000 results (0.43 seconds)</div>
+                <div class="sr" id="result">
+                  <div class="sbc">
+                    <div class="sfav" id="sfav">?</div>
+                    <span class="sdom" id="sdom">yoursite.com</span>
+                    <span class="spath" id="spath"></span>
+                    <span class="skeb">⋮</span>
+                  </div>
+                  <div class="sti" id="sti">Your Page Title Goes Here</div>
+                  <div id="rich"></div>
+                  <div class="sdesc" id="sdesc">
+                    <span class="sdp" id="sdp"></span>
+                    <span id="sdtxt">Your meta description will appear here. Aim for 120–158 characters for best results.</span>
+                  </div>
+                  <div class="slinks" id="slinks" style="display:none;">
+                    <div class="sli"><span class="slit">About</span><span class="slid">Learn more about this page</span></div>
+                    <div class="sli"><span class="slit">Contact</span><span class="slid">Get in touch with us</span></div>
+                    <div class="sli"><span class="slit">Blog</span><span class="slid">Latest articles and guides</span></div>
+                    <div class="sli"><span class="slit">FAQ</span><span class="slid">Frequently asked questions</span></div>
+                  </div>
+                </div>
+                <div class="or">
+                  <div class="pr"><div class="phl" style="width:180px;height:10px;"></div><div class="phl" style="width:320px;height:16px;margin:8px 0 4px;"></div><div class="phl" style="width:500px;"></div><div class="phl" style="width:420px;"></div></div>
+                  <div class="pr"><div class="phl" style="width:160px;height:10px;"></div><div class="phl" style="width:360px;height:16px;margin:8px 0 4px;"></div><div class="phl" style="width:480px;"></div><div class="phl" style="width:400px;"></div></div>
+                </div>
+              </div>
+            </div>
+            <div class="bg">
+              <button class="cb-btn" onclick="copyMeta()">📋 Copy Meta Tags</button>
+              <button class="cb-btn out" onclick="resetAll()">↺ Reset</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="asb">
+    <div class="ad ad-sb" style="margin-bottom:22px;">
+      <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="XXXXXXXX" data-ad-format="auto"></ins> -->
+      ADVERTISEMENT<br><span style="font-size:9px;">300×250</span>
+    </div>
+    <div style="font-family:var(--fm);font-size:9px;text-transform:uppercase;letter-spacing:2px;color:var(--g400);margin-bottom:14px;">Snippet Analysis</div>
+    <div class="mc"><div class="ml">Title Length</div><div class="mv" id="mtv" style="color:var(--g400)">0</div><div class="ms" id="mts">Enter a title above</div></div>
+    <div class="mc"><div class="ml">Description Length</div><div class="mv" id="mdv" style="color:var(--g400)">0</div><div class="ms" id="mds">Enter a description above</div></div>
+    <div class="mc"><div class="ml">Snippet Score</div><div class="mv" id="msv" style="color:var(--g400)">—</div><div class="ms" id="mss">Fill fields to see score</div></div>
+    <div class="mc" style="margin-top:6px;">
+      <div class="ml">Quality Breakdown</div>
+      <div style="padding:12px;">
+        <div class="srow"><span class="sname">Title</span><div class="strk"><div class="sfil" id="sft" style="width:0%;background:var(--g200);"></div></div><span class="sval" id="svt">0</span></div>
+        <div class="srow"><span class="sname">Desc.</span><div class="strk"><div class="sfil" id="sfd" style="width:0%;background:var(--g200);"></div></div><span class="sval" id="svd">0</span></div>
+        <div class="srow"><span class="sname">URL</span><div class="strk"><div class="sfil" id="sfu" style="width:0%;background:var(--g200);"></div></div><span class="sval" id="svu">0</span></div>
+      </div>
+    </div>
+    <div style="font-family:var(--fm);font-size:9px;text-transform:uppercase;letter-spacing:2px;color:var(--g400);margin:22px 0 10px;">Quick Tips</div>
+    <div style="border:var(--b);padding:14px;background:var(--white);font-size:12px;color:var(--g600);line-height:1.8;">
+      <strong style="font-family:var(--fm);font-size:10px;display:block;margin-bottom:6px;color:var(--black);">TITLE TAG</strong>
+      → Keyword near the start<br>→ Under 60 characters<br>→ Brand at end with | or –<br><br>
+      <strong style="font-family:var(--fm);font-size:10px;display:block;margin-bottom:6px;color:var(--black);">META DESCRIPTION</strong>
+      → Summarise page value clearly<br>→ Include a CTA ("Learn", "Try")<br>→ Use target keyword naturally<br><br>
+      <strong style="font-family:var(--fm);font-size:10px;display:block;margin-bottom:6px;color:var(--black);">URL STRUCTURE</strong>
+      → Short, descriptive slugs<br>→ Hyphens, not underscores<br>→ Avoid extra parameters
+    </div>
+    <div class="ad ad-sb" style="margin-top:22px;">
+      <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="XXXXXXXX" data-ad-format="auto"></ins> -->
+      ADVERTISEMENT<br><span style="font-size:9px;">300×600</span>
+    </div>
+  </div>
+</div>
+
+<!-- HOW TO -->
+<section class="hts" id="how-to">
+  <p class="slb">Step-by-Step Guide</p>
+  <h2 class="stt">How to Use the<br><em>SERP Simulator</em></h2>
+  <div class="sg">
+    <div class="scard"><div class="snum">01</div><span class="sacc"></span><div class="stit">Enter Your Title Tag</div><p class="sdescb">Type your page title into the Title Tag field. The counter turns green when you're in the optimal 50–60 character range. Put your primary keyword first.</p></div>
+    <div class="scard"><div class="snum">02</div><span class="sacc"></span><div class="stit">Write Your Meta Description</div><p class="sdescb">Craft a description between 120–158 characters. Include your primary keyword naturally and end with a clear call to action. The preview updates as you type.</p></div>
+    <div class="scard"><div class="snum">03</div><span class="sacc"></span><div class="stit">Set Your Page URL</div><p class="sdescb">Paste your full URL. The simulator automatically extracts the domain and path and displays it in Google's breadcrumb-style format.</p></div>
+    <div class="scard"><div class="snum">04</div><span class="sacc"></span><div class="stit">Choose Rich Snippet Type</div><p class="sdescb">Simulate Review ratings, FAQ dropdowns, Video thumbnails, or Product cards. These require Schema.org structured data on your actual page.</p></div>
+    <div class="scard"><div class="snum">05</div><span class="sacc"></span><div class="stit">Toggle Advanced Options</div><p class="sdescb">Enable sitelinks, keyword highlighting, date prefixes, SERP tabs, and switch between mobile and desktop views for full simulation.</p></div>
+    <div class="scard"><div class="snum">06</div><span class="sacc"></span><div class="stit">Copy &amp; Implement</div><p class="sdescb">Review your quality score in the sidebar. Click "Copy Meta Tags" to get ready-to-paste HTML for your page's &lt;head&gt; section.</p></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faqs" id="faq">
+  <p class="slb">Common Questions</p>
+  <h2 class="stt">Frequently Asked<br><em>Questions</em></h2>
+  <div class="flist">
+    <div class="fio"><div class="fq" onclick="tfaq(this)">How long should a Google title tag be? <span class="ico">+</span></div><div class="fa">Google typically displays 50–60 characters of a title before truncating. The real limit is pixel-based (~600px). As a rule, keep titles under 60 characters. Include your primary keyword early and brand at the end, separated by | or –.</div></div>
+    <div class="fio"><div class="fq" onclick="tfaq(this)">How long should a meta description be? <span class="ico">+</span></div><div class="fa">Meta descriptions should be 120–158 characters for desktop. On mobile Google sometimes trims to ~120 chars. Aim for 140–155 — long enough to be informative, short enough to avoid truncation. Note: Google frequently rewrites descriptions if it judges yours doesn't match page content well.</div></div>
+    <div class="fio"><div class="fq" onclick="tfaq(this)">Does the meta description affect rankings? <span class="ico">+</span></div><div class="fa">Meta descriptions are not a direct ranking factor. However, a compelling description significantly impacts your CTR. Higher CTR sends positive engagement signals that can indirectly influence rankings over time. Think of it as ad copy for organic search.</div></div>
+    <div class="fio"><div class="fq" onclick="tfaq(this)">What are rich snippets and how do I get them? <span class="ico">+</span></div><div class="fa">Rich snippets are enhanced results with extra info — star ratings, FAQ dropdowns, video thumbnails, prices. To qualify, implement Schema.org structured data (JSON-LD) on your page. Google then decides whether to show the enhanced result. Use Google's Rich Results Test tool to validate your markup.</div></div>
+    <div class="fio"><div class="fq" onclick="tfaq(this)">Is this simulator 100% accurate? <span class="ico">+</span></div><div class="fa">This tool provides a close approximation of how your snippet will appear, but Google's actual display depends on device, screen resolution, the search query, and whether Google rewrites your title or description. Use it for planning and optimisation, then verify with Google Search Console after publishing.</div></div>
+    <div class="fio"><div class="fq" onclick="tfaq(this)">What is a good CTR for Google search results? <span class="ico">+</span></div><div class="fa">Average CTR varies by position: #1 averages ~28–32%, #2 drops to ~15–17%, #3 ~10–11%, and #10 falls below 3%. Rich snippets and strong meta descriptions can significantly boost CTR above position average — sometimes a #3 result outperforms #1 with a weak snippet.</div></div>
+  </div>
+</section>
+
+<!-- DESCRIPTION -->
+<section class="ds" id="about">
+  <p class="slb">About This Tool</p>
+  <h2 class="stt" style="color:var(--white);">What is a<br><em>SERP Simulator?</em></h2>
+  <div class="dgrid">
+    <div class="db"><h3>The Tool</h3><p>The SEO HQ Google SERP Simulator lets you preview exactly how your web page appears in Google's search results before you publish. It simulates the title tag, meta description, URL breadcrumb, rich snippets, and sitelinks in a pixel-accurate Google-style interface — in both desktop and mobile views.</p></div>
+    <div class="db"><h3>Why It Matters</h3><p>Your Google search snippet is your organic ad. It determines whether someone clicks your result or your competitor's. A well-crafted title and description can double or triple your CTR without changing your ranking. Iterate quickly and confidently with live preview feedback.</p></div>
+    <div class="db"><h3>Key Features</h3><ul><li>Real-time live preview as you type</li><li>Character counters with colour-coded feedback</li><li>Snippet quality scoring and breakdown</li><li>Rich snippet simulation (Review, FAQ, Video, Product)</li><li>Sitelinks toggle and keyword highlighting</li><li>One-click copy of ready-to-use meta HTML</li></ul></div>
+    <div class="db"><h3>Best Practices</h3><ul><li>Front-load keywords in title tags</li><li>Write descriptions for humans, not bots</li><li>Include a clear value proposition in 155 chars</li><li>Match intent: informational vs transactional</li><li>Test multiple variations and compare CTR in GSC</li><li>Update low-CTR pages using this tool first</li></ul></div>
+  </div>
+</section>
+
+<div class="ad ad-bot" style="padding:18px;background:var(--white);text-align:center;">
+  <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="XXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins> -->
+  ADVERTISEMENT — 728×90
+</div>
+
+<footer>
+  <span>© 2026 SEO HQ — SERP Simulator</span>
+  <span><a href="https://seohq.github.io/">Home</a> · <a href="#how-to">How To</a> · <a href="#faq">FAQ</a> · <a href="#about">About</a></span>
+  <span>Free SEO Tool by SEO HQ</span>
+</footer>
 
 <script>
-    // Component loading placeholders (Logic from index.html)
-    const inputs = ['title-input', 'desc-input', 'url-input', 'date-input', 'rating-input'];
-    
-    function updatePreview() {
-        const title = document.getElementById('title-input').value;
-        const desc = document.getElementById('desc-input').value;
-        const url = document.getElementById('url-input').value;
-        const date = document.getElementById('date-input').value;
-        const rating = document.getElementById('rating-input').value;
+// ── STATE ──
+const S={title:'',desc:'',url:'',query:'',date:'',snippet:'none',sitelinks:false,showDate:true,showStats:true,showTabs:true,view:'desktop'};
 
-        // Update Text
-        document.getElementById('p-title').innerText = title || 'Enter a title...';
-        document.getElementById('p-desc').innerText = desc || 'Enter a description...';
-        
-        // Formatted URL
-        const displayUrl = url.replace('https://', '').replace('http://', '').split('/').filter(x => x).join(' › ');
-        document.getElementById('p-url').innerText = displayUrl || 'yourdomain.com';
-        
-        // Character Counts with Brutalist feedback
-        const titleCount = document.getElementById('title-count');
-        titleCount.innerText = `${title.length} / 60 characters`;
-        titleCount.style.color = title.length > 60 ? '#d95a1a' : '#4d4d4d';
-        titleCount.style.fontWeight = title.length > 60 ? 'bold' : 'normal';
-        
-        const descCount = document.getElementById('desc-count');
-        descCount.innerText = `${desc.length} / 160 characters`;
-        descCount.style.color = desc.length > 160 ? '#d95a1a' : '#4d4d4d';
-        descCount.style.fontWeight = desc.length > 160 ? 'bold' : 'normal';
+// ── INPUTS ──
+const iT=id('t'),iD=id('d'),iU=id('u'),iQ=id('q'),iDP=id('dp'),iSN=id('sn');
+const togS=id('tog-s'),togD=id('tog-d'),togSt=id('tog-st'),togT=id('tog-t');
 
-        // Rich Snippets Logic
-        const dateSpan = document.getElementById('p-date');
-        if(date) {
-            const dateObj = new Date(date);
-            const options = { year: 'numeric', month: 'short', day: 'numeric' };
-            dateSpan.innerText = dateObj.toLocaleDateString(undefined, options) + ' — ';
-        } else {
-            dateSpan.innerText = '';
-        }
+function id(x){return document.getElementById(x);}
 
-        document.getElementById('p-rating').innerText = rating;
-        const starCount = Math.round(parseFloat(rating || 0));
-        document.querySelector('.stars').innerText = '★'.repeat(starCount) + '☆'.repeat(5 - starCount);
-    }
+[iT,iD,iU,iQ,iDP].forEach(el=>el.addEventListener('input',()=>{sync();render();}));
+iSN.addEventListener('change',()=>{sync();tsnGroups();render();});
+[togS,togD,togSt,togT].forEach(el=>el.addEventListener('change',()=>{sync();render();}));
+document.querySelectorAll('#gr input,#gf input,#gv input,#gp input').forEach(el=>el.addEventListener('input',render));
 
-    // Event listeners for real-time updates
-    inputs.forEach(id => {
-        document.getElementById(id).addEventListener('input', updatePreview);
-    });
+function sync(){
+  S.title=iT.value;S.desc=iD.value;S.url=iU.value;S.query=iQ.value;S.date=iDP.value;
+  S.snippet=iSN.value;S.sitelinks=togS.checked;S.showDate=togD.checked;S.showStats=togSt.checked;S.showTabs=togT.checked;
+}
 
-    // Run on load
-    document.addEventListener('DOMContentLoaded', updatePreview);
+function tsnGroups(){
+  id('gr').style.display=S.snippet==='review'?'':'none';
+  id('gf').style.display=S.snippet==='faq'?'':'none';
+  id('gv').style.display=S.snippet==='video'?'':'none';
+  id('gp').style.display=S.snippet==='product'?'':'none';
+}
+
+function render(){renderCounters();renderPreview();renderMetrics();}
+
+// ── COUNTERS ──
+function renderCounters(){
+  upCnt('ct','bt',S.title.length,60,50,60);
+  upCnt('cd','bd',S.desc.length,158,120,158);
+}
+function upCnt(cid,bid,len,max,lo,hi){
+  const el=id(cid),bar=id(bid);
+  el.textContent=`${len}/${max}`;
+  const pct=Math.min((len/max)*100,100);
+  let cls,col;
+  if(len===0){cls='';col='var(--g200)';}
+  else if(len<lo){cls='c-warn';col='var(--warn)';}
+  else if(len<=hi){cls='c-ok';col='var(--ok)';}
+  else{cls='c-bad';col='var(--bad)';}
+  el.className=`cc ${cls}`;
+  bar.style.width=pct+'%';bar.style.background=col;
+}
+
+// ── URL PARSE ──
+function pUrl(raw){
+  try{const u=new URL(raw.startsWith('http')?raw:'https://'+raw);
+    return{domain:u.hostname.replace('www.',''),parts:u.pathname.split('/').filter(Boolean),full:raw};}
+  catch{return{domain:raw||'yoursite.com',parts:[],full:raw};}
+}
+
+// ── HIGHLIGHT ──
+function hl(text,q){
+  if(!q.trim())return esc(text);
+  const words=q.trim().split(/\s+/).map(w=>w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'));
+  return esc(text).replace(new RegExp(`(${words.join('|')})`, 'gi'),'<strong>$1</strong>');
+}
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function trunc(s,max){return s.length<=max?{t:s,cut:false}:{t:s.slice(0,max-1),cut:true};}
+
+// ── RENDER PREVIEW ──
+function renderPreview(){
+  const{title,desc,url,query,date,snippet,sitelinks,showDate,showStats,showTabs,view}=S;
+  const u=pUrl(url);
+  const q=query||'serp simulator';
+
+  id('curl').textContent=`google.com/search?q=${q.replace(/\s+/g,'+')}`;
+  id('sqd').textContent=q;
+  id('stabs').style.display=showTabs?'':'none';
+  id('sstats').style.display=showStats?'':'none';
+
+  id('sfav').textContent=u.domain?u.domain[0].toUpperCase():'?';
+  id('sdom').textContent=u.domain;
+  id('spath').textContent=u.parts.length?'› '+u.parts.join(' › '):'';
+
+  const tt=title||'Your Page Title Goes Here';
+  const ttr=trunc(tt,60);
+  id('sti').innerHTML=hl(ttr.t,query)+(ttr.cut?'<span class="trunc">...</span>':'');
+
+  const dp=id('sdp');
+  if(showDate&&date){dp.textContent=date+' ';dp.style.display='';}
+  else{dp.textContent='';dp.style.display='none';}
+
+  const dt=desc||'Your meta description will appear here. Aim for 120–158 characters for best results in Google search.';
+  const dtr=trunc(dt,158);
+  id('sdtxt').innerHTML=hl(dtr.t,query)+(dtr.cut?'...':'');
+
+  id('rich').innerHTML=buildRich(snippet);
+  id('slinks').style.display=sitelinks?'':'none';
+
+  const serp=id('serp');
+  serp.className=`sw ${view}`;
+}
+
+function buildRich(type){
+  if(type==='review'){
+    const r=parseFloat(id('rv').value)||4.7;
+    const c=parseInt(id('rc').value)||128;
+    const s='★'.repeat(Math.round(r))+'☆'.repeat(5-Math.round(r));
+    return`<div class="rstars"><span class="rsd">${s}</span><span class="rsv">${r.toFixed(1)}</span><span class="rsc">(${c.toLocaleString()} reviews)</span></div>`;
+  }
+  if(type==='faq'){
+    const q1=id('fq1').value||'What is a SERP simulator?';
+    const q2=id('fq2').value||'How long should a title tag be?';
+    const q3=id('fq3').value||'Does meta description affect rankings?';
+    return`<div class="faqsnip"><div class="faqsi">${esc(q1)}<span class="faqch">▼</span></div><div class="faqsi">${esc(q2)}<span class="faqch">▼</span></div><div class="faqsi">${esc(q3)}<span class="faqch">▼</span></div></div>`;
+  }
+  if(type==='video'){
+    const dur=id('vd').value||'8:24';
+    return`<div class="vsnip"><div class="vth"><div class="vplay">▶</div><div class="vdur">${esc(dur)}</div></div><div class="vmeta">YouTube · ${new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}<br><span style="color:#202124;font-size:13px;">${esc(id('t').value||'Watch this video')}</span></div></div>`;
+  }
+  if(type==='product'){
+    const price=id('pp').value||'$29.99';
+    return`<div class="psnip">${['📦','🎁','⭐'].map((ico,i)=>`<div class="pcard"><div class="pimg">${ico}</div><div class="pprice">${esc(price)}</div><div class="pname">Variant ${i+1}</div></div>`).join('')}</div>`;
+  }
+  return'';
+}
+
+// ── METRICS ──
+function renderMetrics(){
+  const tl=S.title.length,dl=S.desc.length,ul=S.url.length;
+
+  const mtv=id('mtv'),mts=id('mts');
+  mtv.textContent=tl;
+  if(tl===0){mtv.className='mv';mts.textContent='Enter a title above';}
+  else if(tl<30){mtv.className='mv warn';mts.textContent='Too short — aim for 50–60 chars';}
+  else if(tl<=60){mtv.className='mv good';mts.textContent='✓ Optimal length';}
+  else if(tl<=70){mtv.className='mv warn';mts.textContent='Getting long — may truncate';}
+  else{mtv.className='mv bad';mts.textContent='⚠ Too long — will truncate';}
+
+  const mdv=id('mdv'),mds=id('mds');
+  mdv.textContent=dl;
+  if(dl===0){mdv.className='mv';mds.textContent='Enter a description above';}
+  else if(dl<70){mdv.className='mv warn';mds.textContent='Too short — aim for 120–158';}
+  else if(dl<=158){mdv.className='mv good';mds.textContent='✓ Optimal length';}
+  else{mdv.className='mv bad';mds.textContent='⚠ May be truncated by Google';}
+
+  let ts=0,ds=0,us=0;
+  if(tl>=30&&tl<=70)ts=tl>=50&&tl<=60?100:70;else if(tl>0)ts=30;
+  if(dl>=70&&dl<=170)ds=dl>=120&&dl<=158?100:75;else if(dl>0)ds=30;
+  if(ul>0){us=ul<80?100:ul<120?75:50;try{new URL(S.url);us=Math.min(us+10,100);}catch{}}
+
+  const tot=tl===0&&dl===0?null:Math.round((ts+ds+(ul?us:50))/3);
+  const msv=id('msv'),mss=id('mss');
+  if(tot===null){msv.textContent='—';msv.className='mv';mss.textContent='Fill fields to see score';}
+  else if(tot>=80){msv.textContent=tot+'/100';msv.className='mv good';mss.textContent='✓ Excellent snippet';}
+  else if(tot>=60){msv.textContent=tot+'/100';msv.className='mv warn';mss.textContent='Good — room to improve';}
+  else{msv.textContent=tot+'/100';msv.className='mv bad';mss.textContent='Needs work';}
+
+  sb('sft','svt',ts);sb('sfd','svd',ds);sb('sfu','svu',ul>0?us:0);
+}
+function sb(fi,vi,sc){
+  const f=id(fi),v=id(vi);
+  f.style.width=sc+'%';
+  f.style.background=sc>=80?'var(--ok)':sc>=60?'var(--warn)':sc>0?'var(--bad)':'var(--g200)';
+  v.textContent=sc;
+}
+
+function setView(v){
+  S.view=v;
+  document.querySelectorAll('.vtb').forEach(b=>b.classList.toggle('active',b.dataset.v===v));
+  render();
+}
+
+function tfaq(el){el.parentElement.classList.toggle('open');}
+
+function copyMeta(){
+  const title=S.title||'Your Page Title',desc=S.desc||'Your meta description',url=S.url||'https://yoursite.com';
+  const html=`<title>${title}</title>\n<meta name="description" content="${desc}">\n<link rel="canonical" href="${url}">\n<meta property="og:title" content="${title}">\n<meta property="og:description" content="${desc}">\n<meta property="og:url" content="${url}">\n<meta name="twitter:title" content="${title}">\n<meta name="twitter:description" content="${desc}">`;
+  navigator.clipboard.writeText(html).then(()=>{
+    const btn=document.querySelector('.cb-btn');
+    const orig=btn.textContent;
+    btn.textContent='✓ Copied!';btn.style.background='var(--ok)';btn.style.borderColor='var(--ok)';
+    setTimeout(()=>{btn.textContent=orig;btn.style.background='';btn.style.borderColor='';},2000);
+  }).catch(()=>alert('Copy failed — please copy manually.'));
+}
+
+function resetAll(){
+  iT.value='';iD.value='';iU.value='';iQ.value='';iDP.value='';
+  iSN.value='none';togS.checked=false;togD.checked=true;togSt.checked=true;togT.checked=true;
+  tsnGroups();sync();render();
+}
+
+// INIT with examples
+iT.value='Google SERP Simulator | SEO HQ – Free Snippet Preview';
+iD.value='Preview how your page looks in Google search results. Simulate title tags, meta descriptions, rich snippets, sitelinks and more — 100% free.';
+iU.value='https://seohq.github.io/serp-simulator';
+iQ.value='google serp simulator free';
+sync();render();
 </script>
-
-<script src="components/header.js"></script>
-<script src="components/footer.js"></script>
-<script src="components/sidebar.js"></script>
-
 </body>
 </html>
