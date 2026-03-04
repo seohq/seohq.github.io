@@ -356,53 +356,59 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
   padding: 16px 20px 20px;
 }
 
-/* DESCRIPTION */
+/* DESCRIPTION SECTION */
 .ds {
   background: var(--black);
   color: var(--white);
-  padding: 64px 32px;
-  border-top: var(--ba);
-  /* Centers the top-level text/headings if present */
+  padding: 80px 32px;
+  border-top: var(--ba); /* High-contrast accent border */
   text-align: center;
 }
 
 .dgrid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px 60px;
   max-width: 1100px;
-  /* margin-top: 36px updated to center the grid block */
-  margin: 36px auto 0;
-  /* Keeps the content within the grid columns left-aligned for better readability */
+  margin: 48px auto 0;
   text-align: left;
 }
 
 .db h3 {
   font-family: var(--fm);
-  font-size: 13px;
+  font-size: 14px;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 12px;
+  letter-spacing: 2.5px;
+  margin-bottom: 16px;
   color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.db p {
-  font-size: 14px;
-  color: #d1d1d1;
+.db p, .db ul {
+  font-size: 15px;
+  color: var(--g200); /* Slightly brighter for better contrast on black */
   line-height: 1.8;
+  font-weight: 300;
 }
 
 .db ul {
   list-style: none;
-  font-size: 14px;
-  color: #d1d1d1;
-  line-height: 1.8;
+}
+
+.db ul li {
+  margin-bottom: 8px;
+  display: flex;
+  gap: 10px;
 }
 
 .db ul li::before {
-  content: '→ ';
+  content: '→';
   color: var(--accent);
   font-family: var(--fm);
+  font-weight: 700;
+  flex-shrink: 0;
 }
 
 /* Responsive adjustment: stack columns on smaller screens */
