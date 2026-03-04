@@ -277,16 +277,84 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 }
 
 /* FAQ */
-.faqs{background:var(--g50);border-top:var(--b);padding:64px 32px;}
-.flist{max-width:800px;}
-.fio{border:var(--b);margin-bottom:-1px;background:var(--white);overflow:hidden;}
-.fq{font-family:var(--fm);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:18px 20px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;transition:background .15s;user-select:none;}
-.fq:hover{background:var(--g50);}
-.fq .ico{flex-shrink:0;font-family:var(--fm);font-size:18px;font-weight:700;color:var(--accent);transition:transform .2s;width:20px;text-align:center;}
-.fio.open .fq{background:var(--black);color:var(--white);}
-.fio.open .fq .ico{color:var(--accent);transform:rotate(45deg);}
-.fa{padding:0 20px;max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s ease;font-size:14px;color:var(--g600);line-height:1.7;}
-.fio.open .fa{max-height:300px;padding:16px 20px 20px;}
+.faqs {
+  background: var(--g50);
+  border-top: var(--b);
+  padding: 64px 32px;
+  /* Centers the section title/label if you add them later */
+  text-align: center; 
+}
+
+.flist {
+  max-width: 800px;
+  /* Centers the FAQ block horizontally */
+  margin: 0 auto; 
+  /* Ensures the text inside the questions/answers stays left-aligned */
+  text-align: left; 
+}
+
+.fio {
+  border: var(--b);
+  margin-bottom: -1px;
+  background: var(--white);
+  overflow: hidden;
+}
+
+.fq {
+  font-family: var(--fm);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 18px 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  transition: background .15s;
+  user-select: none;
+}
+
+.fq:hover {
+  background: var(--g50);
+}
+
+.fq .ico {
+  flex-shrink: 0;
+  font-family: var(--fm);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--accent);
+  transition: transform .2s;
+  width: 20px;
+  text-align: center;
+}
+
+.fio.open .fq {
+  background: var(--black);
+  color: var(--white);
+}
+
+.fio.open .fq .ico {
+  color: var(--accent);
+  transform: rotate(45deg);
+}
+
+.fa {
+  padding: 0 20px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .3s ease, padding .3s ease;
+  font-size: 14px;
+  color: var(--g600);
+  line-height: 1.7;
+}
+
+.fio.open .fa {
+  max-height: 300px;
+  padding: 16px 20px 20px;
+}
 
 /* DESCRIPTION */
 .ds{background:var(--black);color:var(--white);padding:64px 32px;border-top:var(--ba);}
