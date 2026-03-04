@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XML Sitemap Generator | SEO HQ – Free Sitemap Builder</title>
+<meta name="description" content="Free XML Sitemap Generator. Add URLs manually or in bulk, set priority and change frequency per URL, and download a valid sitemap.xml file ready to submit to search engines.">
+<meta name="keywords" content="XML sitemap generator, sitemap builder, sitemap.xml, SEO sitemap tool, create sitemap, submit sitemap Google, changefreq, priority sitemap">
+<meta name="author" content="SEO HQ">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="XML Sitemap Generator | SEO HQ">
+<meta property="og:description" content="Build a valid XML sitemap instantly. Add URLs, set priorities and change frequencies, then download your sitemap.xml ready for search engine submission.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://seohq.github.io/xml-sitemap-generator">
+<link rel="stylesheet" href="styles.css">
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"XML Sitemap Generator","url":"https://seohq.github.io/xml-sitemap-generator","description":"Free tool to generate a valid XML sitemap file for any website. Add URLs manually or in bulk with custom priority and changefreq settings.","applicationCategory":"SEOApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"SEO HQ","url":"https://seohq.github.io/"},"featureList":["Add URLs one by one or in bulk","Set per-URL priority (0.0–1.0)","Set per-URL changefreq (always to never)","Set last modification date","Live XML preview","One-click sitemap.xml download","Copy XML to clipboard","URL count and validation summary"]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"HowTo","name":"How to Use the XML Sitemap Generator","description":"Step-by-step guide to generating an XML sitemap for your website.","step":[{"@type":"HowToStep","position":1,"name":"Enter Your Domain","text":"Type your website's root domain into the Domain field. This is used to validate URLs and populate the XML namespace."},{"@type":"HowToStep","position":2,"name":"Add URLs","text":"Add URLs one at a time using the URL row form, or paste a list of URLs using the Bulk Import panel for faster entry."},{"@type":"HowToStep","position":3,"name":"Set Priority and Changefreq","text":"For each URL assign a priority between 0.0 and 1.0 and a change frequency. Use 1.0 for the homepage and key landing pages."},{"@type":"HowToStep","position":4,"name":"Preview Your Sitemap","text":"The XML preview panel updates live. Switch between the formatted XML view and the URL list view."},{"@type":"HowToStep","position":5,"name":"Download or Copy","text":"Click Download sitemap.xml to save the file, or Copy XML to paste it into your CMS or hosting file manager."}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is an XML sitemap?","acceptedAnswer":{"@type":"Answer","text":"An XML sitemap is a file that lists all the important URLs on your website, helping search engines like Google and Bing discover and crawl your pages more efficiently. It can also include metadata such as when a page was last modified and how often it changes."}},{"@type":"Question","name":"How do I submit an XML sitemap to Google?","acceptedAnswer":{"@type":"Answer","text":"Upload your sitemap.xml to your website's root directory (e.g. https://yoursite.com/sitemap.xml), then submit it via Google Search Console under Indexing › Sitemaps. You can also reference it in your robots.txt file using: Sitemap: https://yoursite.com/sitemap.xml"}},{"@type":"Question","name":"What should the priority value be in a sitemap?","acceptedAnswer":{"@type":"Answer","text":"Priority values range from 0.0 to 1.0 and signal the relative importance of pages within your own site. The homepage typically gets 1.0, key category pages 0.8, blog posts 0.6, and tag or archive pages 0.4. Note that Google treats priority as a hint, not a directive."}},{"@type":"Question","name":"What is changefreq in an XML sitemap?","acceptedAnswer":{"@type":"Answer","text":"The changefreq element hints to crawlers how often a page's content changes. Values include always, hourly, daily, weekly, monthly, yearly, and never. Search engines may use this to schedule recrawling, but they are not obligated to follow it."}},{"@type":"Question","name":"How many URLs can a sitemap contain?","acceptedAnswer":{"@type":"Answer","text":"A single XML sitemap file can contain a maximum of 50,000 URLs and must not exceed 50MB uncompressed. For larger sites, use a sitemap index file that references multiple individual sitemaps."}}]}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#0a0a0a;--white:#fafafa;--g50:#f7f7f7;--g100:#ebebeb;--g200:#d1d1d1;
+  --g400:#888;--g600:#555;--g800:#222;--accent:#c8401a;--ok:#1a7a3c;
+  --warn:#c47a00;--bad:#c81a1a;
+  --fm:'Space Mono',monospace;--fb:'DM Sans',sans-serif;
+  --b:1px solid #0a0a0a;--bt:3px solid #0a0a0a;--ba:3px solid #c8401a;
+  --sh:4px 4px 0 #0a0a0a;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--fb);background:var(--g50);color:var(--black);font-size:16px;line-height:1.6;}
+
+/* ── HEADER ── */
+.sh{background:var(--black);color:var(--white);padding:14px 32px;display:flex;align-items:center;justify-content:space-between;border-bottom:var(--ba);position:sticky;top:0;z-index:100;}
+.sl{font-family:var(--fm);font-size:18px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--white);text-decoration:none;}
+.sl span{color:var(--accent);}
+.ht{font-family:var(--fm);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--g400);background:var(--g800);border:1px solid var(--g600);padding:4px 10px;}
+
+/* ── HERO ── */
+.th{background:var(--black);color:var(--white);padding:48px 32px 40px;border-bottom:var(--bt);position:relative;overflow:hidden;}
+.th::before{content:'';position:absolute;top:0;right:0;width:350px;height:100%;background:repeating-linear-gradient(45deg,transparent,transparent 12px,rgba(200,64,26,.08) 12px,rgba(200,64,26,.08) 13px);pointer-events:none;}
+.th h1{font-family:var(--fm);font-size:clamp(28px,5vw,52px);font-weight:700;text-transform:uppercase;letter-spacing:2px;line-height:1.1;max-width:700px;}
+.th h1 em{font-style:normal;color:var(--accent);}
+.th p{margin-top:16px;font-size:16px;color:#d1d1d1;max-width:600px;line-height:1.7;}
+.hbg{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px;}
+.badge{font-family:var(--fm);font-size:10px;text-transform:uppercase;letter-spacing:1.5px;padding:5px 12px;border:1px solid var(--g600);color:var(--g400);}
+.badge.ac{border-color:var(--accent);color:var(--accent);}
+
+/* ── LAYOUT ── */
+.al{display:grid;grid-template-columns:1fr 340px;max-width:1000px;margin:0 auto;}
+.am{border-right:var(--b);}
+.asb{padding:28px 20px;background:var(--white);}
+.ta{padding:28px;}
+
+/* ── PANEL ── */
+.pn{background:var(--white);border:var(--b);margin-bottom:20px;}
+.ph{background:var(--black);color:var(--white);padding:10px 18px;font-family:var(--fm);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;display:flex;align-items:center;gap:8px;}
+.ph .dot{width:8px;height:8px;background:var(--accent);flex-shrink:0;}
+.ph-count{margin-left:auto;font-family:var(--fm);font-size:10px;font-weight:700;letter-spacing:1px;color:var(--accent);background:rgba(200,64,26,.15);border:1px solid rgba(200,64,26,.3);padding:2px 8px;}
+.pb{padding:22px;}
+
+/* ── FIELDS ── */
+.fg{margin-bottom:18px;}
+.fg:last-child{margin-bottom:0;}
+label{display:block;font-family:var(--fm);font-size:10px;text-transform:uppercase;letter-spacing:2px;font-weight:700;margin-bottom:7px;color:var(--g600);}
+input[type=text],input[type=url],input[type=date],textarea,select{width:100%;background:var(--white);border:var(--b);font-family:var(--fb);font-size:14px;color:var(--black);padding:10px 14px;outline:none;transition:border-color .15s,box-shadow .15s;appearance:none;border-radius:0;}
+input:focus,textarea:focus,select:focus{border-color:var(--accent);box-shadow:2px 2px 0 var(--accent);}
+textarea{resize:vertical;line-height:1.6;}
+select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M0 0l6 8 6-8z' fill='%230a0a0a'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;cursor:pointer;}
+
+/* ── URL ENTRY ROW ── */
+.url-entry-grid{display:grid;grid-template-columns:1fr 100px 130px 130px;gap:10px;align-items:end;}
+.url-entry-grid input[type=url]{font-size:13px;}
+
+/* ── ADD URL BUTTON ── */
+.add-btn{font-family:var(--fm);font-size:10px;text-transform:uppercase;letter-spacing:2px;font-weight:700;padding:11px 18px;background:var(--accent);color:var(--white);border:none;cursor:pointer;transition:all .15s;white-space:nowrap;width:100%;margin-top:10px;}
+.add-btn:hover{background:#a8340f;box-shadow:var(--sh);}
+.add-btn:active{transform:translate(2px,2px);box-shadow:none;}
+
+/* ── URL LIST TABLE ── */
+.url-list{width:100%;border-collapse:collapse;font-size:12px;margin-top:0;}
+.url-list thead tr{background:var(--black);color:var(--white);}
+.url-list thead th{font-family:var(--fm);font-size:9px;text-transform:uppercase;letter-spacing:2px;padding:8px 10px;text-align:left;font-weight:700;}
+.url-list tbody tr{border-bottom:1px solid var(--g100);transition:background .1s;}
+.url-list tbody tr:hover{background:var(--g50);}
+.url-list tbody td{padding:8px 10px;vertical-align:middle;}
+.url-cell{font-family:var(--fb);font-size:12px;color:var(--black);word-break:break-all;max-width:200px;}
+.badge-cf{font-family:var(--fm);font-size:9px;text-transform:uppercase;letter-spacing:1px;padding:2px 6px;border:1px solid var(--g200);color:var(--g600);background:var(--g50);}
+.prio-badge{font-family:var(--fm);font-size:11px;font-weight:700;}
+.prio-high{color:var(--ok);}
+.prio-mid{color:var(--warn);}
+.prio-low{color:var(--g400);}
+.del-btn{font-family:var(--fm);font-size:11px;background:none;border:none;cursor:pointer;color:var(--g400);padding:2px 6px;transition:color .15s;}
+.del-btn:hover{color:var(--bad);}
+.up-btn,.dn-btn{font-family:var(--fm);font-size:11px;background:none;border:none;cursor:pointer;color:var(--g400);padding:2px 4px;transition:color .15s;}
+.up-btn:hover,.dn-btn:hover{color:var(--black);}
+
+/* ── EMPTY STATE ── */
+.empty-state{padding:40px 22px;text-align:center;color:var(--g400);font-family:var(--fm);font-size:11px;text-transform:uppercase;letter-spacing:2px;line-height:2.2;}
+.empty-icon{font-size:32px;display:block;margin-bottom:10px;opacity:.25;}
+
+/* ── TABS ── */
+.vt{display:flex;border-bottom:var(--b);padding:0 22px;}
+.vtb{font-family:var(--fm);font-size:11px;text-transform:uppercase;letter-spacing:1.5px;font-weight:700;padding:10px 18px;border:none;background:none;cursor:pointer;color:var(--g400);border-bottom:3px solid transparent;margin-bottom:-1px;transition:all .15s;}
+.vtb:hover{color:var(--black);}
+.vtb.active{color:var(--black);border-bottom-color:var(--accent);}
+
+/* ── XML OUTPUT ── */
+.xml-wrap{padding:16px 20px 20px;}
+.xml-box{background:var(--black);border:var(--b);padding:16px 18px;overflow:auto;max-height:420px;font-family:var(--fm);font-size:11px;line-height:1.85;color:#d1d1d1;white-space:pre;word-break:normal;}
+.xml-box .xc{color:var(--g400);}       /* comment / namespace */
+.xml-box .xt{color:#79c0ff;}           /* tag name */
+.xml-box .xa{color:#ffb347;}           /* attribute */
+.xml-box .xv{color:#a8d8a8;}           /* value */
+.xml-box .xu{color:#fafafa;}           /* url text */
+.xml-box .xm{color:var(--accent);}     /* meta value */
+
+/* ── TOGGLES ── */
+.tg{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.ti{display:flex;align-items:center;justify-content:space-between;border:var(--b);padding:10px 14px;cursor:pointer;transition:background .15s;}
+.ti:hover{background:var(--g50);}
+.tl{font-family:var(--fm);font-size:10px;text-transform:uppercase;letter-spacing:1px;font-weight:700;}
+.ts{position:relative;width:36px;height:20px;flex-shrink:0;}
+.ts input{opacity:0;width:0;height:0;}
+.tt{position:absolute;inset:0;background:var(--g200);cursor:pointer;transition:background .2s;}
+.tt::after{content:'';position:absolute;width:14px;height:14px;left:3px;top:3px;background:var(--white);transition:transform .2s;}
+.ts input:checked+.tt{background:var(--accent);}
+.ts input:checked+.tt::after{transform:translateX(16px);}
+
+/* ── BUTTONS ── */
+.cb-btn{font-family:var(--fm);font-size:10px;text-transform:uppercase;letter-spacing:2px;font-weight:700;padding:10px 20px;background:var(--black);color:var(--white);border:var(--bt);cursor:pointer;transition:all .15s;display:inline-flex;align-items:center;gap:6px;}
+.cb-btn:hover{background:var(--accent);border-color:var(--accent);box-shadow:var(--sh);}
+.cb-btn:active{transform:translate(2px,2px);box-shadow:none;}
+.cb-btn.out{background:var(--white);color:var(--black);}
+.cb-btn.out:hover{background:var(--g100);}
+.bg{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px;}
+
+/* ── METRICS SIDEBAR ── */
+.mc{border:var(--b);margin-bottom:10px;background:var(--white);}
+.ml{font-family:var(--fm);font-size:9px;text-transform:uppercase;letter-spacing:2px;color:var(--g400);padding:8px 12px 4px;border-bottom:var(--b);background:var(--g50);}
+.mv{padding:10px 12px;font-size:22px;font-family:var(--fm);font-weight:700;line-height:1;}
+.mv.good{color:var(--ok);}
+.mv.warn{color:var(--warn);}
+.mv.bad{color:var(--bad);}
+.ms{padding:0 12px 10px;font-size:11px;color:var(--g400);font-family:var(--fm);}
+
+/* ── SCORE BARS ── */
+.srow{display:flex;align-items:center;gap:8px;margin-bottom:8px;font-size:12px;font-family:var(--fm);}
+.sname{width:80px;color:var(--g600);font-size:10px;text-transform:uppercase;letter-spacing:1px;flex-shrink:0;}
+.strk{flex:1;height:6px;background:var(--g100);border:1px solid var(--g200);}
+.sfil{height:100%;transition:width .4s,background .4s;}
+.sval{width:36px;text-align:right;font-size:11px;font-weight:700;}
+
+/* ── TIP ── */
+.tip{position:relative;display:inline-block;cursor:help;margin-left:5px;font-family:var(--fm);font-size:9px;background:var(--g200);color:var(--g600);border-radius:50%;width:15px;height:15px;line-height:15px;text-align:center;vertical-align:middle;}
+.tip:hover::after{content:attr(data-tip);position:absolute;left:50%;bottom:calc(100% + 8px);transform:translateX(-50%);background:var(--black);color:var(--white);font-size:11px;padding:6px 10px;white-space:nowrap;pointer-events:none;z-index:99;border:1px solid var(--accent);letter-spacing:.5px;font-family:var(--fb);text-transform:none;font-weight:400;}
+
+/* ── VALIDATION CHIP ── */
+.vchip{display:inline-flex;align-items:center;gap:5px;font-family:var(--fm);font-size:9px;text-transform:uppercase;letter-spacing:1px;padding:3px 8px;border:1px solid;}
+.vchip.ok{color:var(--ok);border-color:var(--ok);background:#f0fff4;}
+.vchip.warn{color:var(--warn);border-color:var(--warn);background:#fffbeb;}
+.vchip.bad{color:var(--bad);border-color:var(--bad);background:#fff0f0;}
+
+/* ── HOW TO ── */
+.hts{background:var(--white);border-top:var(--bt);padding:64px 32px;text-align:center;}
+.slb{font-family:var(--fm);font-size:10px;text-transform:uppercase;letter-spacing:3px;color:var(--accent);margin-bottom:8px;}
+.stt{font-family:var(--fm);font-size:clamp(22px,4vw,36px);font-weight:700;text-transform:uppercase;letter-spacing:1px;line-height:1.2;margin-bottom:36px;}
+.stt em{font-style:normal;color:var(--accent);}
+.sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));border:var(--b);max-width:1200px;margin:0 auto;text-align:left;}
+.scard{padding:26px;border-right:var(--b);border-bottom:var(--b);background:var(--white);transition:background .15s;}
+.scard:hover{background:var(--g50);}
+.snum{font-family:var(--fm);font-size:48px;font-weight:700;color:var(--g100);line-height:1;margin-bottom:10px;}
+.stit{font-family:var(--fm);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:9px;color:var(--black);}
+.sdescb{font-size:13px;color:var(--g600);line-height:1.6;}
+.sacc{display:block;width:32px;height:3px;background:var(--accent);margin-bottom:12px;}
+
+/* ── FAQ ── */
+.faqs{background:var(--g50);border-top:var(--b);padding:64px 32px;text-align:center;}
+.flist{max-width:800px;margin:0 auto;text-align:left;}
+.fio{border:var(--b);margin-bottom:-1px;background:var(--white);overflow:hidden;}
+.fq{font-family:var(--fm);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:18px 20px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;transition:background .15s;user-select:none;}
+.fq:hover{background:var(--g50);}
+.fq .ico{flex-shrink:0;font-family:var(--fm);font-size:18px;font-weight:700;color:var(--accent);transition:transform .2s;width:20px;text-align:center;}
+.fio.open .fq{background:var(--black);color:var(--white);}
+.fio.open .fq .ico{color:var(--accent);transform:rotate(45deg);}
+.fa{padding:0 20px;max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s ease;font-size:14px;color:var(--g600);line-height:1.7;}
+.fio.open .fa{max-height:400px;padding:16px 20px 20px;}
+
+/* ── ABOUT ── */
+.ds{background:var(--black);color:var(--white);padding:64px 32px;border-top:var(--ba);text-align:center;}
+.dgrid{display:grid;grid-template-columns:1fr 1fr;gap:48px;max-width:1100px;margin:36px auto 0;text-align:left;}
+.db h3{font-family:var(--fm);font-size:13px;text-transform:uppercase;letter-spacing:2px;margin-bottom:12px;color:var(--accent);}
+.db p{font-size:14px;color:#d1d1d1;line-height:1.8;}
+.db ul{list-style:none;font-size:14px;color:#d1d1d1;line-height:1.8;}
+.db ul li::before{content:'→ ';color:var(--accent);font-family:var(--fm);}
+
+/* ── FOOTER ── */
+footer{background:var(--black);color:var(--g400);border-top:var(--b);padding:24px 32px;font-family:var(--fm);font-size:10px;letter-spacing:1px;text-transform:uppercase;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+footer a{color:var(--g400);text-decoration:none;}
+footer a:hover{color:var(--accent);}
+.fn{display:flex;gap:20px;flex-wrap:wrap;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){.al{grid-template-columns:1fr;}.am{border-right:none;border-bottom:var(--b);}.dgrid{grid-template-columns:1fr;gap:28px;}}
+@media(max-width:768px){.url-entry-grid{grid-template-columns:1fr 1fr;}.dgrid{grid-template-columns:1fr;gap:32px;}}
+@media(max-width:600px){.th,.hts,.faqs,.ds{padding:40px 16px;}.ta{padding:16px;}.tg{grid-template-columns:1fr;}.sh{padding:12px 16px;}.sg{grid-template-columns:1fr;}.scard{border-right:none;}.url-entry-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="header-container"></header>
+
+<!-- HERO -->
+<div class="th">
+  <p class="slb">Free SEO Tool</p>
+  <h1>XML Sitemap<br><em>Generator</em></h1>
+  <p>Build a valid XML sitemap for any website in minutes. Add URLs manually or import in bulk, configure priority and change frequency per page, then download your sitemap.xml ready for Google and Bing.</p>
+  <div class="hbg">
+    <span class="badge ac">Live XML Preview</span>
+    <span class="badge">Bulk Import</span>
+    <span class="badge">Per-URL Priority</span>
+    <span class="badge">Changefreq Control</span>
+    <span class="badge">Download .xml</span>
+    <span class="badge">Validation</span>
+  </div>
+</div>
+
+<div class="al">
+  <!-- MAIN COLUMN -->
+  <div class="am">
+    <div class="ta">
+
+      <!-- SITEMAP SETTINGS -->
+      <div class="pn">
+        <div class="ph"><span class="dot"></span>Sitemap Settings</div>
+        <div class="pb">
+          <div class="fg">
+            <label for="domain">Website Domain <span class="tip" data-tip="Enter your root domain. All relative URLs will be resolved against it.">?</span></label>
+            <input type="url" id="domain" placeholder="https://yoursite.com" autocomplete="off" oninput="renderAll()">
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+            <div class="fg">
+              <label for="def-cf">Default Changefreq</label>
+              <select id="def-cf" onchange="renderAll()">
+                <option value="weekly" selected>Weekly</option>
+                <option value="always">Always</option>
+                <option value="hourly">Hourly</option>
+                <option value="daily">Daily</option>
+                <option value="monthly">Monthly</option>
+                <option value="yearly">Yearly</option>
+                <option value="never">Never</option>
+              </select>
+            </div>
+            <div class="fg">
+              <label for="def-pri">Default Priority</label>
+              <select id="def-pri" onchange="renderAll()">
+                <option value="1.0">1.0 — Homepage</option>
+                <option value="0.9">0.9 — Very High</option>
+                <option value="0.8" selected>0.8 — High</option>
+                <option value="0.7">0.7 — Above Average</option>
+                <option value="0.6">0.6 — Average</option>
+                <option value="0.5">0.5 — Normal</option>
+                <option value="0.4">0.4 — Below Average</option>
+                <option value="0.3">0.3 — Low</option>
+                <option value="0.2">0.2 — Very Low</option>
+                <option value="0.1">0.1 — Minimal</option>
+              </select>
+            </div>
+          </div>
+          <div class="fg">
+            <label>Options</label>
+            <div class="tg">
+              <label class="ti">
+                <span class="tl">Include lastmod</span>
+                <span class="ts"><input type="checkbox" id="tog-lastmod" checked onchange="renderAll()"><span class="tt"></span></span>
+              </label>
+              <label class="ti">
+                <span class="tl">Include changefreq</span>
+                <span class="ts"><input type="checkbox" id="tog-cf" checked onchange="renderAll()"><span class="tt"></span></span>
+              </label>
+              <label class="ti">
+                <span class="tl">Include priority</span>
+                <span class="ts"><input type="checkbox" id="tog-pri" checked onchange="renderAll()"><span class="tt"></span></span>
+              </label>
+              <label class="ti">
+                <span class="tl">Pretty print XML</span>
+                <span class="ts"><input type="checkbox" id="tog-pp" checked onchange="renderAll()"><span class="tt"></span></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ADD URL -->
+      <div class="pn">
+        <div class="ph"><span class="dot"></span>Add URL</div>
+        <div class="pb">
+          <div class="url-entry-grid">
+            <div class="fg" style="margin-bottom:0;">
+              <label for="new-url">Page URL</label>
+              <input type="url" id="new-url" placeholder="https://yoursite.com/page" autocomplete="off">
+            </div>
+            <div class="fg" style="margin-bottom:0;">
+              <label for="new-pri">Priority</label>
+              <select id="new-pri">
+                <option value="1.0">1.0</option>
+                <option value="0.9">0.9</option>
+                <option value="0.8" selected>0.8</option>
+                <option value="0.7">0.7</option>
+                <option value="0.6">0.6</option>
+                <option value="0.5">0.5</option>
+                <option value="0.4">0.4</option>
+                <option value="0.3">0.3</option>
+                <option value="0.2">0.2</option>
+                <option value="0.1">0.1</option>
+              </select>
+            </div>
+            <div class="fg" style="margin-bottom:0;">
+              <label for="new-cf">Changefreq</label>
+              <select id="new-cf">
+                <option value="always">Always</option>
+                <option value="hourly">Hourly</option>
+                <option value="daily">Daily</option>
+                <option value="weekly" selected>Weekly</option>
+                <option value="monthly">Monthly</option>
+                <option value="yearly">Yearly</option>
+                <option value="never">Never</option>
+              </select>
+            </div>
+            <div class="fg" style="margin-bottom:0;">
+              <label for="new-lastmod">Last Modified</label>
+              <input type="date" id="new-lastmod">
+            </div>
+          </div>
+          <button class="add-btn" onclick="addURL()">＋ Add URL to Sitemap</button>
+        </div>
+      </div>
+
+      <!-- BULK IMPORT -->
+      <div class="pn">
+        <div class="ph"><span class="dot"></span>Bulk Import</div>
+        <div class="pb">
+          <div class="fg">
+            <label for="bulk-urls">Paste URLs <span class="tip" data-tip="One URL per line. All imported URLs will use the default priority and changefreq from Sitemap Settings.">?</span></label>
+            <textarea id="bulk-urls" placeholder="https://yoursite.com/&#10;https://yoursite.com/about/&#10;https://yoursite.com/blog/&#10;https://yoursite.com/contact/" style="min-height:120px;font-family:var(--fm);font-size:12px;"></textarea>
+          </div>
+          <button class="add-btn" onclick="bulkImport()" style="background:var(--black);">⬆ Import All URLs</button>
+        </div>
+      </div>
+
+      <!-- URL LIST + XML PREVIEW -->
+      <div class="pn" id="output-panel">
+        <div class="ph">
+          <span class="dot"></span>Sitemap Builder
+          <span class="ph-count" id="url-count">0 URLs</span>
+        </div>
+
+        <div class="vt">
+          <button class="vtb active" data-tab="list" onclick="setTab('list')">URL List</button>
+          <button class="vtb" data-tab="xml" onclick="setTab('xml')">XML Preview</button>
+        </div>
+
+        <!-- URL LIST TAB -->
+        <div id="tab-list">
+          <div id="url-table-wrap">
+            <div class="empty-state">
+              <span class="empty-icon">◎</span>
+              No URLs added yet.<br>Add URLs above or use Bulk Import.
+            </div>
+          </div>
+        </div>
+
+        <!-- XML PREVIEW TAB -->
+        <div id="tab-xml" style="display:none;">
+          <div class="xml-wrap">
+            <div class="xml-box" id="xml-preview">
+<span class="xc">&lt;!-- Add URLs above to generate your sitemap --&gt;</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ACTION BUTTONS -->
+        <div style="padding:0 22px 22px;">
+          <div class="bg">
+            <button class="cb-btn" id="dl-btn" onclick="downloadXML()">⬇ Download sitemap.xml</button>
+            <button class="cb-btn out" id="copy-btn" onclick="copyXML()">📋 Copy XML</button>
+            <button class="cb-btn out" onclick="clearAll()" style="border-color:var(--bad);color:var(--bad);">✕ Clear All</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="asb">
+    <div style="font-family:var(--fm);font-size:9px;text-transform:uppercase;letter-spacing:2px;color:var(--g400);margin-bottom:14px;">Sitemap Summary</div>
+
+    <div class="mc"><div class="ml">Total URLs</div><div class="mv" id="sb-total" style="color:var(--g400)">0</div><div class="ms" id="sb-total-s">Add URLs to begin</div></div>
+    <div class="mc"><div class="ml">Limit Status</div><div class="mv" id="sb-limit" style="color:var(--g400)">—</div><div class="ms" id="sb-limit-s">Max 50,000 per file</div></div>
+    <div class="mc"><div class="ml">Validation</div><div class="mv" id="sb-valid" style="color:var(--g400);font-size:14px;">—</div><div class="ms" id="sb-valid-s">—</div></div>
+
+    <div class="mc" style="margin-top:6px;">
+      <div class="ml">Priority Breakdown</div>
+      <div style="padding:12px;">
+        <div class="srow"><span class="sname">High ≥0.8</span><div class="strk"><div class="sfil" id="sf-high" style="width:0%;background:var(--g200);"></div></div><span class="sval" id="sv-high">0</span></div>
+        <div class="srow"><span class="sname">Mid 0.5–0.7</span><div class="strk"><div class="sfil" id="sf-mid" style="width:0%;background:var(--g200);"></div></div><span class="sval" id="sv-mid">0</span></div>
+        <div class="srow"><span class="sname">Low ≤0.4</span><div class="strk"><div class="sfil" id="sf-low" style="width:0%;background:var(--g200);"></div></div><span class="sval" id="sv-low">0</span></div>
+      </div>
+    </div>
+
+    <div style="font-family:var(--fm);font-size:9px;text-transform:uppercase;letter-spacing:2px;color:var(--g400);margin:22px 0 10px;">Validation Checks</div>
+    <div id="val-checklist" style="border:var(--b);background:var(--white);font-size:12px;"></div>
+
+    <div style="font-family:var(--fm);font-size:9px;text-transform:uppercase;letter-spacing:2px;color:var(--g400);margin:22px 0 10px;">Priority Guide</div>
+    <div style="border:var(--b);background:var(--white);font-size:12px;color:var(--g600);line-height:1;">
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;border-bottom:1px solid var(--g100);"><span style="font-family:var(--fm);font-size:10px;font-weight:700;color:var(--black);">1.0</span><span>Homepage</span></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;border-bottom:1px solid var(--g100);"><span style="font-family:var(--fm);font-size:10px;font-weight:700;color:var(--ok);">0.8</span><span>Key landing pages</span></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;border-bottom:1px solid var(--g100);"><span style="font-family:var(--fm);font-size:10px;font-weight:700;color:var(--warn);">0.6</span><span>Blog posts / articles</span></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;border-bottom:1px solid var(--g100);"><span style="font-family:var(--fm);font-size:10px;font-weight:700;color:var(--g400);">0.4</span><span>Tag / archive pages</span></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;"><span style="font-family:var(--fm);font-size:10px;font-weight:700;color:var(--g200);">0.1</span><span>Low-value pages</span></div>
+    </div>
+
+    <div style="font-family:var(--fm);font-size:9px;text-transform:uppercase;letter-spacing:2px;color:var(--g400);margin:22px 0 10px;">Quick Tips</div>
+    <div style="border:var(--b);padding:14px;background:var(--white);font-size:12px;color:var(--g600);line-height:1.8;">
+      <strong style="font-family:var(--fm);font-size:10px;display:block;margin-bottom:6px;color:var(--black);">SUBMISSION</strong>
+      → Upload to site root as sitemap.xml<br>→ Add to robots.txt: Sitemap: URL<br>→ Submit via Search Console<br><br>
+      <strong style="font-family:var(--fm);font-size:10px;display:block;margin-bottom:6px;color:var(--black);">BEST PRACTICE</strong>
+      → Only include indexable pages<br>→ Exclude noindex / 404 pages<br>→ Update after publishing new content<br><br>
+      <strong style="font-family:var(--fm);font-size:10px;display:block;margin-bottom:6px;color:var(--black);">LIMITS</strong>
+      → Max 50,000 URLs per file<br>→ Max 50MB uncompressed<br>→ Use sitemap index for large sites
+    </div>
+  </div>
+</div>
+
+<!-- HOW TO -->
+<section class="hts" id="how-to">
+  <p class="slb">Step-by-Step Guide</p>
+  <h2 class="stt">How to Use the<br><em>XML Sitemap Generator</em></h2>
+  <div class="sg">
+    <div class="scard"><div class="snum">01</div><span class="sacc"></span><div class="stit">Enter Your Domain</div><p class="sdescb">Type your root domain (e.g. https://yoursite.com) into the Domain field. This is used to validate URLs and ensures all entries belong to the same site.</p></div>
+    <div class="scard"><div class="snum">02</div><span class="sacc"></span><div class="stit">Set Defaults</div><p class="sdescb">Choose a default priority and changefreq that applies to all imported URLs. You can override these per-URL after adding them to the list.</p></div>
+    <div class="scard"><div class="snum">03</div><span class="sacc"></span><div class="stit">Add URLs</div><p class="sdescb">Add pages one at a time with the Add URL form — setting individual priority, changefreq, and last modified date for precise control over each entry.</p></div>
+    <div class="scard"><div class="snum">04</div><span class="sacc"></span><div class="stit">Bulk Import</div><p class="sdescb">For large sites, paste a list of URLs (one per line) into the Bulk Import panel. All imported URLs inherit the default settings from the Sitemap Settings panel.</p></div>
+    <div class="scard"><div class="snum">05</div><span class="sacc"></span><div class="stit">Review & Validate</div><p class="sdescb">Switch to the XML Preview tab to see your generated sitemap. The sidebar shows URL count, limit status, validation checks, and a priority breakdown.</p></div>
+    <div class="scard"><div class="snum">06</div><span class="sacc"></span><div class="stit">Download & Submit</div><p class="sdescb">Click Download sitemap.xml to save the file, upload it to your site root, then submit the URL via Google Search Console and Bing Webmaster Tools.</p></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faqs" id="faq">
+  <p class="slb">Common Questions</p>
+  <h2 class="stt">Frequently Asked<br><em>Questions</em></h2>
+  <div class="flist">
+    <div class="fio"><div class="fq" onclick="tfaq(this)">What is an XML sitemap and do I need one? <span class="ico">+</span></div><div class="fa">An XML sitemap is a file that lists the important pages on your website and helps search engines discover and crawl them efficiently. While not strictly required — search engines can crawl sites without one — a sitemap is strongly recommended for any site with more than a handful of pages, especially new sites with few inbound links, large sites, or sites with orphaned pages that aren't linked from other content.</div></div>
+    <div class="fio"><div class="fq" onclick="tfaq(this)">Where should I put my sitemap.xml file? <span class="ico">+</span></div><div class="fa">Place your sitemap.xml at the root of your domain: https://yoursite.com/sitemap.xml. This is the standard location that search engines check automatically. After uploading, add this line to your robots.txt file: Sitemap: https://yoursite.com/sitemap.xml — and submit the URL directly in Google Search Console under Indexing › Sitemaps and in Bing Webmaster Tools.</div></div>
+    <div class="fio"><div class="fq" onclick="tfaq(this)">What priority should I give each page? <span class="ico">+</span></div><div class="fa">Priority values range from 0.0 to 1.0 and are relative to your own site — they do not affect how your pages compare against other websites. A common convention: homepage = 1.0, key service or product pages = 0.8, blog posts and articles = 0.6, category and tag pages = 0.4, and low-priority utility pages = 0.1–0.2. Google treats priority as a hint rather than a directive.</div></div>
+    <div class="fio"><div class="fq" onclick="tfaq(this)">Which pages should I exclude from my sitemap? <span class="ico">+</span></div><div class="fa">Only include pages you want indexed. Exclude: pages with a noindex meta tag, 404 error pages, redirect URLs (include the final destination instead), paginated archive pages beyond page 2, admin or login pages, thank-you or confirmation pages, and any duplicate content URLs (use canonical tags for those instead).</div></div>
+    <div class="fio"><div class="fq" onclick="tfaq(this)">What is a sitemap index file? <span class="ico">+</span></div><div class="fa">A sitemap index file is an XML file that references multiple individual sitemap files. Use one when your site exceeds 50,000 URLs or 50MB — the per-file limits. The index file itself follows a similar XML format and lists each sitemap's location. For most sites under 50,000 pages, a single sitemap.xml is sufficient.</div></div>
+    <div class="fio"><div class="fq" onclick="tfaq(this)">How often should I update my sitemap? <span class="ico">+</span></div><div class="fa">Update your sitemap whenever you add, remove, or significantly update pages. For active blogs or news sites, consider automating sitemap generation through your CMS — WordPress, for example, generates sitemaps automatically via plugins like Yoast or Rank Math. After updating, re-submit the sitemap URL in Search Console to prompt a recrawl.</div></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="ds" id="about">
+  <p class="slb">About This Tool</p>
+  <h2 class="stt" style="color:var(--white);">What is an<br><em>XML Sitemap Generator?</em></h2>
+  <div class="dgrid">
+    <div class="db"><h3>The Tool</h3><p>The SEO HQ XML Sitemap Generator lets you build a fully valid XML sitemap for any website without writing a line of code. Add URLs individually with custom settings or import hundreds at once via bulk paste. A live XML preview updates as you build, and the sidebar tracks URL count, validation status, and priority distribution.</p></div>
+    <div class="db"><h3>Why It Matters</h3><p>Sitemaps are one of the fastest ways to ensure all your important pages are discoverable by search engines. For new sites, a sitemap can dramatically speed up initial indexation. For large or complex sites, it guarantees that deep or orphaned pages are surfaced to crawlers that might otherwise miss them.</p></div>
+    <div class="db"><h3>Key Features</h3><ul><li>Valid XML 1.0 output with correct namespace</li><li>Per-URL priority, changefreq, and lastmod control</li><li>Bulk URL import (one per line)</li><li>Live XML preview with syntax highlighting</li><li>URL count, limit tracking, and validation checks</li><li>One-click download as sitemap.xml</li></ul></div>
+    <div class="db"><h3>Best Practices</h3><ul><li>Only include canonical, indexable URLs</li><li>Keep the file under 50,000 URLs and 50MB</li><li>Reference your sitemap in robots.txt</li><li>Submit to Google Search Console and Bing</li><li>Regenerate and resubmit after major updates</li><li>Use a sitemap index for sites over 50,000 pages</li></ul></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer-container"></footer>
+
+<script src="components/header.js"></script>
+<script src="components/footer.js"></script>
+<script src="components/sidebar.js"></script>
+<script src="script.js"></script>
+
+<script>
+// ═══════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════
+let urls = []; // [{url, priority, cf, lastmod}]
+let currentTab = 'list';
+
+function g(id){ return document.getElementById(id); }
+
+// ═══════════════════════════════════════════
+// HELPERS
+// ═══════════════════════════════════════════
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+function today(){
+  return new Date().toISOString().split('T')[0];
+}
+
+function isValidURL(str){
+  try{ new URL(str); return true; } catch{ return false; }
+}
+
+function priClass(p){
+  const n = parseFloat(p);
+  if(n >= 0.8) return 'prio-high';
+  if(n >= 0.5) return 'prio-mid';
+  return 'prio-low';
+}
+
+// ═══════════════════════════════════════════
+// ADD URL
+// ═══════════════════════════════════════════
+function addURL(){
+  const rawUrl = g('new-url').value.trim();
+  if(!rawUrl){ flashInvalid('new-url','Enter a URL'); return; }
+  if(!isValidURL(rawUrl)){ flashInvalid('new-url','Invalid URL format'); return; }
+
+  // Check duplicate
+  if(urls.find(u => u.url === rawUrl)){
+    flashInvalid('new-url','URL already in sitemap');
+    return;
+  }
+
+  urls.push({
+    url: rawUrl,
+    priority: g('new-pri').value,
+    cf: g('new-cf').value,
+    lastmod: g('new-lastmod').value || today()
+  });
+
+  g('new-url').value = '';
+  renderAll();
+}
+
+function flashInvalid(id, msg){
+  const el = g(id);
+  el.style.borderColor = 'var(--bad)';
+  el.style.boxShadow = '2px 2px 0 var(--bad)';
+  el.placeholder = msg;
+  setTimeout(()=>{ el.style.borderColor=''; el.style.boxShadow=''; el.placeholder = id === 'new-url' ? 'https://yoursite.com/page' : ''; }, 1800);
+}
+
+// ═══════════════════════════════════════════
+// BULK IMPORT
+// ═══════════════════════════════════════════
+function bulkImport(){
+  const raw = g('bulk-urls').value.trim();
+  if(!raw){ return; }
+  const lines = raw.split('\n').map(l=>l.trim()).filter(l=>l.length>0);
+  const defPri = g('def-pri').value;
+  const defCf  = g('def-cf').value;
+  let added = 0, skipped = 0;
+
+  lines.forEach(line => {
+    let url = line;
+    // try to prefix if missing protocol
+    if(!url.startsWith('http')) url = 'https://' + url;
+    if(!isValidURL(url)){ skipped++; return; }
+    if(urls.find(u => u.url === url)){ skipped++; return; }
+    urls.push({ url, priority: defPri, cf: defCf, lastmod: today() });
+    added++;
+  });
+
+  g('bulk-urls').value = '';
+  renderAll();
+
+  if(skipped > 0){
+    const el = g('bulk-urls');
+    el.placeholder = `✓ ${added} added, ${skipped} skipped (duplicates or invalid)`;
+    setTimeout(()=>{ el.placeholder = 'https://yoursite.com/\nhttps://yoursite.com/about/\nhttps://yoursite.com/blog/'; }, 3000);
+  }
+}
+
+// ═══════════════════════════════════════════
+// DELETE / REORDER
+// ═══════════════════════════════════════════
+function deleteURL(idx){
+  urls.splice(idx, 1);
+  renderAll();
+}
+
+function moveURL(idx, dir){
+  const target = idx + dir;
+  if(target < 0 || target >= urls.length) return;
+  [urls[idx], urls[target]] = [urls[target], urls[idx]];
+  renderAll();
+}
+
+function updateURLField(idx, field, value){
+  urls[idx][field] = value;
+  renderAll();
+}
+
+// ═══════════════════════════════════════════
+// RENDER ALL
+// ═══════════════════════════════════════════
+function renderAll(){
+  renderURLCount();
+  renderURLList();
+  renderXML();
+  renderSidebar();
+  renderValidation();
+}
+
+// ═══════════════════════════════════════════
+// URL COUNT BADGE
+// ═══════════════════════════════════════════
+function renderURLCount(){
+  g('url-count').textContent = urls.length + ' URL' + (urls.length !== 1 ? 's' : '');
+}
+
+// ═══════════════════════════════════════════
+// URL LIST TABLE
+// ═══════════════════════════════════════════
+function renderURLList(){
+  const wrap = g('url-table-wrap');
+  if(urls.length === 0){
+    wrap.innerHTML = `<div class="empty-state"><span class="empty-icon">◎</span>No URLs added yet.<br>Add URLs above or use Bulk Import.</div>`;
+    return;
+  }
+
+  const cfOpts = ['always','hourly','daily','weekly','monthly','yearly','never'];
+  const priOpts = ['1.0','0.9','0.8','0.7','0.6','0.5','0.4','0.3','0.2','0.1'];
+
+  const rows = urls.map((u, i) => {
+    const cfSel = cfOpts.map(o=>`<option value="${o}"${o===u.cf?' selected':''}>${o}</option>`).join('');
+    const priSel = priOpts.map(o=>`<option value="${o}"${o===u.priority?' selected':''}>${o}</option>`).join('');
+    return `<tr>
+      <td style="width:28px;padding:6px 8px;">
+        <div style="display:flex;flex-direction:column;gap:1px;">
+          <button class="up-btn" onclick="moveURL(${i},-1)" title="Move up">▲</button>
+          <button class="dn-btn" onclick="moveURL(${i},1)" title="Move down">▼</button>
+        </div>
+      </td>
+      <td class="url-cell" style="padding:6px 8px;">
+        <div style="font-family:var(--fb);font-size:12px;color:var(--black);word-break:break-all;">${esc(u.url)}</div>
+        <div style="font-family:var(--fm);font-size:9px;color:var(--g400);margin-top:2px;">${esc(u.lastmod)}</div>
+      </td>
+      <td style="padding:6px 8px;min-width:70px;">
+        <select onchange="updateURLField(${i},'priority',this.value)" style="font-size:12px;padding:4px 28px 4px 8px;font-family:var(--fm);">${priSel}</select>
+      </td>
+      <td style="padding:6px 8px;min-width:100px;">
+        <select onchange="updateURLField(${i},'cf',this.value)" style="font-size:12px;padding:4px 28px 4px 8px;">${cfSel}</select>
+      </td>
+      <td style="padding:6px 8px;text-align:center;">
+        <button class="del-btn" onclick="deleteURL(${i})" title="Remove URL">✕</button>
+      </td>
+    </tr>`;
+  }).join('');
+
+  wrap.innerHTML = `<table class="url-list" style="width:100%;">
+    <thead><tr>
+      <th style="width:28px;"></th>
+      <th>URL &amp; Last Modified</th>
+      <th style="min-width:70px;">Priority</th>
+      <th style="min-width:100px;">Changefreq</th>
+      <th style="width:36px;text-align:center;">Del</th>
+    </tr></thead>
+    <tbody>${rows}</tbody>
+  </table>`;
+}
+
+// ═══════════════════════════════════════════
+// GENERATE RAW XML
+// ═══════════════════════════════════════════
+function generateXML(pretty = true){
+  const inclLastmod = g('tog-lastmod').checked;
+  const inclCf      = g('tog-cf').checked;
+  const inclPri     = g('tog-pri').checked;
+  const nl   = pretty ? '\n' : '';
+  const ind  = pretty ? '  ' : '';
+  const ind2 = pretty ? '    ' : '';
+
+  let xml = `<?xml version="1.0" encoding="UTF-8"?>${nl}`;
+  xml += `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${nl}`;
+
+  urls.forEach(u => {
+    xml += `${ind}<url>${nl}`;
+    xml += `${ind2}<loc>${escXML(u.url)}</loc>${nl}`;
+    if(inclLastmod && u.lastmod) xml += `${ind2}<lastmod>${escXML(u.lastmod)}</lastmod>${nl}`;
+    if(inclCf)      xml += `${ind2}<changefreq>${escXML(u.cf)}</changefreq>${nl}`;
+    if(inclPri)     xml += `${ind2}<priority>${escXML(u.priority)}</priority>${nl}`;
+    xml += `${ind}</url>${nl}`;
+  });
+
+  xml += `</urlset>`;
+  return xml;
+}
+
+function escXML(s){
+  return String(s)
+    .replace(/&/g,'&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;')
+    .replace(/'/g,'&apos;');
+}
+
+// ═══════════════════════════════════════════
+// RENDER XML PREVIEW (syntax highlighted)
+// ═══════════════════════════════════════════
+function renderXML(){
+  const pp = g('tog-pp').checked;
+  const raw = generateXML(pp);
+
+  // Syntax highlight
+  let highlighted = esc(raw);
+  // Highlight tags
+  highlighted = highlighted
+    // xml declaration
+    .replace(/(&lt;\?xml[^?]*\?&gt;)/g, '<span class="xc">$1</span>')
+    // comments
+    .replace(/(&lt;!--.*?--&gt;)/g, '<span class="xc">$1</span>')
+    // closing tags
+    .replace(/(&lt;\/)(urlset|url|loc|lastmod|changefreq|priority)(&gt;)/g,
+      '<span class="xt">$1$2$3</span>')
+    // opening/self-closing tags with attributes
+    .replace(/(&lt;)(urlset)([^&]*)(&gt;)/g,
+      '<span class="xt">$1$2</span><span class="xa">$3</span><span class="xt">$4</span>')
+    .replace(/(&lt;)(url|loc|lastmod|changefreq|priority)(&gt;)/g,
+      '<span class="xt">$1$2$3</span>');
+
+  // Highlight URL values inside <loc>
+  highlighted = highlighted.replace(
+    /(<span class="xt">&lt;loc&gt;<\/span>)([^<]+)/g,
+    '$1<span class="xu">$2</span>'
+  );
+  // Highlight priority, cf, lastmod values
+  highlighted = highlighted.replace(
+    /(<span class="xt">&lt;(priority|changefreq|lastmod)&gt;<\/span>)([^<]+)/g,
+    '$1<span class="xm">$3</span>'
+  );
+
+  g('xml-preview').innerHTML = highlighted || '<span class="xc">&lt;!-- Add URLs to generate sitemap XML --&gt;</span>';
+}
+
+// ═══════════════════════════════════════════
+// SIDEBAR METRICS
+// ═══════════════════════════════════════════
+function renderSidebar(){
+  const total = urls.length;
+  const MAX = 50000;
+
+  // Total URLs
+  const stv = g('sb-total'), sts = g('sb-total-s');
+  stv.textContent = total;
+  if(total === 0){ stv.className = 'mv'; sts.textContent = 'Add URLs to begin'; }
+  else if(total < 10){ stv.className = 'mv warn'; sts.textContent = 'Add more pages for better crawl coverage'; }
+  else{ stv.className = 'mv good'; sts.textContent = '✓ Good sitemap size'; }
+
+  // Limit
+  const pct = Math.round((total/MAX)*100);
+  const lv = g('sb-limit'), ls = g('sb-limit-s');
+  lv.textContent = pct + '%';
+  if(total > MAX){ lv.className = 'mv bad'; ls.textContent = '⚠ Exceeds 50,000 URL limit'; }
+  else if(total > 40000){ lv.className = 'mv warn'; ls.textContent = 'Approaching limit — consider splitting'; }
+  else{ lv.className = 'mv good'; ls.textContent = `${total.toLocaleString()} of ${MAX.toLocaleString()} used`; }
+
+  // Priority breakdown
+  const high = urls.filter(u => parseFloat(u.priority) >= 0.8).length;
+  const mid  = urls.filter(u => parseFloat(u.priority) >= 0.5 && parseFloat(u.priority) < 0.8).length;
+  const low  = urls.filter(u => parseFloat(u.priority) < 0.5).length;
+  const maxVal = Math.max(high, mid, low, 1);
+
+  g('sf-high').style.width = (high/maxVal*100)+'%'; g('sf-high').style.background = 'var(--ok)'; g('sv-high').textContent = high;
+  g('sf-mid').style.width  = (mid/maxVal*100)+'%';  g('sf-mid').style.background  = 'var(--warn)'; g('sv-mid').textContent = mid;
+  g('sf-low').style.width  = (low/maxVal*100)+'%';  g('sf-low').style.background  = 'var(--g400)'; g('sv-low').textContent = low;
+}
+
+// ═══════════════════════════════════════════
+// VALIDATION CHECKLIST
+// ═══════════════════════════════════════════
+function renderValidation(){
+  const domain = g('domain').value.trim();
+  const total  = urls.length;
+
+  // Check for non-matching domains
+  let domainMismatches = 0;
+  if(domain){
+    try{
+      const d = new URL(domain).hostname;
+      domainMismatches = urls.filter(u => {
+        try{ return new URL(u.url).hostname !== d; } catch{ return true; }
+      }).length;
+    } catch{}
+  }
+
+  const hasDomain      = !!domain && isValidURL(domain);
+  const hasURLs        = total > 0;
+  const withinLimit    = total <= 50000;
+  const noDuplicates   = new Set(urls.map(u=>u.url)).size === urls.length;
+  const allValidURLs   = urls.every(u => isValidURL(u.url));
+  const noMismatches   = domainMismatches === 0;
+  const hasHTTPS       = urls.length === 0 || urls.every(u => u.url.startsWith('https://'));
+
+  const checks = [
+    { label: 'Domain set',           ok: hasDomain },
+    { label: 'URLs added',           ok: hasURLs },
+    { label: 'Within 50k limit',     ok: withinLimit },
+    { label: 'No duplicate URLs',    ok: noDuplicates },
+    { label: 'All URLs valid',       ok: allValidURLs },
+    { label: 'HTTPS URLs',           ok: hasHTTPS },
+    { label: 'Domain consistent',    ok: !domain || noMismatches },
+  ];
+
+  const passed = checks.filter(c=>c.ok).length;
+  const total_checks = checks.length;
+
+  // Update sidebar validation metric
+  const vv = g('sb-valid'), vs = g('sb-valid-s');
+  if(urls.length === 0){
+    vv.textContent = '—'; vv.className = 'mv'; vs.textContent = 'Add URLs to validate';
+  } else if(passed === total_checks){
+    vv.textContent = '✓ Valid'; vv.className = 'mv good'; vs.textContent = 'All checks passed';
+  } else {
+    vv.textContent = `${passed}/${total_checks}`; vv.className = 'mv warn'; vs.textContent = `${total_checks - passed} issue${total_checks-passed>1?'s':''} found`;
+  }
+
+  // Checklist
+  g('val-checklist').innerHTML = checks.map(c => `
+    <div style="display:flex;align-items:center;gap:8px;padding:7px 12px;border-bottom:1px solid var(--g100);font-family:var(--fm);font-size:10px;text-transform:uppercase;letter-spacing:1px;">
+      <span style="color:${c.ok?'var(--ok)':'var(--g200)'};font-size:13px;flex-shrink:0;">${c.ok?'✓':'○'}</span>
+      <span style="color:${c.ok?'var(--black)':'var(--g400)'};">${c.label}</span>
+    </div>
+  `).join('');
+}
+
+// ═══════════════════════════════════════════
+// DOWNLOAD
+// ═══════════════════════════════════════════
+function downloadXML(){
+  if(urls.length === 0){ alert('Add at least one URL before downloading.'); return; }
+  const xml = generateXML(true);
+  const blob = new Blob([xml], { type: 'application/xml' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'sitemap.xml';
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+// ═══════════════════════════════════════════
+// COPY XML
+// ═══════════════════════════════════════════
+function copyXML(){
+  if(urls.length === 0){ alert('Add at least one URL first.'); return; }
+  const xml = generateXML(true);
+  navigator.clipboard.writeText(xml).then(()=>{
+    const btn = g('copy-btn');
+    const orig = btn.textContent;
+    btn.textContent = '✓ Copied!';
+    btn.style.background = 'var(--ok)';
+    btn.style.color = 'var(--white)';
+    btn.style.borderColor = 'var(--ok)';
+    setTimeout(()=>{ btn.textContent=orig; btn.style.background=''; btn.style.color=''; btn.style.borderColor=''; }, 2000);
+  }).catch(()=> alert('Copy failed — switch to XML Preview tab and copy manually.'));
+}
+
+// ═══════════════════════════════════════════
+// CLEAR ALL
+// ═══════════════════════════════════════════
+function clearAll(){
+  if(urls.length > 0 && !confirm('Remove all URLs from the sitemap?')) return;
+  urls = [];
+  renderAll();
+}
+
+// ═══════════════════════════════════════════
+// TABS
+// ═══════════════════════════════════════════
+function setTab(tab){
+  currentTab = tab;
+  document.querySelectorAll('.vtb').forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
+  g('tab-list').style.display = tab === 'list' ? '' : 'none';
+  g('tab-xml').style.display  = tab === 'xml'  ? '' : 'none';
+}
+
+// ═══════════════════════════════════════════
+// FAQ
+// ═══════════════════════════════════════════
+function tfaq(el){ el.parentElement.classList.toggle('open'); }
+
+// ═══════════════════════════════════════════
+// ENTER KEY on URL input
+// ═══════════════════════════════════════════
+g('new-url').addEventListener('keydown', e => { if(e.key === 'Enter'){ e.preventDefault(); addURL(); } });
+
+// ═══════════════════════════════════════════
+// INIT — pre-load demo URLs
+// ═══════════════════════════════════════════
+window.addEventListener('DOMContentLoaded', ()=>{
+  g('new-lastmod').value = today();
+  g('domain').value = 'https://yoursite.com';
+
+  const demo = [
+    { url: 'https://yoursite.com/',           priority: '1.0', cf: 'daily',   lastmod: today() },
+    { url: 'https://yoursite.com/about/',     priority: '0.8', cf: 'monthly', lastmod: today() },
+    { url: 'https://yoursite.com/services/',  priority: '0.8', cf: 'weekly',  lastmod: today() },
+    { url: 'https://yoursite.com/blog/',      priority: '0.7', cf: 'daily',   lastmod: today() },
+    { url: 'https://yoursite.com/contact/',   priority: '0.6', cf: 'monthly', lastmod: today() },
+  ];
+  urls = demo;
+  renderAll();
+});
+</script>
+</body>
+</html>
