@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-55VW7WFNC5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-55VW7WFNC5');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9759808041159779"
+     crossorigin="anonymous"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Robots.txt Generator | SEO HQ – Free Robots File Builder</title>
+<meta name="description" content="Free Robots.txt Generator. Build a valid robots.txt file with custom user-agent rules, Allow and Disallow paths, crawl-delay, and sitemap references. Download or copy instantly.">
+<meta name="keywords" content="robots txt generator, robots file builder, create robots txt, user agent rules, disallow paths, allow rules, crawl delay, sitemap robots, SEO crawl control, googlebot robots">
+<meta name="author" content="SEO HQ">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Robots.txt Generator | SEO HQ">
+<meta property="og:description" content="Generate a valid robots.txt file instantly. Set per-bot user-agent rules, Allow and Disallow paths, crawl delay, and sitemap URL — then download or copy.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://seohq.github.io/robots-txt-generator">
+<link rel="stylesheet" href="styles.css">
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Robots.txt Generator","url":"https://seohq.github.io/robots-txt-generator","description":"Free tool to generate a valid robots.txt file with custom user-agent groups, Allow and Disallow path directives, crawl-delay, and sitemap declarations.","applicationCategory":"SEOApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"SEO HQ","url":"https://seohq.github.io/"},"featureList":["Multiple user-agent rule groups","Allow and Disallow path directives","Crawl-delay per bot","Sitemap URL declaration","CMS platform presets","AI crawler blocking toggle","Live syntax-highlighted preview","Download as robots.txt or copy to clipboard"]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"HowTo","name":"How to Use the Robots.txt Generator","description":"Step-by-step guide to building a robots.txt file for your website.","step":[{"@type":"HowToStep","position":1,"name":"Enter Your Domain","text":"Type your root domain into the Domain field. This auto-populates your sitemap URL and validates that all paths belong to the correct origin."},{"@type":"HowToStep","position":2,"name":"Apply a Preset (Optional)","text":"Click a CMS preset — WordPress, Shopify, Next.js, or others — to instantly add a recommended set of Disallow rules for that platform."},{"@type":"HowToStep","position":3,"name":"Add Rule Groups","text":"Click Add Rule Group to create a user-agent block. Use * for all bots, or enter a specific crawler name like Googlebot or GPTBot."},{"@type":"HowToStep","position":4,"name":"Add Allow and Disallow Paths","text":"Within each group add Disallow paths to block crawlers and Allow paths to carve out exceptions. All paths must start with a forward slash."},{"@type":"HowToStep","position":5,"name":"Configure Global Options","text":"Toggle AI bot blocking, bad bot blocking, crawl comments, and timestamps from the Global Settings panel."},{"@type":"HowToStep","position":6,"name":"Download and Deploy","text":"Click Download robots.txt to save the file, then upload it to your website root at yoursite.com/robots.txt."}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a robots.txt file and why do I need one?","acceptedAnswer":{"@type":"Answer","text":"A robots.txt file is a plain text file placed at the root of your domain that tells web crawlers which parts of your site to access or avoid. It follows the Robots Exclusion Protocol. While not mandatory, it is strongly recommended for any live site with more than a few pages — it helps protect admin areas, conserves crawl budget, and lets you point crawlers to your sitemap."}},{"@type":"Question","name":"Does Disallow in robots.txt stop a page from appearing in search results?","acceptedAnswer":{"@type":"Answer","text":"Not reliably. Disallowing a URL prevents crawlers from visiting it, but Google may still index and display the page in search results if it discovers the URL through external links. To reliably prevent a page from being indexed, use a noindex meta tag or X-Robots-Tag HTTP header on the page itself — not robots.txt."}},{"@type":"Question","name":"What is the difference between Allow and Disallow?","acceptedAnswer":{"@type":"Answer","text":"Disallow tells a crawler it cannot access a given path. Allow explicitly grants access to a path that would otherwise be blocked by a broader Disallow rule. For example, Disallow: /private/ blocks the entire directory, but Allow: /private/sitemap.xml permits that one file. The more specific rule wins when both apply to the same path."}},{"@type":"Question","name":"Should I block AI training crawlers in robots.txt?","acceptedAnswer":{"@type":"Answer","text":"This is a personal and business decision. Bots such as GPTBot (OpenAI), ClaudeBot (Anthropic), CCBot, and Google-Extended crawl content to build AI training datasets. You can block them with Disallow: / under their specific user-agent. Blocking AI crawlers does not affect your search engine rankings, but it prevents your content from being used to train AI models."}},{"@type":"Question","name":"What is crawl-delay and should I use it?","acceptedAnswer":{"@type":"Answer","text":"Crawl-delay tells a bot how many seconds to wait between successive requests to your server. It can reduce server strain from aggressive crawlers. Note that Googlebot ignores this directive — use the crawl rate tool in Google Search Console instead. Bing, Yandex, and some other bots do respect Crawl-delay."}},{"@type":"Question","name":"Where exactly must the robots.txt file be placed?","acceptedAnswer":{"@type":"Answer","text":"Your robots.txt must be accessible at the exact path /robots.txt at the root of your domain — for example https://yoursite.com/robots.txt. It cannot be placed in a subdirectory. Each subdomain requires its own separate robots.txt file. After uploading, verify it loads correctly in a browser before submitting your sitemap to search engines."}}]}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ TOKENS */
+:root{
+  --black:#0a0a0a;--white:#fafafa;--g50:#f7f7f7;--g100:#ebebeb;--g200:#d1d1d1;
+  --g400:#888;--g600:#555;--g800:#222;
+  --accent:#c8401a;--ok:#1a7a3c;--warn:#c47a00;--bad:#c81a1a;
+  --fm:'Space Mono',monospace;--fb:'DM Sans',sans-serif;
+  --b:1px solid #0a0a0a;--bt:3px solid #0a0a0a;--ba:3px solid #c8401a;
+  --sh:4px 4px 0 #0a0a0a;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--fb);background:var(--g50);color:var(--black);font-size:16px;line-height:1.6;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ HEADER */
+.sh{background:var(--black);color:var(--white);padding:14px 32px;display:flex;align-items:center;justify-content:space-between;border-bottom:var(--ba);position:sticky;top:0;z-index:100;}
+.sl{font-family:var(--fm);font-size:18px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--white);text-decoration:none;}
+.sl span{color:var(--accent);}
+.ht{font-family:var(--fm);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--g400);background:var(--g800);border:1px solid var(--g600);padding:4px 10px;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ HERO */
+.th{background:var(--black);color:var(--white);padding:48px 32px 40px;border-bottom:var(--bt);position:relative;overflow:hidden;}
+.th::before{content:'';position:absolute;top:0;right:0;width:350px;height:100%;background:repeating-linear-gradient(45deg,transparent,transparent 12px,rgba(200,64,26,.08) 12px,rgba(200,64,26,.08) 13px);pointer-events:none;}
+.th h1{font-family:var(--fm);font-size:clamp(28px,5vw,52px);font-weight:700;text-transform:uppercase;letter-spacing:2px;line-height:1.1;max-width:700px;}
+.th h1 em{font-style:normal;color:var(--accent);}
+.th p{margin-top:16px;font-size:16px;color:#d1d1d1;max-width:600px;line-height:1.7;}
+.hbg{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px;}
+.badge{font-family:var(--fm);font-size:10px;text-transform:uppercase;letter-spacing:1.5px;padding:5px 12px;border:1px solid var(--g600);color:var(--g400);}
+.badge.ac{border-color:var(--accent);color:var(--accent);}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ LAYOUT */
+.al{display:grid;grid-template-columns:1fr 340px;max-width:1000px;margin:0 auto;}
+.am{border-right:var(--b);}
+.asb{padding:28px 20px;background:var(--white);}
+.ta{padding:28px;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PANEL */
+.pn{background:var(--white);border:var(--b);margin-bottom:20px;}
+.ph{background:var(--black);color:var(--white);padding:10px 18px;font-family:var(--fm);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;display:flex;align-items:center;gap:8px;}
+.ph .dot{width:8px;height:8px;background:var(--accent);flex-shrink:0;}
+.ph-right{margin-left:auto;}
+.ph-pill{font-family:var(--fm);font-size:10px;font-weight:700;color:var(--accent);background:rgba(200,64,26,.15);border:1px solid rgba(200,64,26,.3);padding:2px 9px;letter-spacing:1px;}
+.pb{padding:22px;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ FIELDS */
+.fg{margin-bottom:18px;}
+.fg:last-child{margin-bottom:0;}
+label{display:block;font-family:var(--fm);font-size:10px;text-transform:uppercase;letter-spacing:2px;font-weight:700;margin-bottom:7px;color:var(--g600);}
+input[type=text],input[type=url],input[type=number],textarea,select{width:100%;background:var(--white);border:var(--b);font-family:var(--fb);font-size:14px;color:var(--black);padding:10px 14px;outline:none;transition:border-color .15s,box-shadow .15s;appearance:none;border-radius:0;}
+input:focus,textarea:focus,select:focus{border-color:var(--accent);box-shadow:2px 2px 0 var(--accent);}
+textarea{resize:vertical;line-height:1.6;}
+select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M0 0l6 8 6-8z' fill='%230a0a0a'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;cursor:pointer;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ TOGGLES */
+.tg{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.ti{display:flex;align-items:center;justify-content:space-between;border:var(--b);padding:10px 14px;cursor:pointer;transition:background .15s;}
+.ti:hover{background:var(--g50);}
+.tl{font-family:var(--fm);font-size:10px;text-transform:uppercase;letter-spacing:1px;font-weight:700;}
+.ts{position:relative;width:36px;height:20px;flex-shrink:0;}
+.ts input{opacity:0;width:0;height:0;}
+.tt{position:absolute;inset:0;background:var(--g200);cursor:pointer;transition:background .2s;}
+.tt::after{content:'';position:absolute;width:14px;height:14px;left:3px;top:3px;background:var(--white);transition:transform .2s;}
+.ts input:checked+.tt{background:var(--accent);}
+.ts input:checked+.tt::after{transform:translateX(16px);}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ TABS */
+.vt{display:flex;border-bottom:var(--b);padding:0 22px;}
+.vtb{font-family:var(--fm);font-size:11px;text-transform:uppercase;letter-spacing:1.5px;font-weight:700;padding:10px 18px;border:none;background:none;cursor:pointer;color:var(--g400);border-bottom:3px solid transparent;margin-bottom:-1px;transition:all .15s;}
+.vtb:hover{color:var(--black);}
+.vtb.active{color:var(--black);border-bottom-color:var(--accent);}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PRESET GRID */
+.preset-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;}
+.pc{border:var(--b);padding:14px;cursor:pointer;background:var(--white);transition:background .15s,border-color .15s;}
+.pc:hover{background:var(--g50);border-color:var(--accent);}
+.pc.applied{border-color:var(--ok);background:#f0fff4;}
+.pc-title{font-family:var(--fm);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--black);margin-bottom:3px;}
+.pc-desc{font-size:11px;color:var(--g600);line-height:1.4;}
+.pc-check{display:none;font-family:var(--fm);font-size:9px;color:var(--ok);text-transform:uppercase;letter-spacing:1px;margin-top:4px;}
+.pc.applied .pc-check{display:block;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ RULE GROUP CARD */
+.rg{border:var(--b);margin-bottom:14px;background:var(--white);}
+.rg-head{background:var(--g50);border-bottom:var(--b);padding:9px 14px;display:flex;align-items:center;gap:10px;}
+.rg-label{font-family:var(--fm);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2px;flex:1;color:var(--black);}
+.rg-ua-badge{font-family:var(--fm);font-size:9px;text-transform:uppercase;letter-spacing:1px;padding:2px 8px;border:1px solid var(--g200);color:var(--g600);background:var(--white);max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.rg-del{background:none;border:none;cursor:pointer;color:var(--g400);font-family:var(--fm);font-size:10px;text-transform:uppercase;letter-spacing:1px;padding:3px 8px;transition:color .15s;flex-shrink:0;}
+.rg-del:hover{color:var(--bad);}
+.rg-body{padding:14px 16px;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ DIRECTIVE ROWS */
+.dir-list{margin-bottom:12px;}
+.dr{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+.dr-badge{font-family:var(--fm);font-size:9px;text-transform:uppercase;letter-spacing:1px;padding:5px 10px;border:1px solid;min-width:72px;text-align:center;flex-shrink:0;}
+.dr-allow{color:var(--ok);border-color:var(--ok);background:#f0fff4;}
+.dr-disallow{color:var(--bad);border-color:var(--bad);background:#fff0f0;}
+.dr-path{flex:1;font-family:var(--fm);font-size:12px;padding:7px 10px;border:var(--b);background:var(--white);outline:none;transition:border-color .15s;}
+.dr-path:focus{border-color:var(--accent);}
+.dr-remove{background:none;border:none;cursor:pointer;color:var(--g200);font-size:15px;line-height:1;padding:3px 5px;flex-shrink:0;transition:color .15s;}
+.dr-remove:hover{color:var(--bad);}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ADD DIRECTIVE ROW */
+.add-dr{display:flex;gap:8px;align-items:center;margin-top:4px;}
+.add-dr select{flex-shrink:0;width:110px;font-size:12px;padding:8px 28px 8px 10px;font-family:var(--fm);}
+.add-dr input{flex:1;font-size:12px;padding:8px 10px;font-family:var(--fm);}
+.add-dr-btn{font-family:var(--fm);font-size:9px;text-transform:uppercase;letter-spacing:1.5px;padding:9px 14px;background:var(--black);color:var(--white);border:none;cursor:pointer;flex-shrink:0;transition:background .15s;}
+.add-dr-btn:hover{background:var(--accent);}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ EMPTY STATE */
+.empty-st{padding:36px;text-align:center;font-family:var(--fm);font-size:10px;text-transform:uppercase;letter-spacing:2px;color:var(--g400);line-height:2.2;}
+.empty-st .ei{font-size:30px;display:block;margin-bottom:10px;opacity:.2;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ADD GROUP BTN */
+.add-grp-btn{width:100%;font-family:var(--fm);font-size:11px;text-transform:uppercase;letter-spacing:2px;font-weight:700;padding:12px 20px;background:var(--accent);color:var(--white);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:all .15s;margin-top:2px;}
+.add-grp-btn:hover{background:#a8340f;box-shadow:var(--sh);}
+.add-grp-btn:active{transform:translate(2px,2px);box-shadow:none;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ CODE OUTPUT */
+.code-wrap{padding:16px 20px 20px;}
+.code-box{background:#0d0d0d;border:var(--b);padding:16px 18px;overflow:auto;max-height:480px;font-family:var(--fm);font-size:12px;line-height:1.95;white-space:pre;color:#c9d1d9;}
+/* syntax tokens */
+.rt-comment{color:#6e7681;}
+.rt-key{color:#79c0ff;}
+.rt-ua{color:#d2a8ff;}
+.rt-allow{color:#56d364;}
+.rt-disallow{color:#ff7b72;}
+.rt-sitemap{color:#ffa657;}
+.rt-delay{color:#ffa657;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ BUTTONS */
+.cb-btn{font-family:var(--fm);font-size:10px;text-transform:uppercase;letter-spacing:2px;font-weight:700;padding:10px 20px;background:var(--black);color:var(--white);border:var(--bt);cursor:pointer;transition:all .15s;display:inline-flex;align-items:center;gap:6px;}
+.cb-btn:hover{background:var(--accent);border-color:var(--accent);box-shadow:var(--sh);}
+.cb-btn:active{transform:translate(2px,2px);box-shadow:none;}
+.cb-btn.out{background:var(--white);color:var(--black);}
+.cb-btn.out:hover{background:var(--g100);box-shadow:none;}
+.bg{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SIDEBAR METRICS */
+.mc{border:var(--b);margin-bottom:10px;background:var(--white);}
+.ml{font-family:var(--fm);font-size:9px;text-transform:uppercase;letter-spacing:2px;color:var(--g400);padding:8px 12px 4px;border-bottom:var(--b);background:var(--g50);}
+.mv{padding:10px 12px;font-size:22px;font-family:var(--fm);font-weight:700;line-height:1;}
+.mv.good{color:var(--ok);}
+.mv.warn{color:var(--warn);}
+.mv.bad{color:var(--bad);}
+.ms{padding:0 12px 10px;font-size:11px;color:var(--g400);font-family:var(--fm);}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SCORE BARS */
+.srow{display:flex;align-items:center;gap:8px;margin-bottom:8px;font-family:var(--fm);}
+.sname{width:82px;color:var(--g600);font-size:10px;text-transform:uppercase;letter-spacing:1px;flex-shrink:0;}
+.strk{flex:1;height:6px;background:var(--g100);border:1px solid var(--g200);}
+.sfil{height:100%;transition:width .4s,background .4s;}
+.sval{width:32px;text-align:right;font-size:11px;font-weight:700;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ TOOLTIP */
+.tip{position:relative;display:inline-block;cursor:help;margin-left:5px;font-family:var(--fm);font-size:9px;background:var(--g200);color:var(--g600);border-radius:50%;width:15px;height:15px;line-height:15px;text-align:center;vertical-align:middle;}
+.tip:hover::after{content:attr(data-tip);position:absolute;left:50%;bottom:calc(100% + 8px);transform:translateX(-50%);background:var(--black);color:var(--white);font-size:11px;padding:6px 10px;white-space:nowrap;pointer-events:none;z-index:99;border:1px solid var(--accent);letter-spacing:.5px;font-family:var(--fb);text-transform:none;font-weight:400;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ CHECKLIST */
+.chk-row{display:flex;align-items:center;gap:8px;padding:7px 12px;border-bottom:1px solid var(--g100);font-family:var(--fm);font-size:10px;text-transform:uppercase;letter-spacing:1px;}
+.chk-row:last-child{border-bottom:none;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ HOW-TO */
+.hts{background:var(--white);border-top:var(--bt);padding:64px 32px;text-align:center;}
+.slb{font-family:var(--fm);font-size:10px;text-transform:uppercase;letter-spacing:3px;color:var(--accent);margin-bottom:8px;}
+.stt{font-family:var(--fm);font-size:clamp(22px,4vw,36px);font-weight:700;text-transform:uppercase;letter-spacing:1px;line-height:1.2;margin-bottom:36px;}
+.stt em{font-style:normal;color:var(--accent);}
+.sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));border:var(--b);max-width:1200px;margin:0 auto;text-align:left;}
+.scard{padding:26px;border-right:var(--b);border-bottom:var(--b);background:var(--white);transition:background .15s;}
+.scard:hover{background:var(--g50);}
+.snum{font-family:var(--fm);font-size:48px;font-weight:700;color:var(--g100);line-height:1;margin-bottom:10px;}
+.stit{font-family:var(--fm);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:9px;color:var(--black);}
+.sdescb{font-size:13px;color:var(--g600);line-height:1.6;}
+.sacc{display:block;width:32px;height:3px;background:var(--accent);margin-bottom:12px;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ FAQ */
+.faqs{background:var(--g50);border-top:var(--b);padding:64px 32px;text-align:center;}
+.flist{max-width:800px;margin:0 auto;text-align:left;}
+.fio{border:var(--b);margin-bottom:-1px;background:var(--white);overflow:hidden;}
+.fq{font-family:var(--fm);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:18px 20px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;transition:background .15s;user-select:none;}
+.fq:hover{background:var(--g50);}
+.fq .ico{flex-shrink:0;font-family:var(--fm);font-size:18px;font-weight:700;color:var(--accent);transition:transform .2s;width:20px;text-align:center;}
+.fio.open .fq{background:var(--black);color:var(--white);}
+.fio.open .fq .ico{color:var(--accent);transform:rotate(45deg);}
+.fa{padding:0 20px;max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;font-size:14px;color:var(--g600);line-height:1.75;}
+.fio.open .fa{max-height:500px;padding:18px 20px 22px;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ABOUT */
+.ds{background:var(--black);color:var(--white);padding:64px 32px;border-top:var(--ba);text-align:center;}
+.dgrid{display:grid;grid-template-columns:1fr 1fr;gap:48px;max-width:1100px;margin:36px auto 0;text-align:left;}
+.db h3{font-family:var(--fm);font-size:13px;text-transform:uppercase;letter-spacing:2px;margin-bottom:12px;color:var(--accent);}
+.db p{font-size:14px;color:#d1d1d1;line-height:1.8;}
+.db ul{list-style:none;font-size:14px;color:#d1d1d1;line-height:1.8;}
+.db ul li::before{content:'→ ';color:var(--accent);font-family:var(--fm);}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ FOOTER */
+footer{background:var(--black);color:var(--g400);border-top:var(--b);padding:24px 32px;font-family:var(--fm);font-size:10px;letter-spacing:1px;text-transform:uppercase;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+footer a{color:var(--g400);text-decoration:none;}
+footer a:hover{color:var(--accent);}
+.fn{display:flex;gap:20px;flex-wrap:wrap;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ RESPONSIVE */
+@media(max-width:900px){.al{grid-template-columns:1fr;}.am{border-right:none;border-bottom:var(--b);}.dgrid{grid-template-columns:1fr;gap:28px;}}
+@media(max-width:768px){.preset-grid{grid-template-columns:1fr 1fr;}.dgrid{grid-template-columns:1fr;gap:32px;}}
+@media(max-width:600px){.th,.hts,.faqs,.ds{padding:40px 16px;}.ta{padding:16px;}.tg{grid-template-columns:1fr;}.sh{padding:12px 16px;}.sg{grid-template-columns:1fr;}.scard{border-right:none;}.preset-grid{grid-template-columns:1fr;}.add-dr{flex-wrap:wrap;}.add-dr select,.add-dr-btn{width:100%;}}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ HEADER ═══════════════ -->
+<header id="header-container"></header>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<div class="th">
+  <p class="slb">Free SEO Tool</p>
+  <h1>Robots.txt<br><em>Generator</em></h1>
+  <p>Build a valid robots.txt file with precise crawl control. Define user-agent rule groups, set Allow and Disallow paths, block AI training bots, add a sitemap reference — then download and deploy in seconds.</p>
+  <div class="hbg">
+    <span class="badge ac">Live Preview</span>
+    <span class="badge">User-Agent Rules</span>
+    <span class="badge">Allow &amp; Disallow</span>
+    <span class="badge">AI Bot Blocking</span>
+    <span class="badge">CMS Presets</span>
+    <span class="badge">Crawl-Delay</span>
+  </div>
+</div>
+
+<!-- ═══════════════ TWO-COLUMN LAYOUT ═══════════════ -->
+<div class="al">
+
+  <!-- MAIN COLUMN -->
+  <div class="am">
+    <div class="ta">
+
+      <!-- ── GLOBAL SETTINGS ── -->
+      <div class="pn">
+        <div class="ph"><span class="dot"></span>Global Settings</div>
+        <div class="pb">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+            <div class="fg" style="margin-bottom:0;">
+              <label for="domain">Website Domain <span class="tip" data-tip="Root domain used to auto-build the Sitemap URL and validate paths.">?</span></label>
+              <input type="url" id="domain" placeholder="https://yoursite.com" autocomplete="off" oninput="onDomainInput();render();">
+            </div>
+            <div class="fg" style="margin-bottom:0;">
+              <label for="sitemap-url">Sitemap URL <span class="tip" data-tip="Full absolute URL to your sitemap.xml. Leave blank to auto-generate from domain.">?</span></label>
+              <input type="url" id="sitemap-url" placeholder="https://yoursite.com/sitemap.xml" autocomplete="off" oninput="render();">
+            </div>
+          </div>
+          <div class="fg" style="margin-top:18px;">
+            <label>Options</label>
+            <div class="tg">
+              <label class="ti">
+                <span class="tl">Block AI Bots <span class="tip" data-tip="Adds Disallow: / for GPTBot, ClaudeBot, CCBot, Google-Extended and more.">?</span></span>
+                <span class="ts"><input type="checkbox" id="tog-ai" onchange="render();"><span class="tt"></span></span>
+              </label>
+              <label class="ti">
+                <span class="tl">Block Bad Bots <span class="tip" data-tip="Adds Disallow: / for known scraper and SEO audit bots.">?</span></span>
+                <span class="ts"><input type="checkbox" id="tog-bad" onchange="render();"><span class="tt"></span></span>
+              </label>
+              <label class="ti">
+                <span class="tl">Add Comments</span>
+                <span class="ts"><input type="checkbox" id="tog-comments" checked onchange="render();"><span class="tt"></span></span>
+              </label>
+              <label class="ti">
+                <span class="tl">Add Timestamp</span>
+                <span class="ts"><input type="checkbox" id="tog-ts" checked onchange="render();"><span class="tt"></span></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── CMS PRESETS ── -->
+      <div class="pn">
+        <div class="ph"><span class="dot"></span>Quick Presets</div>
+        <div class="pb">
+          <p style="font-size:13px;color:var(--g600);margin-bottom:16px;line-height:1.6;">Apply a ready-made rule set for your platform. Clicking a preset adds a new rule group with recommended Disallow paths.</p>
+          <div class="preset-grid" id="preset-grid"><!-- rendered by JS --></div>
+        </div>
+      </div>
+
+      <!-- ── RULE GROUPS ── -->
+      <div class="pn">
+        <div class="ph">
+          <span class="dot"></span>User-Agent Rule Groups
+          <span class="ph-right"><span class="ph-pill" id="grp-count">0 groups</span></span>
+        </div>
+        <div class="pb">
+          <div id="groups-wrap"><!-- rendered by JS --></div>
+          <button class="add-grp-btn" onclick="addGroup();">＋ Add Rule Group</button>
+        </div>
+      </div>
+
+      <!-- ── OUTPUT PANEL ── -->
+      <div class="pn">
+        <div class="ph"><span class="dot"></span>Generated robots.txt</div>
+        <div class="vt">
+          <button class="vtb active" data-tab="preview" onclick="setTab('preview')">Preview</button>
+          <button class="vtb" data-tab="raw" onclick="setTab('raw')">Raw Text</button>
+        </div>
+
+        <!-- Preview tab -->
+        <div id="tab-preview">
+          <div class="code-wrap">
+            <div class="code-box" id="code-preview"><!-- rendered by JS --></div>
+          </div>
+        </div>
+
+        <!-- Raw text tab -->
+        <div id="tab-raw" style="display:none;">
+          <div class="code-wrap">
+            <textarea id="code-raw" readonly style="min-height:320px;font-family:var(--fm);font-size:12px;line-height:1.9;background:#0d0d0d;color:#c9d1d9;border:var(--b);padding:16px 18px;"></textarea>
+          </div>
+        </div>
+
+        <div style="padding:0 20px 20px;">
+          <div class="bg">
+            <button class="cb-btn" onclick="downloadFile();">⬇ Download robots.txt</button>
+            <button class="cb-btn out" id="copy-btn" onclick="copyFile();">📋 Copy</button>
+            <button class="cb-btn out" onclick="resetAll();" style="border-color:var(--bad);color:var(--bad);">✕ Reset</button>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /ta -->
+  </div><!-- /am -->
+
+  <!-- ═══════════════ SIDEBAR ═══════════════ -->
+  <div class="asb">
+    <div style="font-family:var(--fm);font-size:9px;text-transform:uppercase;letter-spacing:2px;color:var(--g400);margin-bottom:14px;">File Summary</div>
+
+    <div class="mc"><div class="ml">Rule Groups</div><div class="mv" id="sb-grps" style="color:var(--g400);">0</div><div class="ms" id="sb-grps-s">Add a group to begin</div></div>
+    <div class="mc"><div class="ml">Total Directives</div><div class="mv" id="sb-dirs" style="color:var(--g400);">0</div><div class="ms" id="sb-dirs-s">—</div></div>
+    <div class="mc"><div class="ml">Validation</div><div class="mv" id="sb-valid" style="color:var(--g400);font-size:14px;">—</div><div class="ms" id="sb-valid-s">—</div></div>
+
+    <div class="mc" style="margin-top:6px;">
+      <div class="ml">Directive Breakdown</div>
+      <div style="padding:12px;">
+        <div class="srow"><span class="sname">Disallow</span><div class="strk"><div class="sfil" id="sf-dis" style="width:0%;background:var(--g200);"></div></div><span class="sval" id="sv-dis">0</span></div>
+        <div class="srow"><span class="sname">Allow</span><div class="strk"><div class="sfil" id="sf-all" style="width:0%;background:var(--g200);"></div></div><span class="sval" id="sv-all">0</span></div>
+        <div class="srow"><span class="sname">Groups</span><div class="strk"><div class="sfil" id="sf-grp" style="width:0%;background:var(--g200);"></div></div><span class="sval" id="sv-grp">0</span></div>
+      </div>
+    </div>
+
+    <div style="font-family:var(--fm);font-size:9px;text-transform:uppercase;letter-spacing:2px;color:var(--g400);margin:22px 0 10px;">Validation Checks</div>
+    <div id="val-checks" style="border:var(--b);background:var(--white);"><!-- rendered by JS --></div>
+
+    <div style="font-family:var(--fm);font-size:9px;text-transform:uppercase;letter-spacing:2px;color:var(--g400);margin:22px 0 10px;">Quick Tips</div>
+    <div style="border:var(--b);padding:14px;background:var(--white);font-size:12px;color:var(--g600);line-height:1.85;">
+      <strong style="font-family:var(--fm);font-size:10px;display:block;margin-bottom:6px;color:var(--black);">PLACEMENT</strong>
+      → Must live at /robots.txt root<br>→ One file per domain / subdomain<br>→ Case-sensitive on Linux servers<br><br>
+      <strong style="font-family:var(--fm);font-size:10px;display:block;margin-bottom:6px;color:var(--black);">KEY RULES</strong>
+      → * wildcard matches all bots<br>→ Disallow: / blocks everything<br>→ Empty Disallow means allow all<br>→ More specific rule wins ties<br><br>
+      <strong style="font-family:var(--fm);font-size:10px;display:block;margin-bottom:6px;color:var(--black);">REMEMBER</strong>
+      → robots.txt ≠ noindex<br>→ Use noindex tag to deindex<br>→ Always reference your sitemap
+    </div>
+  </div>
+
+</div><!-- /al -->
+
+<!-- ═══════════════ HOW TO ═══════════════ -->
+<section class="hts" id="how-to">
+  <p class="slb">Step-by-Step Guide</p>
+  <h2 class="stt">How to Use the<br><em>Robots.txt Generator</em></h2>
+  <div class="sg">
+    <div class="scard"><div class="snum">01</div><span class="sacc"></span><div class="stit">Enter Your Domain</div><p class="sdescb">Type your root domain into the Domain field. This auto-generates the Sitemap URL reference and validates that all paths belong to the correct origin.</p></div>
+    <div class="scard"><div class="snum">02</div><span class="sacc"></span><div class="stit">Apply a Preset</div><p class="sdescb">Choose a CMS preset — WordPress, Shopify, Next.js, or others — to instantly add a recommended set of Disallow rules tailored for that platform.</p></div>
+    <div class="scard"><div class="snum">03</div><span class="sacc"></span><div class="stit">Add Rule Groups</div><p class="sdescb">Click Add Rule Group to create a user-agent block. Use * for all bots, or enter a specific crawler like Googlebot, Bingbot, or GPTBot.</p></div>
+    <div class="scard"><div class="snum">04</div><span class="sacc"></span><div class="stit">Set Allow &amp; Disallow</div><p class="sdescb">Add Disallow paths to block crawler access and Allow paths to carve out exceptions within blocked directories. All paths must start with /.</p></div>
+    <div class="scard"><div class="snum">05</div><span class="sacc"></span><div class="stit">Toggle Options</div><p class="sdescb">Enable AI bot blocking, bad bot blocking, timestamps, and comments in Global Settings. The live preview and raw text update instantly with every change.</p></div>
+    <div class="scard"><div class="snum">06</div><span class="sacc"></span><div class="stit">Download &amp; Deploy</div><p class="sdescb">Download your robots.txt file and upload it to the root of your domain. Verify it's accessible at yoursite.com/robots.txt before submitting your sitemap.</p></div>
+  </div>
+</section>
+
+<!-- ═══════════════ FAQ ═══════════════ -->
+<section class="faqs" id="faq">
+  <p class="slb">Common Questions</p>
+  <h2 class="stt">Frequently Asked<br><em>Questions</em></h2>
+  <div class="flist">
+    <div class="fio"><div class="fq" onclick="tfaq(this);">What is a robots.txt file and do I need one? <span class="ico">+</span></div><div class="fa">A robots.txt file is a plain text file placed at the root of your domain that tells web crawlers which parts of your site to access or avoid. It follows the Robots Exclusion Protocol and is the first file most bots request when visiting a site. While not strictly required, it is strongly recommended for any live website — it protects admin areas, conserves crawl budget, and signals where your sitemap lives.</div></div>
+    <div class="fio"><div class="fq" onclick="tfaq(this);">Does Disallow in robots.txt stop a page from appearing in search results? <span class="ico">+</span></div><div class="fa">Not reliably. Disallowing a URL prevents crawlers from visiting it, but Google may still index and show the page in search results if it discovers the URL through external links or other signals. To reliably prevent a page from appearing in search results, add a noindex meta tag or an X-Robots-Tag HTTP header directly to the page — not robots.txt.</div></div>
+    <div class="fio"><div class="fq" onclick="tfaq(this);">What is the difference between Allow and Disallow? <span class="ico">+</span></div><div class="fa">Disallow tells a crawler it cannot access a given path. Allow explicitly grants access to a path that would otherwise be blocked by a broader Disallow rule. For example, Disallow: /private/ blocks the whole directory, while Allow: /private/status.html permits that specific file. When both rules apply to the same path, the more specific (longer) rule wins. If two rules have equal length, Allow takes precedence for Google.</div></div>
+    <div class="fio"><div class="fq" onclick="tfaq(this);">Should I block AI training crawlers in robots.txt? <span class="ico">+</span></div><div class="fa">That depends on your preferences and content strategy. Bots like GPTBot (OpenAI), ClaudeBot (Anthropic), CCBot (Common Crawl), and Google-Extended crawl web content to build AI training datasets. You can block any or all of them by adding Disallow: / under their specific user-agent name. Blocking AI crawlers does not affect your search engine rankings but prevents your content from being used to train AI models.</div></div>
+    <div class="fio"><div class="fq" onclick="tfaq(this);">What is crawl-delay and should I use it? <span class="ico">+</span></div><div class="fa">Crawl-delay instructs a bot to wait a set number of seconds between successive requests to your server, which can reduce strain from aggressive crawlers. Note that Googlebot ignores Crawl-delay entirely — use the crawl rate control in Google Search Console instead. Bing, Yandex, and many other crawlers do respect it. Only set a crawl delay if you have a specific server load reason to do so.</div></div>
+    <div class="fio"><div class="fq" onclick="tfaq(this);">Where must the robots.txt file be placed? <span class="ico">+</span></div><div class="fa">The robots.txt file must be accessible at the exact path /robots.txt at the root of your domain — for example https://yoursite.com/robots.txt. It cannot be placed in a subdirectory. Each subdomain requires its own robots.txt file at its own root. After uploading, always verify it loads correctly in a browser and returns an HTTP 200 status code before relying on it.</div></div>
+  </div>
+</section>
+
+<!-- ═══════════════ ABOUT ═══════════════ -->
+<section class="ds" id="about">
+  <p class="slb">About This Tool</p>
+  <h2 class="stt" style="color:var(--white);">What is a<br><em>Robots.txt Generator?</em></h2>
+  <div class="dgrid">
+    <div class="db"><h3>The Tool</h3><p>The SEO HQ Robots.txt Generator lets you build a fully valid robots.txt file without writing a line of code. Create multiple user-agent rule groups, add Allow and Disallow paths with real-time validation, apply CMS-specific presets, toggle AI bot blocking, and reference your sitemap — all with a live syntax-highlighted preview that updates instantly.</p></div>
+    <div class="db"><h3>Why It Matters</h3><p>A correctly configured robots.txt is your first line of crawl control. It protects sensitive paths from being crawled, prevents duplicate content from consuming crawl budget, and signals to all bots where your sitemap lives. A poorly written file can inadvertently block critical pages or leave admin sections accessible to every crawler on the internet.</p></div>
+    <div class="db"><h3>Key Features</h3><ul><li>Multiple user-agent rule groups</li><li>Allow and Disallow path directives per group</li><li>CMS presets: WordPress, Shopify, Next.js, and more</li><li>AI crawler and bad bot blocking toggles</li><li>Live syntax-highlighted preview with raw text view</li><li>One-click download as robots.txt or copy to clipboard</li></ul></div>
+    <div class="db"><h3>Best Practices</h3><ul><li>Always include a Sitemap: reference line</li><li>Use * to set baseline rules for all bots</li><li>Never block CSS, JS, or images from Googlebot</li><li>Test with Google's robots.txt Tester in Search Console</li><li>Review and update after every major site restructure</li><li>Use noindex — not robots.txt — to prevent indexation</li></ul></div>
+  </div>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer id="footer-container"></footer>
+
+<script src="components/header.js"></script>
+<script src="components/footer.js"></script>
+<script src="components/sidebar.js"></script>
+<script src="script.js"></script>
+
+<script>
+/* ═══════════════════════════════════════════════════════════
+   STATE
+═══════════════════════════════════════════════════════════ */
+let groups  = [];  // [{id, ua, crawlDelay, dirs:[{id,type,path}]}]
+let gid     = 0;   // auto-increment group id
+let did     = 0;   // auto-increment directive id
+let curTab  = 'preview';
+const appliedPresets = new Set();
+
+const $ = id => document.getElementById(id);
+
+/* ═══════════════════════════════════════════════════════════
+   PRESETS
+═══════════════════════════════════════════════════════════ */
+const PRESETS = [
+  {
+    key:'wordpress', title:'WordPress', desc:'Blocks wp-admin, login, XML-RPC, and cache paths',
+    dirs:[
+      {type:'Disallow',path:'/wp-admin/'},
+      {type:'Allow',   path:'/wp-admin/admin-ajax.php'},
+      {type:'Disallow',path:'/wp-login.php'},
+      {type:'Disallow',path:'/wp-includes/'},
+      {type:'Disallow',path:'/wp-content/plugins/'},
+      {type:'Disallow',path:'/wp-content/cache/'},
+      {type:'Disallow',path:'/xmlrpc.php'},
+      {type:'Disallow',path:'/?s='},
+      {type:'Disallow',path:'/trackback/'},
+    ]
+  },
+  {
+    key:'shopify', title:'Shopify', desc:'Blocks checkout, cart, account, and search pages',
+    dirs:[
+      {type:'Disallow',path:'/checkout'},
+      {type:'Disallow',path:'/cart'},
+      {type:'Disallow',path:'/account'},
+      {type:'Disallow',path:'/search'},
+      {type:'Disallow',path:'/?*'},
+      {type:'Allow',   path:'/'},
+    ]
+  },
+  {
+    key:'nextjs', title:'Next.js', desc:'Blocks _next internals and API routes',
+    dirs:[
+      {type:'Disallow',path:'/_next/'},
+      {type:'Disallow',path:'/api/'},
+      {type:'Disallow',path:'/_error'},
+      {type:'Allow',   path:'/_next/static/'},
+      {type:'Allow',   path:'/'},
+    ]
+  },
+  {
+    key:'ecommerce', title:'E-Commerce', desc:'Blocks duplicate faceted filters, cart, and account',
+    dirs:[
+      {type:'Disallow',path:'/cart/'},
+      {type:'Disallow',path:'/checkout/'},
+      {type:'Disallow',path:'/account/'},
+      {type:'Disallow',path:'/?*color='},
+      {type:'Disallow',path:'/?*size='},
+      {type:'Disallow',path:'/?*sort='},
+      {type:'Disallow',path:'/?*page='},
+    ]
+  },
+  {
+    key:'news', title:'News / Blog', desc:'Blocks tag, author, search, and feed duplication',
+    dirs:[
+      {type:'Disallow',path:'/tag/'},
+      {type:'Disallow',path:'/author/'},
+      {type:'Disallow',path:'/?s='},
+      {type:'Disallow',path:'/search/'},
+      {type:'Disallow',path:'/feed/'},
+      {type:'Disallow',path:'/page/'},
+    ]
+  },
+  {
+    key:'clean', title:'Allow All', desc:'Permits all bots — adds only the Sitemap reference',
+    dirs:[
+      {type:'Allow',path:'/'},
+    ]
+  },
+];
+
+function initPresets(){
+  $('preset-grid').innerHTML = PRESETS.map(p=>`
+    <div class="pc" id="pc-${p.key}" onclick="applyPreset('${p.key}')">
+      <div class="pc-title">${p.title}</div>
+      <div class="pc-desc">${p.desc}</div>
+      <div class="pc-check">✓ Applied</div>
+    </div>`).join('');
+}
+
+function applyPreset(key){
+  const preset = PRESETS.find(p=>p.key===key);
+  if(!preset) return;
+  const id = gid++;
+  groups.push({
+    id, ua:'*', crawlDelay:'',
+    dirs: preset.dirs.map(d=>({id:did++, type:d.type, path:d.path}))
+  });
+  appliedPresets.add(key);
+  const card = $('pc-'+key);
+  if(card) card.classList.add('applied');
+  renderGroups();
+  render();
+}
+
+/* ═══════════════════════════════════════════════════════════
+   GROUP MANAGEMENT
+═══════════════════════════════════════════════════════════ */
+function addGroup(){
+  groups.push({id:gid++, ua:'*', crawlDelay:'', dirs:[]});
+  renderGroups();
+  render();
+}
+
+function deleteGroup(id){
+  groups = groups.filter(g=>g.id!==id);
+  renderGroups();
+  render();
+}
+
+function setGroupUA(id, val){
+  const g = groups.find(g=>g.id===id);
+  if(g){ g.ua=val; renderGroupHeader(id); render(); }
+}
+
+function setGroupDelay(id, val){
+  const g = groups.find(g=>g.id===id);
+  if(g){ g.crawlDelay=val; render(); }
+}
+
+function renderGroupHeader(id){
+  const g = groups.find(g=>g.id===id);
+  const badge = document.querySelector(`#rg-badge-${id}`);
+  if(g && badge) badge.textContent = g.ua || '*';
+}
+
+/* ═══════════════════════════════════════════════════════════
+   DIRECTIVE MANAGEMENT
+═══════════════════════════════════════════════════════════ */
+function addDirective(groupId){
+  const g   = groups.find(g=>g.id===groupId);
+  const sel = $(`dt-sel-${groupId}`);
+  const inp = $(`dt-inp-${groupId}`);
+  if(!g || !sel || !inp) return;
+
+  let path = inp.value.trim();
+  if(!path){ flashInput(inp); return; }
+  if(!path.startsWith('/') && path !== '*') path = '/'+path;
+
+  g.dirs.push({id:did++, type:sel.value, path});
+  inp.value = '';
+  renderGroups();
+  render();
+}
+
+function removeDirective(groupId, dirId){
+  const g = groups.find(g=>g.id===groupId);
+  if(!g) return;
+  g.dirs = g.dirs.filter(d=>d.id!==dirId);
+  renderGroups();
+  render();
+}
+
+function updateDirPath(groupId, dirId, val){
+  const g = groups.find(g=>g.id===groupId);
+  if(!g) return;
+  const d = g.dirs.find(d=>d.id===dirId);
+  if(d){ d.path=val; render(); }
+}
+
+function flashInput(el){
+  el.style.borderColor='var(--bad)'; el.style.boxShadow='2px 2px 0 var(--bad)';
+  setTimeout(()=>{ el.style.borderColor=''; el.style.boxShadow=''; },1600);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RENDER GROUPS
+═══════════════════════════════════════════════════════════ */
+function renderGroups(){
+  const wrap = $('groups-wrap');
+  $('grp-count').textContent = groups.length + ' group' + (groups.length!==1?'s':'');
+
+  if(groups.length===0){
+    wrap.innerHTML = `<div class="empty-st"><span class="ei">◎</span>No rule groups yet.<br>Click Add Rule Group below or apply a preset above.</div>`;
+    return;
+  }
+
+  wrap.innerHTML = groups.map(g=>{
+    const dirHTML = g.dirs.length ? g.dirs.map(d=>`
+      <div class="dr">
+        <span class="dr-badge ${d.type==='Allow'?'dr-allow':'dr-disallow'}">${d.type}</span>
+        <input class="dr-path" type="text" value="${escAttr(d.path)}"
+          onchange="updateDirPath(${g.id},${d.id},this.value)">
+        <button class="dr-remove" onclick="removeDirective(${g.id},${d.id})" title="Remove">✕</button>
+      </div>`).join('')
+    : `<div style="font-family:var(--fm);font-size:10px;color:var(--g400);text-transform:uppercase;letter-spacing:1px;padding:8px 0 10px;">No directives — add one below</div>`;
+
+    return `
+    <div class="rg">
+      <div class="rg-head">
+        <span class="rg-label">User-Agent</span>
+        <span class="rg-ua-badge" id="rg-badge-${g.id}">${escHTML(g.ua||'*')}</span>
+        <button class="rg-del" onclick="deleteGroup(${g.id})">✕ Remove</button>
+      </div>
+      <div class="rg-body">
+        <div style="display:grid;grid-template-columns:1fr 130px;gap:12px;margin-bottom:14px;">
+          <div class="fg" style="margin-bottom:0;">
+            <label>User-Agent <span class="tip" data-tip="Use * for all bots, or a specific crawler name e.g. Googlebot">?</span></label>
+            <input type="text" value="${escAttr(g.ua)}" placeholder="* or Googlebot"
+              onchange="setGroupUA(${g.id},this.value)"
+              style="font-family:var(--fm);font-size:13px;">
+          </div>
+          <div class="fg" style="margin-bottom:0;">
+            <label>Crawl-Delay <span class="tip" data-tip="Seconds between requests. Google ignores this.">?</span></label>
+            <input type="number" value="${escAttr(g.crawlDelay)}" placeholder="e.g. 10" min="0" max="86400"
+              onchange="setGroupDelay(${g.id},this.value)"
+              style="font-family:var(--fm);font-size:13px;">
+          </div>
+        </div>
+
+        <div class="dir-list">${dirHTML}</div>
+
+        <div class="add-dr">
+          <select id="dt-sel-${g.id}" style="font-family:var(--fm);font-size:11px;">
+            <option value="Disallow">Disallow</option>
+            <option value="Allow">Allow</option>
+          </select>
+          <input type="text" id="dt-inp-${g.id}" placeholder="/path/to/block/"
+            style="font-family:var(--fm);font-size:12px;"
+            onkeydown="if(event.key==='Enter'){event.preventDefault();addDirective(${g.id});}">
+          <button class="add-dr-btn" onclick="addDirective(${g.id})">＋ Add</button>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+/* ═══════════════════════════════════════════════════════════
+   GENERATE RAW robots.txt
+═══════════════════════════════════════════════════════════ */
+function generateRaw(){
+  const domain     = $('domain').value.trim().replace(/\/$/,'');
+  const sitemapURL = $('sitemap-url').value.trim() || (domain ? domain+'/sitemap.xml' : '');
+  const blockAI    = $('tog-ai').checked;
+  const blockBad   = $('tog-bad').checked;
+  const addCmt     = $('tog-comments').checked;
+  const addTs      = $('tog-ts').checked;
+
+  const lines = [];
+
+  if(addCmt){
+    lines.push('# robots.txt — generated by SEO HQ Robots.txt Generator');
+    if(addTs) lines.push('# Generated: ' + new Date().toISOString().split('T')[0]);
+    if(domain) lines.push('# Site: ' + domain);
+    lines.push('');
+  }
+
+  // User-defined groups
+  groups.forEach(g=>{
+    lines.push('User-agent: '+(g.ua||'*'));
+    g.dirs.forEach(d=>lines.push(d.type+': '+d.path));
+    if(g.crawlDelay) lines.push('Crawl-delay: '+g.crawlDelay);
+    lines.push('');
+  });
+
+  // AI bots block
+  if(blockAI){
+    const aiBots=['GPTBot','ClaudeBot','anthropic-ai','Google-Extended','CCBot','FacebookBot','Omgilibot','PerplexityBot','YouBot','Bytespider'];
+    if(addCmt){ lines.push('# AI training bot block'); }
+    aiBots.forEach(bot=>{ lines.push('User-agent: '+bot); lines.push('Disallow: /'); lines.push(''); });
+  }
+
+  // Bad bots block
+  if(blockBad){
+    const badBots=['AhrefsBot','SemrushBot','DotBot','MJ12bot','BLEXBot','DataForSeoBot','PetalBot','Rogerbot'];
+    if(addCmt){ lines.push('# Bad / scraper bot block'); }
+    badBots.forEach(bot=>{ lines.push('User-agent: '+bot); lines.push('Disallow: /'); lines.push(''); });
+  }
+
+  // Sitemap
+  if(sitemapURL){
+    if(addCmt) lines.push('# Sitemap location');
+    lines.push('Sitemap: '+sitemapURL);
+  }
+
+  return lines.join('\n').replace(/\n{3,}/g,'\n\n').trim();
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RENDER OUTPUT (syntax highlight)
+═══════════════════════════════════════════════════════════ */
+function render(){
+  const raw = generateRaw();
+
+  const highlighted = raw.split('\n').map(line=>{
+    if(line.startsWith('#'))
+      return `<span class="rt-comment">${escHTML(line)}</span>`;
+    if(line.startsWith('User-agent:')){
+      const val = escHTML(line.slice(11));
+      return `<span class="rt-key">User-agent:</span><span class="rt-ua">${val}</span>`;
+    }
+    if(line.startsWith('Disallow:')){
+      const val = escHTML(line.slice(9));
+      return `<span class="rt-key">Disallow:</span><span class="rt-disallow">${val}</span>`;
+    }
+    if(line.startsWith('Allow:')){
+      const val = escHTML(line.slice(6));
+      return `<span class="rt-key">Allow:</span><span class="rt-allow">${val}</span>`;
+    }
+    if(line.startsWith('Crawl-delay:')){
+      const val = escHTML(line.slice(12));
+      return `<span class="rt-key">Crawl-delay:</span><span class="rt-delay">${val}</span>`;
+    }
+    if(line.startsWith('Sitemap:')){
+      const val = escHTML(line.slice(8));
+      return `<span class="rt-sitemap">Sitemap:<span style="color:#79c0ff;">${val}</span></span>`;
+    }
+    return escHTML(line);
+  }).join('\n');
+
+  $('code-preview').innerHTML = highlighted || '<span class="rt-comment"># Add rule groups above to generate your robots.txt</span>';
+  $('code-raw').value = raw;
+
+  renderSidebar(raw);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SIDEBAR
+═══════════════════════════════════════════════════════════ */
+function renderSidebar(raw){
+  const domain     = $('domain').value.trim();
+  const sitemapURL = $('sitemap-url').value.trim() || (domain ? domain+'/sitemap.xml' : '');
+  const allDirs    = groups.flatMap(g=>g.dirs);
+  const disCnt     = allDirs.filter(d=>d.type==='Disallow').length;
+  const allCnt     = allDirs.filter(d=>d.type==='Allow').length;
+  const grpCnt     = groups.length;
+
+  /* metrics */
+  const gv=$('sb-grps'), gs=$('sb-grps-s');
+  gv.textContent = grpCnt;
+  if(grpCnt===0){gv.className='mv';gs.textContent='Add a group to begin';}
+  else if(grpCnt===1){gv.className='mv warn';gs.textContent='Consider adding a wildcard group';}
+  else{gv.className='mv good';gs.textContent='✓ Multiple groups configured';}
+
+  const dv=$('sb-dirs'), ds=$('sb-dirs-s');
+  dv.textContent = disCnt+allCnt;
+  if(disCnt+allCnt===0){dv.className='mv';ds.textContent='No directives yet';}
+  else{dv.className='mv good';ds.textContent=disCnt+' Disallow, '+allCnt+' Allow';}
+
+  /* validation checks */
+  const hasWildcard  = groups.some(g=>g.ua==='*');
+  const hasDomain    = !!domain;
+  const hasSitemap   = !!sitemapURL;
+  const hasGroups    = grpCnt > 0;
+  const noDupUAs     = new Set(groups.map(g=>g.ua)).size === groups.length;
+  const validPaths   = allDirs.every(d=>d.path.startsWith('/')||d.path===''||d.path==='*');
+
+  const checks=[
+    {label:'Domain set',          ok:hasDomain},
+    {label:'Has rule groups',     ok:hasGroups},
+    {label:'Wildcard (*) group',  ok:hasWildcard},
+    {label:'Sitemap referenced',  ok:hasSitemap},
+    {label:'No duplicate agents', ok:noDupUAs},
+    {label:'Valid path format',   ok:validPaths||allDirs.length===0},
+  ];
+  const passed = checks.filter(c=>c.ok).length;
+
+  const vv=$('sb-valid'), vs=$('sb-valid-s');
+  if(!hasGroups){vv.textContent='—';vv.className='mv';vs.textContent='Add groups to validate';}
+  else if(passed===checks.length){vv.textContent='✓ Valid';vv.className='mv good';vs.textContent='All checks passed';}
+  else{vv.textContent=passed+'/'+checks.length;vv.className='mv warn';vs.textContent=(checks.length-passed)+' issue'+(checks.length-passed>1?'s':'')+' found';}
+
+  $('val-checks').innerHTML = checks.map(c=>`
+    <div class="chk-row">
+      <span style="color:${c.ok?'var(--ok)':'var(--g200)'};font-size:13px;flex-shrink:0;">${c.ok?'✓':'○'}</span>
+      <span style="color:${c.ok?'var(--black)':'var(--g400)'};">${c.label}</span>
+    </div>`).join('');
+
+  /* score bars */
+  const mx = Math.max(disCnt,allCnt,grpCnt,1);
+  setSb('sf-dis','sv-dis',disCnt,Math.round(disCnt/mx*100),'var(--bad)');
+  setSb('sf-all','sv-all',allCnt,Math.round(allCnt/mx*100),'var(--ok)');
+  setSb('sf-grp','sv-grp',grpCnt,Math.min(grpCnt*20,100),'var(--accent)');
+}
+
+function setSb(fid,vid,val,pct,col){
+  const f=$(fid),v=$(vid);
+  if(!f||!v) return;
+  f.style.width=pct+'%';
+  f.style.background=pct>0?col:'var(--g200)';
+  v.textContent=val;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   DOMAIN AUTO-FILL SITEMAP
+═══════════════════════════════════════════════════════════ */
+function onDomainInput(){
+  const domain = $('domain').value.trim().replace(/\/$/,'');
+  const su = $('sitemap-url');
+  if(!su.value || su.value.startsWith('https://yoursite.com')){
+    su.value = domain ? domain+'/sitemap.xml' : '';
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   DOWNLOAD / COPY / RESET
+═══════════════════════════════════════════════════════════ */
+function downloadFile(){
+  const raw = generateRaw();
+  if(!raw.trim()){alert('Add at least one rule group before downloading.');return;}
+  const blob = new Blob([raw],{type:'text/plain'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'robots.txt';
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+function copyFile(){
+  const raw = generateRaw();
+  if(!raw.trim()){alert('Nothing to copy yet.');return;}
+  navigator.clipboard.writeText(raw).then(()=>{
+    const btn = $('copy-btn');
+    const orig = btn.textContent;
+    btn.textContent='✓ Copied!';
+    btn.style.cssText='background:var(--ok);color:var(--white);border-color:var(--ok);';
+    setTimeout(()=>{btn.textContent=orig;btn.style.cssText='';},2000);
+  }).catch(()=>alert('Copy failed. Use the Raw Text tab to copy manually.'));
+}
+
+function resetAll(){
+  if(groups.length>0 && !confirm('Reset everything and start fresh?')) return;
+  groups=[]; gid=0; did=0;
+  appliedPresets.clear();
+  $('domain').value='';
+  $('sitemap-url').value='';
+  $('tog-ai').checked=false;
+  $('tog-bad').checked=false;
+  $('tog-comments').checked=true;
+  $('tog-ts').checked=true;
+  document.querySelectorAll('.pc').forEach(c=>c.classList.remove('applied'));
+  renderGroups();
+  render();
+}
+
+/* ═══════════════════════════════════════════════════════════
+   TABS / FAQ
+═══════════════════════════════════════════════════════════ */
+function setTab(tab){
+  curTab=tab;
+  document.querySelectorAll('.vtb').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));
+  $('tab-preview').style.display = tab==='preview'?'':'none';
+  $('tab-raw').style.display     = tab==='raw'    ?'':'none';
+}
+
+function tfaq(el){ el.parentElement.classList.toggle('open'); }
+
+/* ═══════════════════════════════════════════════════════════
+   UTILS
+═══════════════════════════════════════════════════════════ */
+function escHTML(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function escAttr(s){ return String(s||'').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
+
+/* ═══════════════════════════════════════════════════════════
+   INIT — sensible demo state on load
+═══════════════════════════════════════════════════════════ */
+window.addEventListener('DOMContentLoaded',()=>{
+  initPresets();
+
+  $('domain').value      = 'https://yoursite.com';
+  $('sitemap-url').value = 'https://yoursite.com/sitemap.xml';
+
+  /* Default wildcard group */
+  groups.push({
+    id:gid++, ua:'*', crawlDelay:'',
+    dirs:[
+      {id:did++, type:'Disallow', path:'/admin/'},
+      {id:did++, type:'Disallow', path:'/private/'},
+      {id:did++, type:'Disallow', path:'/cgi-bin/'},
+      {id:did++, type:'Disallow', path:'/?s='},
+      {id:did++, type:'Allow',    path:'/'},
+    ]
+  });
+
+  /* Googlebot-specific allow group */
+  groups.push({
+    id:gid++, ua:'Googlebot', crawlDelay:'',
+    dirs:[
+      {id:did++, type:'Allow', path:'/'},
+    ]
+  });
+
+  renderGroups();
+  render();
+});
+</script>
+</body>
+</html>
