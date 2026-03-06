@@ -1,6 +1,12 @@
 // components/popular-articles.js
 const popularArticlesData = [
     {
+        title: "AI Agents and Autonomous Search",
+        category: "Ai in SEO",
+        views: "210+ reads",
+        link: "ai-agents-autonomous-search"
+    },
+    {
         title: "Core Web Vitals: The Technical Foundation",
         category: "Technical SEO",
         views: "15k+ reads",
