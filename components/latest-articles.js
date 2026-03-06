@@ -1,6 +1,13 @@
 // components/latest-articles.js
 const latestArticlesData = [
     {
+        title: "Human Content vs AI Content",
+        category: "Ai in SEO",
+        readTime: "18 min read",
+        link: "/human-content-vs-ai-content",
+        date: "2026-03-06"
+    },
+    {
         title: "Introducing Free SEO Tools",
         category: "Technical SEO",
         readTime: "10 min read",
@@ -27,14 +34,7 @@ const latestArticlesData = [
         readTime: "13 min read",
         link: "/seo-augmented-reality",
         date: "2026-01-22"
-    },
-    {
-        title: "Advanced Log File Analysis for SEO",
-        category: "Technical SEO",
-        readTime: "12 min read",
-        link: "/advanced-log-file-analysis",
-        date: "2026-01-17"
-    }
+    }    
 ];
 
 function renderLatestArticles() {
