@@ -1,6 +1,13 @@
 // components/latest-articles.js
 const latestArticlesData = [
     {
+        title: "From SERP's to AERP's",
+        category: "Ai in SEO",
+        readTime: "16 min read",
+        link: "/from-serps-to-aerps",
+        date: "2026-03-07"
+    },
+    {
         title: "Human Content vs AI Content",
         category: "Ai in SEO",
         readTime: "18 min read",
@@ -27,13 +34,6 @@ const latestArticlesData = [
         readTime: "12 min read",
         link: "/google-search-console-guide",
         date: "2026-01-28"
-    },
-    {
-        title: "SEO for Augmented Reality & Spatial Search",
-        category: "VISUAL SEARCH",
-        readTime: "13 min read",
-        link: "/seo-augmented-reality",
-        date: "2026-01-22"
     }    
 ];
 
