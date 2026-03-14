@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-55VW7WFNC5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-55VW7WFNC5');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9759808041159779" crossorigin="anonymous"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hreflang Tag Generator | SEO HQ – Free SEO Tool</title>
+<meta name="description" content="Free Hreflang Tag Generator. Build correct hreflang link tags for international and multilingual SEO. Add language and region alternates, x-default, and copy the full tag set instantly.">
+<meta name="keywords" content="hreflang generator, hreflang tag builder, international SEO, multilingual SEO, hreflang attribute, x-default hreflang, language alternate tags, canonical hreflang">
+<meta name="author" content="SEO HQ">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Hreflang Tag Generator | SEO HQ">
+<meta property="og:description" content="Generate correct hreflang link tags for multilingual and international SEO. Add language/region alternates, x-default, and output HTML, HTTP Header, or Sitemap XML formats.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://seohq.github.io/hreflang-tag-generator">
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Hreflang Tag Generator","url":"https://seohq.github.io/hreflang-tag-generator","description":"Free tool to generate valid hreflang link tags for international and multilingual SEO with HTML, HTTP Header, and Sitemap XML output formats.","applicationCategory":"SEOApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"SEO HQ","url":"https://seohq.github.io/"},"featureList":["Multiple language and region alternates","x-default tag support","HTML link tag output","HTTP Header output","Sitemap XML output","Live validation and tag count","Copy to clipboard","Download as file"]}
+</script>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is an hreflang tag?","acceptedAnswer":{"@type":"Answer","text":"An hreflang tag is an HTML link element that tells search engines which language and/or regional version of a page to serve to users. It uses ISO 639-1 language codes (e.g. en, fr, de) and optional ISO 3166-1 region codes (e.g. US, GB, AU). Correctly implemented hreflang prevents duplicate content issues across multilingual sites and ensures users see the most relevant language version in search results."}},{"@type":"Question","name":"What is the x-default hreflang tag?","acceptedAnswer":{"@type":"Answer","text":"The x-default hreflang value designates a fallback page for users whose language or region does not match any other hreflang alternate. It is typically set to a language selector page or the primary/global version of a page. Google recommends including an x-default tag whenever you have multiple regional or language variants."}},{"@type":"Question","name":"Where can I implement hreflang tags?","acceptedAnswer":{"@type":"Answer","text":"Hreflang can be implemented in three ways: (1) HTML link tags in the head section of each page, (2) HTTP response headers for non-HTML files like PDFs, or (3) your XML sitemap. You only need to use one method per site. HTML link tags are the most common and widely supported method."}},{"@type":"Question","name":"Does every page in the set need to reference every other page?","acceptedAnswer":{"@type":"Answer","text":"Yes. Hreflang tags must be fully reciprocal. If page A references page B, then page B must also reference page A. If any page in the set is missing a reference back to the others, search engines may ignore the entire hreflang annotation. This is the most common hreflang implementation mistake."}},{"@type":"Question","name":"Does hreflang affect rankings?","acceptedAnswer":{"@type":"Answer","text":"Hreflang does not directly boost rankings. Its purpose is to ensure the correct language or regional URL appears in search results for the right audience, which can significantly improve click-through rates and reduce bounce rates. It also prevents self-cannibalization penalties that can arise when search engines see multiple near-identical pages as competing for the same query."}}]}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ TOKENS */
+:root{
+  --black:#0a0a0a;--white:#fafafa;--g50:#f7f7f7;--g100:#ebebeb;--g200:#d1d1d1;
+  --g400:#888;--g600:#555;--g800:#222;
+  --accent:#c8401a;--ok:#1a7a3c;--warn:#c47a00;--bad:#c81a1a;
+  --fm:'Space Mono',monospace;--fb:'DM Sans',sans-serif;
+  --b:1px solid #0a0a0a;--bt:3px solid #0a0a0a;--ba:3px solid #c8401a;
+  --sh:4px 4px 0 #0a0a0a;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--fb);background:var(--g50);color:var(--black);font-size:16px;line-height:1.6;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ HEADER */
+.sh{background:var(--black);color:var(--white);padding:14px 32px;display:flex;align-items:center;justify-content:space-between;border-bottom:var(--ba);position:sticky;top:0;z-index:100;}
+.sl{font-family:var(--fm);font-size:18px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--white);text-decoration:none;}
+.sl span{color:var(--accent);}
+.ht{font-family:var(--fm);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--g400);background:var(--g800);border:1px solid var(--g600);padding:4px 10px;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ HERO */
+.th{background:var(--black);color:var(--white);padding:48px 32px 40px;border-bottom:var(--bt);position:relative;overflow:hidden;}
+.th::before{content:'';position:absolute;top:0;right:0;width:350px;height:100%;background:repeating-linear-gradient(45deg,transparent,transparent 12px,rgba(200,64,26,.08) 12px,rgba(200,64,26,.08) 13px);pointer-events:none;}
+.th h1{font-family:var(--fm);font-size:clamp(28px,5vw,52px);font-weight:700;text-transform:uppercase;letter-spacing:2px;line-height:1.1;max-width:700px;}
+.th h1 em{font-style:normal;color:var(--accent);}
+.th p{margin-top:16px;font-size:16px;color:#d1d1d1;max-width:600px;line-height:1.7;}
+.hbg{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px;}
+.badge{font-family:var(--fm);font-size:10px;text-transform:uppercase;letter-spacing:1.5px;padding:5px 12px;border:1px solid var(--g600);color:var(--g400);}
+.badge.ac{border-color:var(--accent);color:var(--accent);}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ LAYOUT */
+.al{display:grid;grid-template-columns:1fr 340px;max-width:1000px;margin:0 auto;}
+.am{border-right:var(--b);}
+.asb{padding:28px 20px;background:var(--white);}
+.ta{padding:28px;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PANEL */
+.pn{background:var(--white);border:var(--b);margin-bottom:20px;}
+.ph{background:var(--black);color:var(--white);padding:10px 18px;font-family:var(--fm);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;display:flex;align-items:center;gap:8px;}
+.ph .dot{width:8px;height:8px;background:var(--accent);flex-shrink:0;}
+.ph-right{margin-left:auto;}
+.ph-pill{font-family:var(--fm);font-size:10px;font-weight:700;color:var(--accent);background:rgba(200,64,26,.15);border:1px solid rgba(200,64,26,.3);padding:2px 9px;letter-spacing:1px;}
+.pb{padding:22px;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ FIELDS */
+.fg{margin-bottom:18px;}
+.fg:last-child{margin-bottom:0;}
+label{display:block;font-family:var(--fm);font-size:10px;text-transform:uppercase;letter-spacing:2px;font-weight:700;margin-bottom:7px;color:var(--g600);}
+input[type=text],input[type=url],input[type=number],textarea,select{width:100%;background:var(--white);border:var(--b);font-family:var(--fb);font-size:14px;color:var(--black);padding:10px 14px;outline:none;transition:border-color .15s,box-shadow .15s;appearance:none;border-radius:0;}
+input:focus,textarea:focus,select:focus{border-color:var(--accent);box-shadow:2px 2px 0 var(--accent);}
+textarea{resize:vertical;line-height:1.6;}
+select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M0 0l6 8 6-8z' fill='%230a0a0a'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;cursor:pointer;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ TOGGLES */
+.tg{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.ti{display:flex;align-items:center;justify-content:space-between;border:var(--b);padding:10px 14px;cursor:pointer;transition:background .15s;}
+.ti:hover{background:var(--g50);}
+.tl{font-family:var(--fm);font-size:10px;text-transform:uppercase;letter-spacing:1px;font-weight:700;}
+.ts{position:relative;width:36px;height:20px;flex-shrink:0;}
+.ts input{opacity:0;width:0;height:0;}
+.tt{position:absolute;inset:0;background:var(--g200);cursor:pointer;transition:background .2s;}
+.tt::after{content:'';position:absolute;width:14px;height:14px;left:3px;top:3px;background:var(--white);transition:transform .2s;}
+.ts input:checked+.tt{background:var(--accent);}
+.ts input:checked+.tt::after{transform:translateX(16px);}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ TABS */
+.vt{display:flex;border-bottom:var(--b);padding:0 22px;}
+.vtb{font-family:var(--fm);font-size:11px;text-transform:uppercase;letter-spacing:1.5px;font-weight:700;padding:10px 18px;border:none;background:none;cursor:pointer;color:var(--g400);border-bottom:3px solid transparent;margin-bottom:-1px;transition:all .15s;}
+.vtb:hover{color:var(--black);}
+.vtb.active{color:var(--black);border-bottom-color:var(--accent);}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ALTERNATE ROWS */
+.alt-row{display:grid;grid-template-columns:160px 1fr 36px;gap:8px;align-items:center;margin-bottom:8px;}
+.alt-row .lang-sel{font-family:var(--fm);font-size:12px;padding:9px 30px 9px 10px;}
+.alt-row .url-inp{font-size:13px;padding:9px 10px;}
+.alt-remove{background:none;border:none;cursor:pointer;color:var(--g200);font-size:16px;line-height:1;padding:3px 5px;flex-shrink:0;transition:color .15s;text-align:center;}
+.alt-remove:hover{color:var(--bad);}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ EMPTY STATE */
+.empty-st{padding:36px;text-align:center;font-family:var(--fm);font-size:10px;text-transform:uppercase;letter-spacing:2px;color:var(--g400);line-height:2.2;}
+.empty-st .ei{font-size:30px;display:block;margin-bottom:10px;opacity:.2;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ADD ROW BTN */
+.add-alt-btn{width:100%;font-family:var(--fm);font-size:11px;text-transform:uppercase;letter-spacing:2px;font-weight:700;padding:12px 20px;background:var(--accent);color:var(--white);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:all .15s;margin-top:2px;}
+.add-alt-btn:hover{background:#a8340f;box-shadow:var(--sh);}
+.add-alt-btn:active{transform:translate(2px,2px);box-shadow:none;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ CODE OUTPUT */
+.code-wrap{padding:16px 20px 20px;}
+.code-box{background:#0d0d0d;border:var(--b);padding:16px 18px;overflow:auto;max-height:480px;font-family:var(--fm);font-size:12px;line-height:2;white-space:pre;color:#c9d1d9;}
+.hl-tag{color:#79c0ff;}
+.hl-attr{color:#d2a8ff;}
+.hl-val{color:#a5d6ff;}
+.hl-str{color:#56d364;}
+.hl-com{color:#6e7681;}
+.hl-key{color:#ffa657;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ BUTTONS */
+.cb-btn{font-family:var(--fm);font-size:10px;text-transform:uppercase;letter-spacing:2px;font-weight:700;padding:10px 20px;background:var(--black);color:var(--white);border:var(--bt);cursor:pointer;transition:all .15s;display:inline-flex;align-items:center;gap:6px;}
+.cb-btn:hover{background:var(--accent);border-color:var(--accent);box-shadow:var(--sh);}
+.cb-btn:active{transform:translate(2px,2px);box-shadow:none;}
+.cb-btn.out{background:var(--white);color:var(--black);}
+.cb-btn.out:hover{background:var(--g100);box-shadow:none;}
+.bg{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SIDEBAR METRICS */
+.mc{border:var(--b);margin-bottom:10px;background:var(--white);}
+.ml{font-family:var(--fm);font-size:9px;text-transform:uppercase;letter-spacing:2px;color:var(--g400);padding:8px 12px 4px;border-bottom:var(--b);background:var(--g50);}
+.mv{padding:10px 12px;font-size:22px;font-family:var(--fm);font-weight:700;line-height:1;}
+.mv.good{color:var(--ok);}
+.mv.warn{color:var(--warn);}
+.mv.bad{color:var(--bad);}
+.ms{padding:0 12px 10px;font-size:11px;color:var(--g400);font-family:var(--fm);}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SCORE BARS */
+.srow{display:flex;align-items:center;gap:8px;margin-bottom:8px;font-family:var(--fm);}
+.sname{width:82px;color:var(--g600);font-size:10px;text-transform:uppercase;letter-spacing:1px;flex-shrink:0;}
+.strk{flex:1;height:6px;background:var(--g100);border:1px solid var(--g200);}
+.sfil{height:100%;transition:width .4s,background .4s;}
+.sval{width:32px;text-align:right;font-size:11px;font-weight:700;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ TOOLTIP */
+.tip{position:relative;display:inline-block;cursor:help;margin-left:5px;font-family:var(--fm);font-size:9px;background:var(--g200);color:var(--g600);border-radius:50%;width:15px;height:15px;line-height:15px;text-align:center;vertical-align:middle;}
+.tip:hover::after{content:attr(data-tip);position:absolute;left:50%;bottom:calc(100% + 8px);transform:translateX(-50%);background:var(--black);color:var(--white);font-size:11px;padding:6px 10px;white-space:nowrap;pointer-events:none;z-index:99;border:1px solid var(--accent);letter-spacing:.5px;font-family:var(--fb);text-transform:none;font-weight:400;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ CHECKLIST */
+.chk-row{display:flex;align-items:center;gap:8px;padding:7px 12px;border-bottom:1px solid var(--g100);font-family:var(--fm);font-size:10px;text-transform:uppercase;letter-spacing:1px;}
+.chk-row:last-child{border-bottom:none;}
+.chk-dot{width:8px;height:8px;flex-shrink:0;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PRESET CHIPS */
+.preset-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;}
+.pc{border:var(--b);padding:14px;cursor:pointer;background:var(--white);transition:background .15s,border-color .15s;}
+.pc:hover{background:var(--g50);border-color:var(--accent);}
+.pc.applied{border-color:var(--ok);background:#f0fff4;}
+.pc-title{font-family:var(--fm);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--black);margin-bottom:3px;}
+.pc-desc{font-size:11px;color:var(--g600);line-height:1.4;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ HOW-TO */
+.hts{background:var(--white);border-top:var(--bt);padding:64px 32px;text-align:center;}
+.slb{font-family:var(--fm);font-size:10px;text-transform:uppercase;letter-spacing:3px;color:var(--accent);margin-bottom:8px;}
+.stt{font-family:var(--fm);font-size:clamp(22px,4vw,36px);font-weight:700;text-transform:uppercase;letter-spacing:1px;line-height:1.2;margin-bottom:36px;}
+.stt em{font-style:normal;color:var(--accent);}
+.sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));border:var(--b);max-width:1200px;margin:0 auto;text-align:left;}
+.scard{padding:26px;border-right:var(--b);border-bottom:var(--b);background:var(--white);transition:background .15s;}
+.scard:hover{background:var(--g50);}
+.snum{font-family:var(--fm);font-size:48px;font-weight:700;color:var(--g100);line-height:1;margin-bottom:10px;}
+.stit{font-family:var(--fm);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:9px;color:var(--black);}
+.sdescb{font-size:13px;color:var(--g600);line-height:1.6;}
+.sacc{display:block;width:32px;height:3px;background:var(--accent);margin-bottom:12px;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ FAQ */
+.faqs{background:var(--g50);border-top:var(--b);padding:64px 32px;text-align:center;}
+.flist{max-width:800px;margin:0 auto;text-align:left;}
+.fio{border:var(--b);margin-bottom:-1px;background:var(--white);overflow:hidden;}
+.fq{font-family:var(--fm);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:18px 20px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;transition:background .15s;user-select:none;}
+.fq:hover{background:var(--g50);}
+.fq .ico{flex-shrink:0;font-family:var(--fm);font-size:18px;font-weight:700;color:var(--accent);transition:transform .2s;width:20px;text-align:center;}
+.fio.open .fq{background:var(--black);color:var(--white);}
+.fio.open .fq .ico{color:var(--accent);transform:rotate(45deg);}
+.fa{padding:0 20px;max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;font-size:14px;color:var(--g600);line-height:1.75;}
+.fio.open .fa{max-height:500px;padding:18px 20px 22px;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ABOUT */
+.ds{background:var(--black);color:var(--white);padding:64px 32px;border-top:var(--ba);text-align:center;}
+.dgrid{display:grid;grid-template-columns:1fr 1fr;gap:48px;max-width:1100px;margin:36px auto 0;text-align:left;}
+.db h3{font-family:var(--fm);font-size:13px;text-transform:uppercase;letter-spacing:2px;margin-bottom:12px;color:var(--accent);}
+.db p{font-size:14px;color:#d1d1d1;line-height:1.8;}
+.db ul{list-style:none;font-size:14px;color:#d1d1d1;line-height:1.8;}
+.db ul li::before{content:'→ ';color:var(--accent);font-family:var(--fm);}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ FOOTER */
+footer{background:var(--black);color:var(--g400);border-top:var(--b);padding:24px 32px;font-family:var(--fm);font-size:10px;letter-spacing:1px;text-transform:uppercase;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+footer a{color:var(--g400);text-decoration:none;}
+footer a:hover{color:var(--accent);}
+.fn{display:flex;gap:20px;flex-wrap:wrap;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ RESPONSIVE */
+@media(max-width:900px){.al{grid-template-columns:1fr;}.am{border-right:none;border-bottom:var(--b);}.dgrid{grid-template-columns:1fr;gap:28px;}}
+@media(max-width:768px){.preset-grid{grid-template-columns:1fr 1fr;}.dgrid{grid-template-columns:1fr;gap:32px;}}
+@media(max-width:600px){.th,.hts,.faqs,.ds{padding:40px 16px;}.ta{padding:16px;}.tg{grid-template-columns:1fr;}.sh{padding:12px 16px;}.sg{grid-template-columns:1fr;}.scard{border-right:none;}.preset-grid{grid-template-columns:1fr;}.alt-row{grid-template-columns:1fr 1fr 36px;grid-template-rows:auto auto;}.alt-row .lang-sel{grid-column:1/2;}.alt-row .url-inp{grid-column:1/3;}.alt-remove{grid-column:2/3;grid-row:1;}}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="header-container"></header>
+  
+<!-- ═══════════════ HERO ═══════════════ -->  
+<div class="th">
+  <p class="slb">Free SEO Tool</p>
+  <h1>Hreflang Tag<br><em>Generator</em></h1>
+  <p>Build correct hreflang link tags for multilingual and international SEO. Add language and region alternates, set an x-default fallback, and output HTML, HTTP Header, or Sitemap XML formats — instantly.</p>
+  <div class="hbg">
+    <span class="badge ac">Live Preview</span>
+    <span class="badge">Language + Region</span>
+    <span class="badge">x-default Support</span>
+    <span class="badge">HTML / HTTP / Sitemap</span>
+    <span class="badge">Validation</span>
+    <span class="badge">Quick Presets</span>
+  </div>
+</div>
+
+<!-- ═══════════════ TWO-COLUMN LAYOUT ═══════════════ -->
+<div class="al">
+
+  <!-- MAIN COLUMN -->
+  <div class="am">
+    <div class="ta">
+
+      <!-- ── GLOBAL SETTINGS ── -->
+      <div class="pn">
+        <div class="ph"><span class="dot"></span>Page Settings</div>
+        <div class="pb">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px;">
+            <div class="fg" style="margin-bottom:0;">
+              <label for="canonical-url">Canonical / Primary URL <span class="tip" data-tip="The primary version of this page. Used as the self-referencing hreflang tag.">?</span></label>
+              <input type="url" id="canonical-url" placeholder="https://example.com/en/" autocomplete="off" oninput="render();">
+            </div>
+            <div class="fg" style="margin-bottom:0;">
+              <label for="default-lang">Primary Language <span class="tip" data-tip="The language code for your canonical URL e.g. en, fr, de. Combined with optional region.">?</span></label>
+              <select id="default-lang" onchange="render();">
+                <!-- populated by JS -->
+              </select>
+            </div>
+          </div>
+          <div class="fg" style="margin-bottom:0;">
+            <label>Options</label>
+            <div class="tg">
+              <label class="ti">
+                <span class="tl">Include x-default <span class="tip" data-tip="Adds an x-default alternate pointing to the canonical URL for users with no matching language.">?</span></span>
+                <span class="ts"><input type="checkbox" id="tog-xdefault" checked onchange="render();"><span class="tt"></span></span>
+              </label>
+              <label class="ti">
+                <span class="tl">Self-referencing tag <span class="tip" data-tip="Each page should reference itself. Adds a hreflang for the canonical URL and primary language.">?</span></span>
+                <span class="ts"><input type="checkbox" id="tog-self" checked onchange="render();"><span class="tt"></span></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── QUICK PRESETS ── -->
+      <div class="pn">
+        <div class="ph"><span class="dot"></span>Quick Presets</div>
+        <div class="pb">
+          <p style="font-size:13px;color:var(--g600);margin-bottom:16px;line-height:1.6;">Apply a ready-made language set for common international configurations. Clicking a preset fills the canonical URL pattern and adds the alternates.</p>
+          <div class="preset-grid" id="preset-grid"></div>
+        </div>
+      </div>
+
+      <!-- ── ALTERNATES ── -->
+      <div class="pn">
+        <div class="ph">
+          <span class="dot"></span>Language Alternates
+          <span class="ph-right"><span class="ph-pill" id="alt-count">0 alternates</span></span>
+        </div>
+        <div class="pb">
+          <!-- column headers -->
+          <div style="display:grid;grid-template-columns:160px 1fr 36px;gap:8px;margin-bottom:6px;">
+            <span style="font-family:var(--fm);font-size:9px;text-transform:uppercase;letter-spacing:1.5px;color:var(--g400);padding-left:2px;">Language / Region</span>
+            <span style="font-family:var(--fm);font-size:9px;text-transform:uppercase;letter-spacing:1.5px;color:var(--g400);padding-left:2px;">Page URL</span>
+            <span></span>
+          </div>
+          <div id="alts-wrap"></div>
+          <button class="add-alt-btn" onclick="addAlt();">＋ Add Language Alternate</button>
+        </div>
+      </div>
+
+      <!-- ── OUTPUT PANEL ── -->
+      <div class="pn">
+        <div class="ph"><span class="dot"></span>Generated Hreflang Tags</div>
+        <div class="vt">
+          <button class="vtb active" data-tab="html" onclick="setTab('html')">HTML Tags</button>
+          <button class="vtb" data-tab="http" onclick="setTab('http')">HTTP Header</button>
+          <button class="vtb" data-tab="sitemap" onclick="setTab('sitemap')">Sitemap XML</button>
+        </div>
+
+        <div id="tab-html">
+          <div class="code-wrap">
+            <div class="code-box" id="code-html"></div>
+          </div>
+        </div>
+
+        <div id="tab-http" style="display:none;">
+          <div class="code-wrap">
+            <div class="code-box" id="code-http"></div>
+          </div>
+        </div>
+
+        <div id="tab-sitemap" style="display:none;">
+          <div class="code-wrap">
+            <div class="code-box" id="code-sitemap"></div>
+          </div>
+        </div>
+
+        <div style="padding:0 20px 20px;">
+          <div class="bg">
+            <button class="cb-btn" onclick="downloadFile();">⬇ Download Tags</button>
+            <button class="cb-btn out" id="copy-btn" onclick="copyFile();">📋 Copy</button>
+            <button class="cb-btn out" onclick="resetAll();" style="border-color:var(--bad);color:var(--bad);">✕ Reset</button>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /ta -->
+  </div><!-- /am -->
+
+  <!-- ═══════════════ SIDEBAR ═══════════════ -->
+  <div class="asb">
+    <div style="font-family:var(--fm);font-size:9px;text-transform:uppercase;letter-spacing:2px;color:var(--g400);margin-bottom:14px;">Tag Summary</div>
+
+    <div class="mc"><div class="ml">Total Tags</div><div class="mv" id="sb-total" style="color:var(--g400);">0</div><div class="ms" id="sb-total-s">Add alternates to begin</div></div>
+    <div class="mc"><div class="ml">Languages</div><div class="mv" id="sb-langs" style="color:var(--g400);">0</div><div class="ms" id="sb-langs-s">—</div></div>
+    <div class="mc"><div class="ml">Validation</div><div class="mv" id="sb-valid" style="color:var(--g400);font-size:14px;">—</div><div class="ms" id="sb-valid-s">—</div></div>
+
+    <div class="mc" style="margin-top:6px;">
+      <div class="ml">Tag Breakdown</div>
+      <div style="padding:12px;">
+        <div class="srow"><span class="sname">HTML</span><div class="strk"><div class="sfil" id="sf-html" style="width:0%;background:var(--g200);"></div></div><span class="sval" id="sv-html">0</span></div>
+        <div class="srow"><span class="sname">x-default</span><div class="strk"><div class="sfil" id="sf-xdef" style="width:0%;background:var(--g200);"></div></div><span class="sval" id="sv-xdef">0</span></div>
+        <div class="srow"><span class="sname">Self-ref</span><div class="strk"><div class="sfil" id="sf-self" style="width:0%;background:var(--g200);"></div></div><span class="sval" id="sv-self">0</span></div>
+      </div>
+    </div>
+
+    <div style="font-family:var(--fm);font-size:9px;text-transform:uppercase;letter-spacing:2px;color:var(--g400);margin:22px 0 10px;">Validation Checks</div>
+    <div id="val-checks" style="border:var(--b);background:var(--white);"></div>
+
+    <div style="font-family:var(--fm);font-size:9px;text-transform:uppercase;letter-spacing:2px;color:var(--g400);margin:22px 0 10px;">Quick Tips</div>
+    <div style="border:var(--b);padding:14px;background:var(--white);font-size:12px;color:var(--g600);line-height:1.85;">
+      <strong style="font-family:var(--fm);font-size:10px;display:block;margin-bottom:6px;color:var(--black);">STRUCTURE</strong>
+      → Must be fully reciprocal<br>→ Every page references all others<br>→ Include a self-referencing tag<br><br>
+      <strong style="font-family:var(--fm);font-size:10px;display:block;margin-bottom:6px;color:var(--black);">CODES</strong>
+      → Use ISO 639-1 language codes<br>→ Use ISO 3166-1 region codes<br>→ Format: lang or lang-REGION<br><br>
+      <strong style="font-family:var(--fm);font-size:10px;display:block;margin-bottom:6px;color:var(--black);">REMEMBER</strong>
+      → Always add x-default<br>→ Use absolute URLs only<br>→ Paste tags on every alternate page
+    </div>
+  </div>
+
+</div><!-- /al -->
+
+<!-- ═══════════════ HOW TO ═══════════════ -->
+<section class="hts" id="how-to">
+  <p class="slb">Step-by-Step Guide</p>
+  <h2 class="stt">How to Use the<br><em>Hreflang Generator</em></h2>
+  <div class="sg">
+    <div class="scard"><div class="snum">01</div><span class="sacc"></span><div class="stit">Enter Canonical URL</div><p class="sdescb">Type the primary version of your page into the Canonical URL field and select its language. This becomes the self-referencing hreflang entry.</p></div>
+    <div class="scard"><div class="snum">02</div><span class="sacc"></span><div class="stit">Apply a Preset</div><p class="sdescb">Choose a language preset — English-speaking markets, European languages, or Asian Pacific — to instantly populate a set of common alternates.</p></div>
+    <div class="scard"><div class="snum">03</div><span class="sacc"></span><div class="stit">Add Alternates</div><p class="sdescb">Click Add Language Alternate for each additional language or regional version. Select the language/region code and enter the full URL for that page.</p></div>
+    <div class="scard"><div class="snum">04</div><span class="sacc"></span><div class="stit">Configure Options</div><p class="sdescb">Toggle x-default and self-referencing tags. The x-default fallback is recommended whenever you have multiple language versions.</p></div>
+    <div class="scard"><div class="snum">05</div><span class="sacc"></span><div class="stit">Choose Output Format</div><p class="sdescb">Select HTML Tags for &lt;head&gt; placement, HTTP Header for server config, or Sitemap XML to add to your sitemap file. All three are generated automatically.</p></div>
+    <div class="scard"><div class="snum">06</div><span class="sacc"></span><div class="stit">Deploy on Every Page</div><p class="sdescb">Copy or download the tags and paste them into every page in the set — not just the canonical. Hreflang only works when all pages reference each other.</p></div>
+  </div>
+</section>
+
+<!-- ═══════════════ FAQ ═══════════════ -->
+<section class="faqs" id="faq">
+  <p class="slb">Common Questions</p>
+  <h2 class="stt">Frequently Asked<br><em>Questions</em></h2>
+  <div class="flist">
+    <div class="fio"><div class="fq" onclick="tfaq(this);">What is an hreflang tag and why do I need it? <span class="ico">+</span></div><div class="fa">An hreflang tag is an HTML link element that tells search engines which language and/or regional version of a page to show to users. It uses ISO 639-1 language codes (e.g. en, fr, de) and optional ISO 3166-1 region codes (e.g. US, GB, AU). Without hreflang, Google may show the wrong language version to international users or treat your alternate pages as duplicate content.</div></div>
+    <div class="fio"><div class="fq" onclick="tfaq(this);">What is the x-default hreflang value? <span class="ico">+</span></div><div class="fa">The x-default value designates a fallback page for users whose language or region does not match any specific hreflang alternate. It is typically set to a global homepage, a language selector page, or the primary language version. Google recommends including x-default whenever you have multiple regional or language variants on your site.</div></div>
+    <div class="fio"><div class="fq" onclick="tfaq(this);">Where do I place the hreflang tags? <span class="ico">+</span></div><div class="fa">Hreflang can be implemented in three ways: (1) HTML link tags in the &lt;head&gt; section of each page — most common and widely supported, (2) HTTP response headers — useful for non-HTML files like PDFs, or (3) your XML sitemap. You only need one method per site. The HTML Tags tab in this generator covers the most common use case.</div></div>
+    <div class="fio"><div class="fq" onclick="tfaq(this);">Do all pages in the set need to reference each other? <span class="ico">+</span></div><div class="fa">Yes, absolutely. Hreflang tags must be fully reciprocal. If page A references page B, then page B must also reference page A — and every other page in the set. If any page is missing a back-reference to the others, search engines may ignore the entire hreflang annotation. This is the single most common hreflang implementation error.</div></div>
+    <div class="fio"><div class="fq" onclick="tfaq(this);">Does hreflang affect my search rankings? <span class="ico">+</span></div><div class="fa">Hreflang does not directly boost rankings. Its purpose is to ensure the correct language or regional URL appears in search results for the right audience, which can significantly improve click-through rates and reduce bounce rates. It also prevents self-cannibalization issues that arise when search engines see multiple near-identical pages competing for the same query from users of the same region.</div></div>
+  </div>
+</section>
+
+<!-- ═══════════════ ABOUT ═══════════════ -->
+<section class="ds" id="about">
+  <p class="slb">About This Tool</p>
+  <h2 class="stt" style="color:var(--white);">What is an<br><em>Hreflang Tag Generator?</em></h2>
+  <div class="dgrid">
+    <div class="db"><h3>The Tool</h3><p>The SEO HQ Hreflang Tag Generator lets you build a complete set of hreflang link annotations without writing a line of code. Add language and region alternates, toggle x-default and self-referencing tags, choose from HTML, HTTP Header, or Sitemap XML output — all with a live preview that updates on every keystroke.</p></div>
+    <div class="db"><h3>Why It Matters</h3><p>Without correct hreflang implementation, Google may serve the wrong language version to international visitors, or treat your multilingual pages as duplicate content. A correctly annotated hreflang set ensures each user sees the most relevant version of your content in search results, directly improving engagement and reducing bounce rates for international audiences.</p></div>
+    <div class="db"><h3>Key Features</h3><ul><li>Language and region code selector (ISO 639-1 + 3166-1)</li><li>x-default fallback tag support</li><li>Self-referencing tag toggle</li><li>HTML, HTTP Header, and Sitemap XML output</li><li>Live validation with specific error messages</li><li>Quick presets for common international configurations</li></ul></div>
+    <div class="db"><h3>Best Practices</h3><ul><li>Always use absolute URLs in hreflang tags</li><li>Every page in the set must reference every other</li><li>Include a self-referencing hreflang on each page</li><li>Add x-default to handle unmatched languages</li><li>Use lang-REGION format for regional targeting (e.g. en-GB)</li><li>Validate with Google Search Console after deployment</li></ul></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer-container"></footer>
+
+<script src="components/header.js"></script>
+<script src="components/footer.js"></script>
+<script src="components/sidebar.js"></script>
+<script src="script.js"></script>
+
+<script>
+/* ═══════════════════════════════════════════════════════════
+   LANGUAGE + REGION DATA
+═══════════════════════════════════════════════════════════ */
+const LANG_OPTIONS = [
+  // Language only
+  {v:'af',    l:'af — Afrikaans'},
+  {v:'ar',    l:'ar — Arabic'},
+  {v:'bg',    l:'bg — Bulgarian'},
+  {v:'bn',    l:'bn — Bengali'},
+  {v:'ca',    l:'ca — Catalan'},
+  {v:'cs',    l:'cs — Czech'},
+  {v:'da',    l:'da — Danish'},
+  {v:'de',    l:'de — German'},
+  {v:'el',    l:'el — Greek'},
+  {v:'en',    l:'en — English'},
+  {v:'es',    l:'es — Spanish'},
+  {v:'et',    l:'et — Estonian'},
+  {v:'fa',    l:'fa — Persian'},
+  {v:'fi',    l:'fi — Finnish'},
+  {v:'fr',    l:'fr — French'},
+  {v:'gu',    l:'gu — Gujarati'},
+  {v:'he',    l:'he — Hebrew'},
+  {v:'hi',    l:'hi — Hindi'},
+  {v:'hr',    l:'hr — Croatian'},
+  {v:'hu',    l:'hu — Hungarian'},
+  {v:'id',    l:'id — Indonesian'},
+  {v:'it',    l:'it — Italian'},
+  {v:'ja',    l:'ja — Japanese'},
+  {v:'kn',    l:'kn — Kannada'},
+  {v:'ko',    l:'ko — Korean'},
+  {v:'lt',    l:'lt — Lithuanian'},
+  {v:'lv',    l:'lv — Latvian'},
+  {v:'ml',    l:'ml — Malayalam'},
+  {v:'mr',    l:'mr — Marathi'},
+  {v:'ms',    l:'ms — Malay'},
+  {v:'nl',    l:'nl — Dutch'},
+  {v:'no',    l:'no — Norwegian'},
+  {v:'pa',    l:'pa — Punjabi'},
+  {v:'pl',    l:'pl — Polish'},
+  {v:'pt',    l:'pt — Portuguese'},
+  {v:'ro',    l:'ro — Romanian'},
+  {v:'ru',    l:'ru — Russian'},
+  {v:'sk',    l:'sk — Slovak'},
+  {v:'sl',    l:'sl — Slovenian'},
+  {v:'sr',    l:'sr — Serbian'},
+  {v:'sv',    l:'sv — Swedish'},
+  {v:'sw',    l:'sw — Swahili'},
+  {v:'ta',    l:'ta — Tamil'},
+  {v:'te',    l:'te — Telugu'},
+  {v:'th',    l:'th — Thai'},
+  {v:'tr',    l:'tr — Turkish'},
+  {v:'uk',    l:'uk — Ukrainian'},
+  {v:'ur',    l:'ur — Urdu'},
+  {v:'vi',    l:'vi — Vietnamese'},
+  {v:'zh',    l:'zh — Chinese'},
+  // Language + Region
+  {v:'en-AU', l:'en-AU — English (Australia)'},
+  {v:'en-CA', l:'en-CA — English (Canada)'},
+  {v:'en-GB', l:'en-GB — English (UK)'},
+  {v:'en-IE', l:'en-IE — English (Ireland)'},
+  {v:'en-IN', l:'en-IN — English (India)'},
+  {v:'en-NZ', l:'en-NZ — English (New Zealand)'},
+  {v:'en-SG', l:'en-SG — English (Singapore)'},
+  {v:'en-US', l:'en-US — English (USA)'},
+  {v:'en-ZA', l:'en-ZA — English (South Africa)'},
+  {v:'de-AT', l:'de-AT — German (Austria)'},
+  {v:'de-CH', l:'de-CH — German (Switzerland)'},
+  {v:'de-DE', l:'de-DE — German (Germany)'},
+  {v:'fr-BE', l:'fr-BE — French (Belgium)'},
+  {v:'fr-CA', l:'fr-CA — French (Canada)'},
+  {v:'fr-CH', l:'fr-CH — French (Switzerland)'},
+  {v:'fr-FR', l:'fr-FR — French (France)'},
+  {v:'es-AR', l:'es-AR — Spanish (Argentina)'},
+  {v:'es-CL', l:'es-CL — Spanish (Chile)'},
+  {v:'es-CO', l:'es-CO — Spanish (Colombia)'},
+  {v:'es-ES', l:'es-ES — Spanish (Spain)'},
+  {v:'es-MX', l:'es-MX — Spanish (Mexico)'},
+  {v:'es-US', l:'es-US — Spanish (USA)'},
+  {v:'pt-BR', l:'pt-BR — Portuguese (Brazil)'},
+  {v:'pt-PT', l:'pt-PT — Portuguese (Portugal)'},
+  {v:'zh-CN', l:'zh-CN — Chinese (Simplified, China)'},
+  {v:'zh-HK', l:'zh-HK — Chinese (Hong Kong)'},
+  {v:'zh-TW', l:'zh-TW — Chinese (Traditional, Taiwan)'},
+  {v:'nl-BE', l:'nl-BE — Dutch (Belgium)'},
+  {v:'nl-NL', l:'nl-NL — Dutch (Netherlands)'},
+  {v:'it-CH', l:'it-CH — Italian (Switzerland)'},
+  {v:'it-IT', l:'it-IT — Italian (Italy)'},
+  {v:'ko-KR', l:'ko-KR — Korean (South Korea)'},
+  {v:'ja-JP', l:'ja-JP — Japanese (Japan)'},
+  {v:'ru-RU', l:'ru-RU — Russian (Russia)'},
+  {v:'ar-AE', l:'ar-AE — Arabic (UAE)'},
+  {v:'ar-SA', l:'ar-SA — Arabic (Saudi Arabia)'},
+];
+
+/* ═══════════════════════════════════════════════════════════
+   PRESETS
+═══════════════════════════════════════════════════════════ */
+const PRESETS = [
+  {
+    key:'english-speaking',
+    title:'English-Speaking',
+    desc:'US, UK, CA, AU, IE',
+    base:'https://example.com/',
+    alts:[
+      {lang:'en-US', path:'en-us/'},
+      {lang:'en-GB', path:'en-gb/'},
+      {lang:'en-CA', path:'en-ca/'},
+      {lang:'en-AU', path:'en-au/'},
+      {lang:'en-IE', path:'en-ie/'},
+    ]
+  },
+  {
+    key:'european',
+    title:'European',
+    desc:'EN, DE, FR, ES, IT, NL',
+    base:'https://example.com/',
+    alts:[
+      {lang:'en',    path:'en/'},
+      {lang:'de',    path:'de/'},
+      {lang:'fr',    path:'fr/'},
+      {lang:'es',    path:'es/'},
+      {lang:'it',    path:'it/'},
+      {lang:'nl',    path:'nl/'},
+    ]
+  },
+  {
+    key:'asia-pacific',
+    title:'Asia Pacific',
+    desc:'EN, JA, ZH-CN, ZH-TW, KO',
+    base:'https://example.com/',
+    alts:[
+      {lang:'en',    path:'en/'},
+      {lang:'ja-JP', path:'ja/'},
+      {lang:'zh-CN', path:'zh-cn/'},
+      {lang:'zh-TW', path:'zh-tw/'},
+      {lang:'ko-KR', path:'ko/'},
+    ]
+  },
+  {
+    key:'latam',
+    title:'Latin America',
+    desc:'ES-MX, ES-AR, ES-CO, PT-BR',
+    base:'https://example.com/',
+    alts:[
+      {lang:'es',    path:'es/'},
+      {lang:'es-MX', path:'es-mx/'},
+      {lang:'es-AR', path:'es-ar/'},
+      {lang:'es-CO', path:'es-co/'},
+      {lang:'pt-BR', path:'pt-br/'},
+    ]
+  },
+  {
+    key:'global-fr-de',
+    title:'Global + DE/FR',
+    desc:'EN, DE, DE-AT, FR, FR-CA',
+    base:'https://example.com/',
+    alts:[
+      {lang:'en',    path:'en/'},
+      {lang:'de-DE', path:'de/'},
+      {lang:'de-AT', path:'de-at/'},
+      {lang:'fr-FR', path:'fr/'},
+      {lang:'fr-CA', path:'fr-ca/'},
+    ]
+  },
+  {
+    key:'arabic',
+    title:'Arabic Markets',
+    desc:'AR, AR-SA, AR-AE',
+    base:'https://example.com/',
+    alts:[
+      {lang:'ar',    path:'ar/'},
+      {lang:'ar-SA', path:'ar-sa/'},
+      {lang:'ar-AE', path:'ar-ae/'},
+      {lang:'en',    path:'en/'},
+    ]
+  },
+];
+
+/* ═══════════════════════════════════════════════════════════
+   STATE
+═══════════════════════════════════════════════════════════ */
+let alts = [];  // [{id, lang, url}]
+let aid  = 0;
+let curTab = 'html';
+
+const $ = id => document.getElementById(id);
+
+/* ═══════════════════════════════════════════════════════════
+   INIT SELECT OPTIONS
+═══════════════════════════════════════════════════════════ */
+function initSelects(){
+  const sel = $('default-lang');
+  LANG_OPTIONS.forEach(o => {
+    const opt = document.createElement('option');
+    opt.value = o.v; opt.textContent = o.l;
+    if(o.v === 'en') opt.selected = true;
+    sel.appendChild(opt);
+  });
+}
+
+function buildLangSelect(selectedVal){
+  let html = '';
+  LANG_OPTIONS.forEach(o => {
+    html += `<option value="${o.v}"${o.v===selectedVal?' selected':''}>${escHTML(o.l)}</option>`;
+  });
+  return html;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PRESETS
+═══════════════════════════════════════════════════════════ */
+function initPresets(){
+  const grid = $('preset-grid');
+  grid.innerHTML = PRESETS.map(p =>
+    `<div class="pc" onclick="applyPreset('${p.key}')" data-key="${p.key}">
+      <div class="pc-title">${p.title}</div>
+      <div class="pc-desc">${p.desc}</div>
+    </div>`
+  ).join('');
+}
+
+function applyPreset(key){
+  const p = PRESETS.find(x=>x.key===key);
+  if(!p) return;
+
+  // Set canonical
+  $('canonical-url').value = p.base;
+
+  // Clear and rebuild alts
+  alts = [];
+  aid  = 0;
+  p.alts.forEach(a => {
+    alts.push({id:aid++, lang:a.lang, url:p.base + a.path});
+  });
+
+  // Mark preset applied
+  document.querySelectorAll('.pc').forEach(c => c.classList.remove('applied'));
+  const el = document.querySelector(`.pc[data-key="${key}"]`);
+  if(el) el.classList.add('applied');
+
+  renderAlts();
+  render();
+}
+
+/* ═══════════════════════════════════════════════════════════
+   ADD / REMOVE ALTERNATES
+═══════════════════════════════════════════════════════════ */
+function addAlt(){
+  alts.push({id:aid++, lang:'en', url:''});
+  renderAlts();
+  render();
+}
+
+function removeAlt(id){
+  alts = alts.filter(a=>a.id!==id);
+  renderAlts();
+  render();
+}
+
+function onAltLang(id, val){
+  const a = alts.find(x=>x.id===id);
+  if(a){ a.lang=val; render(); }
+}
+
+function onAltUrl(id, val){
+  const a = alts.find(x=>x.id===id);
+  if(a){ a.url=val; render(); }
+}
+
+function renderAlts(){
+  const wrap = $('alts-wrap');
+  if(alts.length === 0){
+    wrap.innerHTML = `<div class="empty-st"><span class="ei">🌐</span>No alternates yet.<br>Add a language to generate hreflang tags.</div>`;
+    return;
+  }
+  wrap.innerHTML = alts.map(a => `
+    <div class="alt-row">
+      <select class="lang-sel" onchange="onAltLang(${a.id},this.value)">${buildLangSelect(a.lang)}</select>
+      <input class="url-inp" type="url" placeholder="https://example.com/fr/" value="${escAttr(a.url)}" oninput="onAltUrl(${a.id},this.value)">
+      <button class="alt-remove" onclick="removeAlt(${a.id})" title="Remove">✕</button>
+    </div>
+  `).join('');
+
+  $('alt-count').textContent = alts.length + (alts.length===1?' alternate':' alternates');
+}
+
+/* ═══════════════════════════════════════════════════════════
+   BUILD TAG SETS
+═══════════════════════════════════════════════════════════ */
+function buildTagSet(){
+  const canonical = $('canonical-url').value.trim();
+  const primaryLang = $('default-lang').value;
+  const includeXDefault = $('tog-xdefault').checked;
+  const includeSelf = $('tog-self').checked;
+
+  const entries = []; // [{lang, url}]
+
+  if(includeSelf && canonical){
+    entries.push({lang: primaryLang, url: canonical});
+  }
+
+  alts.forEach(a => {
+    if(a.url.trim()) entries.push({lang:a.lang, url:a.url.trim()});
+  });
+
+  if(includeXDefault && canonical){
+    entries.push({lang:'x-default', url: canonical});
+  }
+
+  return {entries, canonical, primaryLang, includeXDefault, includeSelf};
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RENDER OUTPUT
+═══════════════════════════════════════════════════════════ */
+function render(){
+  const {entries, canonical} = buildTagSet();
+
+  // ── HTML tags ──
+  let html = '';
+  if(entries.length === 0){
+    html = `<span class="hl-com">&lt;!-- Add at least one language alternate to generate tags --&gt;</span>`;
+  } else {
+    entries.forEach(e => {
+      html += `<span class="hl-tag">&lt;link</span> <span class="hl-attr">rel</span>=<span class="hl-str">"alternate"</span> <span class="hl-attr">hreflang</span>=<span class="hl-str">"${escHTML(e.lang)}"</span> <span class="hl-attr">href</span>=<span class="hl-str">"${escHTML(e.url)}"</span><span class="hl-tag">&gt;</span>\n`;
+    });
+  }
+  $('code-html').innerHTML = html;
+
+  // ── HTTP Header ──
+  let httpOut = '';
+  if(entries.length === 0){
+    httpOut = `<span class="hl-com"># Add alternates to generate HTTP header output</span>`;
+  } else {
+    httpOut = `<span class="hl-com"># Add to .htaccess or server config (Apache)</span>\n<span class="hl-key">&lt;FilesMatch "\\.(html|htm|php)$"&gt;</span>\n`;
+    entries.forEach(e => {
+      httpOut += `  <span class="hl-attr">Header add Link</span> <span class="hl-str">'&lt;${escHTML(e.url)}&gt;; rel="alternate"; hreflang="${escHTML(e.lang)}"'</span>\n`;
+    });
+    httpOut += `<span class="hl-key">&lt;/FilesMatch&gt;</span>`;
+  }
+  $('code-http').innerHTML = httpOut;
+
+  // ── Sitemap XML ──
+  let sitemapOut = '';
+  if(entries.length === 0){
+    sitemapOut = `<span class="hl-com">&lt;!-- Add alternates to generate sitemap XML output --&gt;</span>`;
+  } else {
+    // Group by page (canonical + each alt url)
+    const urls = [...new Set(entries.map(e=>e.url))];
+    sitemapOut  = `<span class="hl-tag">&lt;?xml</span> <span class="hl-attr">version</span>=<span class="hl-str">"1.0"</span> <span class="hl-attr">encoding</span>=<span class="hl-str">"UTF-8"</span><span class="hl-tag">?&gt;</span>\n`;
+    sitemapOut += `<span class="hl-tag">&lt;urlset</span>\n  <span class="hl-attr">xmlns</span>=<span class="hl-str">"http://www.sitemaps.org/schemas/sitemap/0.9"</span>\n  <span class="hl-attr">xmlns:xhtml</span>=<span class="hl-str">"http://www.w3.org/1999/xhtml"</span><span class="hl-tag">&gt;</span>\n\n`;
+    urls.forEach(pageUrl => {
+      sitemapOut += `  <span class="hl-tag">&lt;url&gt;</span>\n    <span class="hl-tag">&lt;loc&gt;</span>${escHTML(pageUrl)}<span class="hl-tag">&lt;/loc&gt;</span>\n`;
+      entries.forEach(e => {
+        sitemapOut += `    <span class="hl-tag">&lt;xhtml:link</span>\n      <span class="hl-attr">rel</span>=<span class="hl-str">"alternate"</span>\n      <span class="hl-attr">hreflang</span>=<span class="hl-str">"${escHTML(e.lang)}"</span>\n      <span class="hl-attr">href</span>=<span class="hl-str">"${escHTML(e.url)}"</span><span class="hl-tag">/&gt;</span>\n`;
+      });
+      sitemapOut += `  <span class="hl-tag">&lt;/url&gt;</span>\n\n`;
+    });
+    sitemapOut += `<span class="hl-tag">&lt;/urlset&gt;</span>`;
+  }
+  $('code-sitemap').innerHTML = sitemapOut;
+
+  updateSidebar(entries);
+  updateChecks(entries, canonical);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SIDEBAR
+═══════════════════════════════════════════════════════════ */
+function updateSidebar(entries){
+  const total = entries.length;
+  const hasXDef = entries.some(e=>e.lang==='x-default') ? 1 : 0;
+  const hasSelf = $('tog-self').checked ? 1 : 0;
+  const altCount = total - hasXDef - hasSelf;
+
+  $('sb-total').textContent = total || '0';
+  $('sb-total').className = 'mv' + (total>0?' good':'');
+  $('sb-total-s').textContent = total>0 ? total+' tags generated' : 'Add alternates to begin';
+
+  const uniqueLangs = new Set(entries.filter(e=>e.lang!=='x-default').map(e=>e.lang)).size;
+  $('sb-langs').textContent = uniqueLangs || '0';
+  $('sb-langs').className = 'mv' + (uniqueLangs>0?' good':'');
+  $('sb-langs-s').textContent = uniqueLangs>0 ? uniqueLangs+' languages' : '—';
+
+  setBar('sf-html','sv-html', altCount, Math.max(altCount,1), '#79c0ff');
+  setBar('sf-xdef','sv-xdef', hasXDef, 1, '#ffa657');
+  setBar('sf-self','sv-self', hasSelf, 1, '#56d364');
+}
+
+function setBar(fillId, valId, val, max, col){
+  const pct = max>0 ? Math.round((val/max)*100) : 0;
+  const f = $(fillId); const v = $(valId);
+  f.style.width = pct+'%';
+  f.style.background = val>0 ? col : 'var(--g200)';
+  v.textContent = val;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   VALIDATION
+═══════════════════════════════════════════════════════════ */
+function updateChecks(entries, canonical){
+  const checks = [];
+
+  const hasCanonical = !!canonical;
+  checks.push({ok:hasCanonical, label:'Canonical URL set'});
+
+  const hasAlts = alts.length > 0;
+  checks.push({ok:hasAlts, label:'At least one alternate'});
+
+  const allUrlsFilled = alts.every(a=>a.url.trim().length>0);
+  checks.push({ok:alts.length===0||allUrlsFilled, label:'All URLs filled'});
+
+  const allAbsolute = entries.every(e=>e.url.startsWith('http://') || e.url.startsWith('https://'));
+  checks.push({ok:entries.length===0||allAbsolute, label:'All URLs are absolute'});
+
+  const hasXDefault = entries.some(e=>e.lang==='x-default');
+  checks.push({ok:hasXDefault, label:'x-default tag present'});
+
+  const hasSelfRef = $('tog-self').checked && !!canonical;
+  checks.push({ok:hasSelfRef, label:'Self-referencing tag'});
+
+  const noDupeUrls = (() => {
+    const urls = entries.filter(e=>e.lang!=='x-default').map(e=>e.url);
+    return urls.length === new Set(urls).size;
+  })();
+  checks.push({ok:noDupeUrls, label:'No duplicate URLs'});
+
+  const noDupeLangs = (() => {
+    const langs = entries.filter(e=>e.lang!=='x-default').map(e=>e.lang);
+    return langs.length === new Set(langs).size;
+  })();
+  checks.push({ok:noDupeLangs, label:'No duplicate lang codes'});
+
+  const passCount = checks.filter(c=>c.ok).length;
+  const isValid = passCount === checks.length;
+
+  $('sb-valid').textContent = isValid ? '✓ Valid' : passCount+'/'+checks.length;
+  $('sb-valid').className   = 'mv ' + (isValid?'good':(passCount>=checks.length-2?'warn':'bad'));
+  $('sb-valid-s').textContent = isValid ? 'All checks passed' : (checks.length-passCount)+' issue'+(checks.length-passCount!==1?'s':'');
+
+  const container = $('val-checks');
+  container.innerHTML = checks.map(c => `
+    <div class="chk-row">
+      <div class="chk-dot" style="background:${c.ok?'var(--ok)':'var(--bad)'};width:8px;height:8px;flex-shrink:0;"></div>
+      <span style="color:${c.ok?'var(--black)':'var(--bad)'}">${c.label}</span>
+    </div>
+  `).join('');
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RAW TEXT GENERATORS
+═══════════════════════════════════════════════════════════ */
+function getRawByTab(){
+  const {entries} = buildTagSet();
+  if(curTab==='html'){
+    return entries.map(e => `<link rel="alternate" hreflang="${e.lang}" href="${e.url}">`).join('\n');
+  }
+  if(curTab==='http'){
+    if(entries.length===0) return '';
+    let out = '# Add to .htaccess or server config (Apache)\n<FilesMatch "\\.(html|htm|php)$">\n';
+    entries.forEach(e => {
+      out += `  Header add Link '<${e.url}>; rel="alternate"; hreflang="${e.lang}"'\n`;
+    });
+    out += '</FilesMatch>';
+    return out;
+  }
+  if(curTab==='sitemap'){
+    if(entries.length===0) return '';
+    const urls = [...new Set(entries.map(e=>e.url))];
+    let out = '<?xml version="1.0" encoding="UTF-8"?>\n';
+    out += '<urlset\n  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n  xmlns:xhtml="http://www.w3.org/1999/xhtml">\n\n';
+    urls.forEach(pageUrl => {
+      out += `  <url>\n    <loc>${pageUrl}</loc>\n`;
+      entries.forEach(e => {
+        out += `    <xhtml:link\n      rel="alternate"\n      hreflang="${e.lang}"\n      href="${e.url}"/>\n`;
+      });
+      out += `  </url>\n\n`;
+    });
+    out += '</urlset>';
+    return out;
+  }
+  return '';
+}
+
+/* ═══════════════════════════════════════════════════════════
+   DOWNLOAD / COPY / RESET
+═══════════════════════════════════════════════════════════ */
+function downloadFile(){
+  const raw = getRawByTab();
+  if(!raw.trim()){alert('Add at least one alternate before downloading.');return;}
+  const ext = curTab==='sitemap'?'xml':'txt';
+  const name = curTab==='sitemap'?'sitemap-hreflang.xml':curTab==='http'?'hreflang-headers.txt':'hreflang-tags.html';
+  const blob = new Blob([raw],{type:'text/plain'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = name;
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+function copyFile(){
+  const raw = getRawByTab();
+  if(!raw.trim()){alert('Nothing to copy yet.');return;}
+  navigator.clipboard.writeText(raw).then(()=>{
+    const btn = $('copy-btn');
+    const orig = btn.textContent;
+    btn.textContent='✓ Copied!';
+    btn.style.cssText='background:var(--ok);color:var(--white);border-color:var(--ok);';
+    setTimeout(()=>{btn.textContent=orig;btn.style.cssText='';},2000);
+  }).catch(()=>alert('Copy failed. Please select the text manually.'));
+}
+
+function resetAll(){
+  if(alts.length>0 && !confirm('Reset everything and start fresh?')) return;
+  alts=[]; aid=0;
+  $('canonical-url').value='';
+  $('default-lang').value='en';
+  $('tog-xdefault').checked=true;
+  $('tog-self').checked=true;
+  document.querySelectorAll('.pc').forEach(c=>c.classList.remove('applied'));
+  renderAlts();
+  render();
+}
+
+/* ═══════════════════════════════════════════════════════════
+   TABS / FAQ
+═══════════════════════════════════════════════════════════ */
+function setTab(tab){
+  curTab=tab;
+  document.querySelectorAll('.vtb').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));
+  $('tab-html').style.display    = tab==='html'   ?'':'none';
+  $('tab-http').style.display    = tab==='http'   ?'':'none';
+  $('tab-sitemap').style.display = tab==='sitemap'?'':'none';
+}
+
+function tfaq(el){ el.parentElement.classList.toggle('open'); }
+
+/* ═══════════════════════════════════════════════════════════
+   UTILS
+═══════════════════════════════════════════════════════════ */
+function escHTML(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function escAttr(s){ return String(s||'').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
+
+/* ═══════════════════════════════════════════════════════════
+   INIT
+═══════════════════════════════════════════════════════════ */
+window.addEventListener('DOMContentLoaded',()=>{
+  initSelects();
+  initPresets();
+
+  // Demo state
+  $('canonical-url').value = 'https://example.com/en/';
+  $('default-lang').value  = 'en';
+
+  alts = [
+    {id:aid++, lang:'de',    url:'https://example.com/de/'},
+    {id:aid++, lang:'fr',    url:'https://example.com/fr/'},
+    {id:aid++, lang:'es',    url:'https://example.com/es/'},
+    {id:aid++, lang:'pt-BR', url:'https://example.com/pt-br/'},
+  ];
+
+  renderAlts();
+  render();
+});
+</script>
+</body>
+</html>
