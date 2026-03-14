@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-55VW7WFNC5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-55VW7WFNC5');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9759808041159779" crossorigin="anonymous"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Structured Data Validator | SEO HQ – Free JSON-LD Schema Checker</title>
+<meta name="description" content="Free Structured Data Validator. Paste JSON-LD, Microdata, or RDFa and instantly validate schema markup for errors, missing required fields, and Google Rich Result eligibility.">
+<meta name="keywords" content="structured data validator, JSON-LD validator, schema markup checker, rich results test, schema.org validator, structured data checker, JSON-LD tester, microdata validator">
+<meta name="author" content="SEO HQ">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Structured Data Validator | SEO HQ">
+<meta property="og:description" content="Validate JSON-LD structured data instantly. Check for syntax errors, missing required properties, and Google Rich Result eligibility with a full schema.org compliance report.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://seohq.github.io/structured-data-validator">
+  <link rel="stylesheet" href="styles.css">
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Structured Data Validator","url":"https://seohq.github.io/structured-data-validator","description":"Free tool to validate JSON-LD structured data markup for syntax errors, missing required fields, and Google Rich Result eligibility.","applicationCategory":"SEOApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"SEO HQ","url":"https://seohq.github.io/"},"featureList":["JSON-LD syntax validation","Schema type detection","Required field checking","Google Rich Result eligibility","Warning and error breakdown","Schema.org type templates","Pretty-print formatter","Copy to clipboard"]}
+</script>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is structured data?","acceptedAnswer":{"@type":"Answer","text":"Structured data is a standardized format for providing information about a page and classifying its content. Using schema.org vocabulary with JSON-LD, Microdata, or RDFa markup, you can explicitly tell search engines what your content means — not just what it says. This enables rich results like star ratings, FAQs, breadcrumbs, and product prices to appear directly in Google search results."}},{"@type":"Question","name":"What is JSON-LD and why is it recommended?","acceptedAnswer":{"@type":"Answer","text":"JSON-LD (JavaScript Object Notation for Linked Data) is Google's recommended format for structured data. It is placed in a script tag in the page head or body, keeping it separate from HTML markup. This separation makes it easier to implement, debug, and update without risk of breaking the page layout. Unlike Microdata or RDFa, JSON-LD does not require interweaving schema attributes throughout your HTML."}},{"@type":"Question","name":"What are required vs recommended properties?","acceptedAnswer":{"@type":"Answer","text":"Required properties are the minimum fields Google needs to process and potentially display a rich result for that schema type. Missing required properties disqualifies a page from rich results entirely. Recommended properties are optional but increase the richness and accuracy of the result shown in search. This validator checks both, flagging errors for missing required fields and warnings for missing recommended ones."}},{"@type":"Question","name":"Will valid structured data guarantee rich results?","acceptedAnswer":{"@type":"Answer","text":"No. Passing validation is a prerequisite but not a guarantee. Google uses many signals to decide whether to display rich results, including content quality, site authority, and user context. Your structured data must accurately represent the on-page content — Google may penalize pages where the markup misrepresents what users actually see."}},{"@type":"Question","name":"Where should I place JSON-LD on my page?","acceptedAnswer":{"@type":"Answer","text":"JSON-LD can be placed anywhere in the HTML document — in the head or body. Google recommends the head for ease of discovery, but it is not required. You can have multiple JSON-LD blocks on a single page for different schema types. Each block should be a self-contained script tag with type='application/ld+json'."}}]}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ TOKENS */
+:root{
+  --black:#0a0a0a;--white:#fafafa;--g50:#f7f7f7;--g100:#ebebeb;--g200:#d1d1d1;
+  --g400:#888;--g600:#555;--g800:#222;
+  --accent:#c8401a;--ok:#1a7a3c;--warn:#c47a00;--bad:#c81a1a;
+  --fm:'Space Mono',monospace;--fb:'DM Sans',sans-serif;
+  --b:1px solid #0a0a0a;--bt:3px solid #0a0a0a;--ba:3px solid #c8401a;
+  --sh:4px 4px 0 #0a0a0a;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--fb);background:var(--g50);color:var(--black);font-size:16px;line-height:1.6;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ HEADER */
+.sh{background:var(--black);color:var(--white);padding:14px 32px;display:flex;align-items:center;justify-content:space-between;border-bottom:var(--ba);position:sticky;top:0;z-index:100;}
+.sl{font-family:var(--fm);font-size:18px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--white);text-decoration:none;}
+.sl span{color:var(--accent);}
+.ht{font-family:var(--fm);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--g400);background:var(--g800);border:1px solid var(--g600);padding:4px 10px;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ HERO */
+.th{background:var(--black);color:var(--white);padding:48px 32px 40px;border-bottom:var(--bt);position:relative;overflow:hidden;}
+.th::before{content:'';position:absolute;top:0;right:0;width:350px;height:100%;background:repeating-linear-gradient(45deg,transparent,transparent 12px,rgba(200,64,26,.08) 12px,rgba(200,64,26,.08) 13px);pointer-events:none;}
+.th h1{font-family:var(--fm);font-size:clamp(28px,5vw,52px);font-weight:700;text-transform:uppercase;letter-spacing:2px;line-height:1.1;max-width:700px;}
+.th h1 em{font-style:normal;color:var(--accent);}
+.th p{margin-top:16px;font-size:16px;color:#d1d1d1;max-width:600px;line-height:1.7;}
+.hbg{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px;}
+.badge{font-family:var(--fm);font-size:10px;text-transform:uppercase;letter-spacing:1.5px;padding:5px 12px;border:1px solid var(--g600);color:var(--g400);}
+.badge.ac{border-color:var(--accent);color:var(--accent);}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ LAYOUT */
+.al{display:grid;grid-template-columns:1fr 340px;max-width:1000px;margin:0 auto;}
+.am{border-right:var(--b);}
+.asb{padding:28px 20px;background:var(--white);}
+.ta{padding:28px;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PANEL */
+.pn{background:var(--white);border:var(--b);margin-bottom:20px;}
+.ph{background:var(--black);color:var(--white);padding:10px 18px;font-family:var(--fm);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;display:flex;align-items:center;gap:8px;}
+.ph .dot{width:8px;height:8px;background:var(--accent);flex-shrink:0;}
+.ph-right{margin-left:auto;}
+.ph-pill{font-family:var(--fm);font-size:10px;font-weight:700;color:var(--accent);background:rgba(200,64,26,.15);border:1px solid rgba(200,64,26,.3);padding:2px 9px;letter-spacing:1px;}
+.pb{padding:22px;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ FIELDS */
+.fg{margin-bottom:18px;}
+.fg:last-child{margin-bottom:0;}
+label{display:block;font-family:var(--fm);font-size:10px;text-transform:uppercase;letter-spacing:2px;font-weight:700;margin-bottom:7px;color:var(--g600);}
+input[type=text],input[type=url],textarea,select{width:100%;background:var(--white);border:var(--b);font-family:var(--fb);font-size:14px;color:var(--black);padding:10px 14px;outline:none;transition:border-color .15s,box-shadow .15s;appearance:none;border-radius:0;}
+input:focus,textarea:focus,select:focus{border-color:var(--accent);box-shadow:2px 2px 0 var(--accent);}
+textarea{resize:vertical;line-height:1.6;}
+select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M0 0l6 8 6-8z' fill='%230a0a0a'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;cursor:pointer;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ TABS */
+.vt{display:flex;border-bottom:var(--b);padding:0 22px;}
+.vtb{font-family:var(--fm);font-size:11px;text-transform:uppercase;letter-spacing:1.5px;font-weight:700;padding:10px 18px;border:none;background:none;cursor:pointer;color:var(--g400);border-bottom:3px solid transparent;margin-bottom:-1px;transition:all .15s;}
+.vtb:hover{color:var(--black);}
+.vtb.active{color:var(--black);border-bottom-color:var(--accent);}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PRESET GRID */
+.preset-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;}
+.pc{border:var(--b);padding:14px;cursor:pointer;background:var(--white);transition:background .15s,border-color .15s;}
+.pc:hover{background:var(--g50);border-color:var(--accent);}
+.pc-title{font-family:var(--fm);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--black);margin-bottom:3px;}
+.pc-desc{font-size:11px;color:var(--g600);line-height:1.4;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ CODE INPUT */
+.code-input{width:100%;background:#0d0d0d;border:var(--b);font-family:var(--fm);font-size:12px;color:#c9d1d9;padding:16px 18px;line-height:1.9;resize:vertical;min-height:260px;outline:none;transition:border-color .15s;}
+.code-input:focus{border-color:var(--accent);}
+.code-input.error{border-color:var(--bad);box-shadow:2px 2px 0 var(--bad);}
+.code-input.ok{border-color:var(--ok);box-shadow:2px 2px 0 var(--ok);}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ VALIDATE BUTTON */
+.validate-btn{width:100%;font-family:var(--fm);font-size:13px;text-transform:uppercase;letter-spacing:2px;font-weight:700;padding:15px 20px;background:var(--accent);color:var(--white);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;transition:all .15s;margin-top:14px;}
+.validate-btn:hover{background:#a8340f;box-shadow:var(--sh);}
+.validate-btn:active{transform:translate(2px,2px);box-shadow:none;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ RESULTS PANEL */
+.result-banner{padding:16px 22px;border-bottom:var(--b);display:flex;align-items:center;gap:14px;}
+.result-banner.valid{background:#f0fff4;border-left:4px solid var(--ok);}
+.result-banner.invalid{background:#fff0f0;border-left:4px solid var(--bad);}
+.result-banner.warn{background:#fffbf0;border-left:4px solid var(--warn);}
+.result-banner.idle{background:var(--g50);border-left:4px solid var(--g200);}
+.rb-icon{font-size:22px;flex-shrink:0;}
+.rb-title{font-family:var(--fm);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;}
+.rb-sub{font-size:12px;color:var(--g600);margin-top:2px;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ISSUE LIST */
+.issue-list{padding:18px 22px;}
+.issue-item{display:flex;gap:12px;padding:10px 14px;border:var(--b);margin-bottom:8px;background:var(--white);}
+.issue-item:last-child{margin-bottom:0;}
+.issue-item.err{border-left:3px solid var(--bad);}
+.issue-item.wrn{border-left:3px solid var(--warn);}
+.issue-item.inf{border-left:3px solid #79c0ff;}
+.ii-badge{font-family:var(--fm);font-size:9px;text-transform:uppercase;letter-spacing:1px;padding:3px 8px;border:1px solid;flex-shrink:0;align-self:flex-start;margin-top:2px;}
+.ii-badge.err{color:var(--bad);border-color:var(--bad);background:#fff0f0;}
+.ii-badge.wrn{color:var(--warn);border-color:var(--warn);background:#fffbf0;}
+.ii-badge.inf{color:#1a5fa8;border-color:#79c0ff;background:#f0f6ff;}
+.ii-body{}
+.ii-title{font-family:var(--fm);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--black);margin-bottom:3px;}
+.ii-msg{font-size:13px;color:var(--g600);line-height:1.5;}
+.ii-path{font-family:var(--fm);font-size:10px;color:var(--g400);margin-top:4px;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ DETECTED TYPES */
+.type-chips{display:flex;gap:8px;flex-wrap:wrap;padding:14px 22px;border-bottom:var(--b);}
+.type-chip{font-family:var(--fm);font-size:10px;text-transform:uppercase;letter-spacing:1px;padding:5px 12px;border:var(--b);background:var(--white);color:var(--black);}
+.type-chip.rich{border-color:var(--ok);color:var(--ok);background:#f0fff4;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PRETTY-PRINT CODE BOX */
+.code-box{background:#0d0d0d;border:var(--b);padding:16px 18px;overflow:auto;max-height:420px;font-family:var(--fm);font-size:12px;line-height:1.95;white-space:pre;color:#c9d1d9;}
+.jk{color:#79c0ff;}
+.js{color:#a5d6ff;}
+.jn{color:#ffa657;}
+.jb{color:#d2a8ff;}
+.jnull{color:#6e7681;}
+.jl{color:#56d364;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ EMPTY STATE */
+.empty-st{padding:40px 36px;text-align:center;font-family:var(--fm);font-size:10px;text-transform:uppercase;letter-spacing:2px;color:var(--g400);line-height:2.4;}
+.empty-st .ei{font-size:32px;display:block;margin-bottom:10px;opacity:.2;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ BUTTONS */
+.cb-btn{font-family:var(--fm);font-size:10px;text-transform:uppercase;letter-spacing:2px;font-weight:700;padding:10px 20px;background:var(--black);color:var(--white);border:var(--bt);cursor:pointer;transition:all .15s;display:inline-flex;align-items:center;gap:6px;}
+.cb-btn:hover{background:var(--accent);border-color:var(--accent);box-shadow:var(--sh);}
+.cb-btn:active{transform:translate(2px,2px);box-shadow:none;}
+.cb-btn.out{background:var(--white);color:var(--black);}
+.cb-btn.out:hover{background:var(--g100);box-shadow:none;}
+.bg{display:flex;gap:12px;flex-wrap:wrap;padding:0 22px 20px;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SIDEBAR METRICS */
+.mc{border:var(--b);margin-bottom:10px;background:var(--white);}
+.ml{font-family:var(--fm);font-size:9px;text-transform:uppercase;letter-spacing:2px;color:var(--g400);padding:8px 12px 4px;border-bottom:var(--b);background:var(--g50);}
+.mv{padding:10px 12px;font-size:22px;font-family:var(--fm);font-weight:700;line-height:1;}
+.mv.good{color:var(--ok);}
+.mv.warn{color:var(--warn);}
+.mv.bad{color:var(--bad);}
+.ms{padding:0 12px 10px;font-size:11px;color:var(--g400);font-family:var(--fm);}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SCORE BARS */
+.srow{display:flex;align-items:center;gap:8px;margin-bottom:8px;font-family:var(--fm);}
+.sname{width:82px;color:var(--g600);font-size:10px;text-transform:uppercase;letter-spacing:1px;flex-shrink:0;}
+.strk{flex:1;height:6px;background:var(--g100);border:1px solid var(--g200);}
+.sfil{height:100%;transition:width .4s,background .4s;}
+.sval{width:32px;text-align:right;font-size:11px;font-weight:700;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ TOOLTIP */
+.tip{position:relative;display:inline-block;cursor:help;margin-left:5px;font-family:var(--fm);font-size:9px;background:var(--g200);color:var(--g600);border-radius:50%;width:15px;height:15px;line-height:15px;text-align:center;vertical-align:middle;}
+.tip:hover::after{content:attr(data-tip);position:absolute;left:50%;bottom:calc(100% + 8px);transform:translateX(-50%);background:var(--black);color:var(--white);font-size:11px;padding:6px 10px;white-space:nowrap;pointer-events:none;z-index:99;border:1px solid var(--accent);letter-spacing:.5px;font-family:var(--fb);text-transform:none;font-weight:400;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ CHECKLIST */
+.chk-row{display:flex;align-items:center;gap:8px;padding:7px 12px;border-bottom:1px solid var(--g100);font-family:var(--fm);font-size:10px;text-transform:uppercase;letter-spacing:1px;}
+.chk-row:last-child{border-bottom:none;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ RICH RESULT ELIGIBILITY */
+.rre-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--b);border:var(--b);}
+.rre-item{background:var(--white);padding:10px 14px;display:flex;align-items:center;gap:8px;}
+.rre-dot{width:8px;height:8px;flex-shrink:0;}
+.rre-label{font-family:var(--fm);font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--g600);}
+.rre-item.active .rre-label{color:var(--ok);font-weight:700;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ HOW-TO */
+.hts{background:var(--white);border-top:var(--bt);padding:64px 32px;text-align:center;}
+.slb{font-family:var(--fm);font-size:10px;text-transform:uppercase;letter-spacing:3px;color:var(--accent);margin-bottom:8px;}
+.stt{font-family:var(--fm);font-size:clamp(22px,4vw,36px);font-weight:700;text-transform:uppercase;letter-spacing:1px;line-height:1.2;margin-bottom:36px;}
+.stt em{font-style:normal;color:var(--accent);}
+.sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));border:var(--b);max-width:1200px;margin:0 auto;text-align:left;}
+.scard{padding:26px;border-right:var(--b);border-bottom:var(--b);background:var(--white);transition:background .15s;}
+.scard:hover{background:var(--g50);}
+.snum{font-family:var(--fm);font-size:48px;font-weight:700;color:var(--g100);line-height:1;margin-bottom:10px;}
+.stit{font-family:var(--fm);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:9px;color:var(--black);}
+.sdescb{font-size:13px;color:var(--g600);line-height:1.6;}
+.sacc{display:block;width:32px;height:3px;background:var(--accent);margin-bottom:12px;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ FAQ */
+.faqs{background:var(--g50);border-top:var(--b);padding:64px 32px;text-align:center;}
+.flist{max-width:800px;margin:0 auto;text-align:left;}
+.fio{border:var(--b);margin-bottom:-1px;background:var(--white);overflow:hidden;}
+.fq{font-family:var(--fm);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:18px 20px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;transition:background .15s;user-select:none;}
+.fq:hover{background:var(--g50);}
+.fq .ico{flex-shrink:0;font-family:var(--fm);font-size:18px;font-weight:700;color:var(--accent);transition:transform .2s;width:20px;text-align:center;}
+.fio.open .fq{background:var(--black);color:var(--white);}
+.fio.open .fq .ico{color:var(--accent);transform:rotate(45deg);}
+.fa{padding:0 20px;max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;font-size:14px;color:var(--g600);line-height:1.75;}
+.fio.open .fa{max-height:500px;padding:18px 20px 22px;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ABOUT */
+.ds{background:var(--black);color:var(--white);padding:64px 32px;border-top:var(--ba);text-align:center;}
+.dgrid{display:grid;grid-template-columns:1fr 1fr;gap:48px;max-width:1100px;margin:36px auto 0;text-align:left;}
+.db h3{font-family:var(--fm);font-size:13px;text-transform:uppercase;letter-spacing:2px;margin-bottom:12px;color:var(--accent);}
+.db p{font-size:14px;color:#d1d1d1;line-height:1.8;}
+.db ul{list-style:none;font-size:14px;color:#d1d1d1;line-height:1.8;}
+.db ul li::before{content:'→ ';color:var(--accent);font-family:var(--fm);}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ FOOTER */
+footer{background:var(--black);color:var(--g400);border-top:var(--b);padding:24px 32px;font-family:var(--fm);font-size:10px;letter-spacing:1px;text-transform:uppercase;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+footer a{color:var(--g400);text-decoration:none;}
+footer a:hover{color:var(--accent);}
+.fn{display:flex;gap:20px;flex-wrap:wrap;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ RESPONSIVE */
+@media(max-width:900px){.al{grid-template-columns:1fr;}.am{border-right:none;border-bottom:var(--b);}.dgrid{grid-template-columns:1fr;gap:28px;}}
+@media(max-width:768px){.preset-grid{grid-template-columns:1fr 1fr;}.rre-grid{grid-template-columns:1fr;}}
+@media(max-width:600px){.th,.hts,.faqs,.ds{padding:40px 16px;}.ta{padding:16px;}.sh{padding:12px 16px;}.sg{grid-template-columns:1fr;}.scard{border-right:none;}.preset-grid{grid-template-columns:1fr;}.bg{padding:0 16px 16px;}}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="header-container"></header>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<div class="th">
+  <p class="slb">Free SEO Tool</p>
+  <h1>Structured Data<br><em>Validator</em></h1>
+  <p>Paste your JSON-LD markup and instantly validate syntax, detect schema types, check required and recommended fields, and see your Google Rich Result eligibility — all in one tool.</p>
+  <div class="hbg">
+    <span class="badge ac">Live Validation</span>
+    <span class="badge">JSON-LD Syntax Check</span>
+    <span class="badge">Required Fields</span>
+    <span class="badge">Rich Result Eligibility</span>
+    <span class="badge">Schema Templates</span>
+    <span class="badge">Pretty-Print</span>
+  </div>
+</div>
+
+<!-- ═══════════════ TWO-COLUMN LAYOUT ═══════════════ -->
+<div class="al">
+
+  <!-- MAIN COLUMN -->
+  <div class="am">
+    <div class="ta">
+
+      <!-- ── SCHEMA TEMPLATES ── -->
+      <div class="pn">
+        <div class="ph"><span class="dot"></span>Schema Templates</div>
+        <div class="pb">
+          <p style="font-size:13px;color:var(--g600);margin-bottom:16px;line-height:1.6;">Load a ready-made schema template to get started or test the validator against a known-good example.</p>
+          <div class="preset-grid" id="preset-grid"></div>
+        </div>
+      </div>
+
+      <!-- ── INPUT ── -->
+      <div class="pn">
+        <div class="ph">
+          <span class="dot"></span>JSON-LD Input
+          <span class="ph-right"><span class="ph-pill" id="char-count">0 chars</span></span>
+        </div>
+        <div class="pb" style="padding-bottom:14px;">
+          <textarea class="code-input" id="json-input" placeholder='Paste your JSON-LD here, e.g.&#10;{&#10;  "@context": "https://schema.org",&#10;  "@type": "Article",&#10;  "headline": "My Article Title",&#10;  ...&#10;}' oninput="onInput(this);" spellcheck="false"></textarea>
+          <button class="validate-btn" onclick="validate();">▶ Validate Structured Data</button>
+          <div style="display:flex;gap:10px;margin-top:10px;flex-wrap:wrap;">
+            <button class="cb-btn out" onclick="formatJSON();" style="flex:1;justify-content:center;">⟳ Format / Pretty-Print</button>
+            <button class="cb-btn out" onclick="clearAll();" style="border-color:var(--bad);color:var(--bad);flex:1;justify-content:center;">✕ Clear</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── RESULTS ── -->
+      <div class="pn" id="results-panel">
+        <div class="ph"><span class="dot"></span>Validation Results <span class="ph-right"><span class="ph-pill" id="result-pill">—</span></span></div>
+
+        <!-- Banner -->
+        <div class="result-banner idle" id="result-banner">
+          <span class="rb-icon">⬆</span>
+          <div>
+            <div class="rb-title">Awaiting Input</div>
+            <div class="rb-sub">Paste JSON-LD above and click Validate to see results.</div>
+          </div>
+        </div>
+
+        <!-- Detected types -->
+        <div id="types-row" style="display:none;">
+          <div style="font-family:var(--fm);font-size:9px;text-transform:uppercase;letter-spacing:2px;color:var(--g400);padding:12px 22px 6px;">Detected Schema Types</div>
+          <div class="type-chips" id="type-chips"></div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="vt" id="result-tabs" style="display:none;">
+          <button class="vtb active" data-tab="issues" onclick="setResultTab('issues')">Issues</button>
+          <button class="vtb" data-tab="pretty" onclick="setResultTab('pretty')">Formatted</button>
+          <button class="vtb" data-tab="rich" onclick="setResultTab('rich')">Rich Results</button>
+        </div>
+
+        <!-- Issues tab -->
+        <div id="rtab-issues">
+          <div class="empty-st"><span class="ei">✓</span>Run validation to see issues here.</div>
+        </div>
+
+        <!-- Pretty-print tab -->
+        <div id="rtab-pretty" style="display:none;">
+          <div style="padding:16px 20px 20px;">
+            <div class="code-box" id="pretty-box"></div>
+          </div>
+        </div>
+
+        <!-- Rich results tab -->
+        <div id="rtab-rich" style="display:none;">
+          <div style="padding:18px 22px;">
+            <p style="font-size:13px;color:var(--g600);margin-bottom:14px;line-height:1.6;">Google Rich Result features that your markup may enable. Eligibility requires passing all required field checks.</p>
+            <div class="rre-grid" id="rich-grid"></div>
+          </div>
+        </div>
+
+        <!-- Action buttons -->
+        <div class="bg" id="result-actions" style="display:none;margin-top:6px;">
+          <button class="cb-btn" onclick="copyFormatted();">📋 Copy Formatted</button>
+          <button class="cb-btn out" onclick="downloadJSON();">⬇ Download JSON-LD</button>
+        </div>
+      </div>
+
+    </div><!-- /ta -->
+  </div><!-- /am -->
+
+  <!-- ═══════════════ SIDEBAR ═══════════════ -->
+  <div class="asb">
+    <div style="font-family:var(--fm);font-size:9px;text-transform:uppercase;letter-spacing:2px;color:var(--g400);margin-bottom:14px;">Validation Summary</div>
+
+    <div class="mc"><div class="ml">Status</div><div class="mv" id="sb-status" style="color:var(--g400);font-size:14px;">—</div><div class="ms" id="sb-status-s">No input yet</div></div>
+    <div class="mc"><div class="ml">Errors</div><div class="mv" id="sb-errors" style="color:var(--g400);">0</div><div class="ms" id="sb-errors-s">—</div></div>
+    <div class="mc"><div class="ml">Warnings</div><div class="mv" id="sb-warns" style="color:var(--g400);">0</div><div class="ms" id="sb-warns-s">—</div></div>
+
+    <div class="mc" style="margin-top:6px;">
+      <div class="ml">Issue Breakdown</div>
+      <div style="padding:12px;">
+        <div class="srow"><span class="sname">Errors</span><div class="strk"><div class="sfil" id="sf-err" style="width:0%;background:var(--g200);"></div></div><span class="sval" id="sv-err">0</span></div>
+        <div class="srow"><span class="sname">Warnings</span><div class="strk"><div class="sfil" id="sf-wrn" style="width:0%;background:var(--g200);"></div></div><span class="sval" id="sv-wrn">0</span></div>
+        <div class="srow"><span class="sname">Info</span><div class="strk"><div class="sfil" id="sf-inf" style="width:0%;background:var(--g200);"></div></div><span class="sval" id="sv-inf">0</span></div>
+      </div>
+    </div>
+
+    <div style="font-family:var(--fm);font-size:9px;text-transform:uppercase;letter-spacing:2px;color:var(--g400);margin:22px 0 10px;">Schema Checks</div>
+    <div id="schema-checks" style="border:var(--b);background:var(--white);">
+      <div class="chk-row" style="color:var(--g400);">Run validation to see checks</div>
+    </div>
+
+    <div style="font-family:var(--fm);font-size:9px;text-transform:uppercase;letter-spacing:2px;color:var(--g400);margin:22px 0 10px;">Quick Tips</div>
+    <div style="border:var(--b);padding:14px;background:var(--white);font-size:12px;color:var(--g600);line-height:1.85;">
+      <strong style="font-family:var(--fm);font-size:10px;display:block;margin-bottom:6px;color:var(--black);">PLACEMENT</strong>
+      → Place in &lt;head&gt; for best practice<br>→ Use type="application/ld+json"<br>→ Can have multiple blocks per page<br><br>
+      <strong style="font-family:var(--fm);font-size:10px;display:block;margin-bottom:6px;color:var(--black);">RULES</strong>
+      → Always include @context and @type<br>→ Use absolute URLs for images/URLs<br>→ Match markup to visible page content<br><br>
+      <strong style="font-family:var(--fm);font-size:10px;display:block;margin-bottom:6px;color:var(--black);">REMEMBER</strong>
+      → Required fields = Rich Result gate<br>→ Valid ≠ guaranteed rich result<br>→ Test in Google Search Console
+    </div>
+  </div>
+
+</div><!-- /al -->
+
+<!-- ═══════════════ HOW TO ═══════════════ -->
+<section class="hts" id="how-to">
+  <p class="slb">Step-by-Step Guide</p>
+  <h2 class="stt">How to Use the<br><em>Structured Data Validator</em></h2>
+  <div class="sg">
+    <div class="scard"><div class="snum">01</div><span class="sacc"></span><div class="stit">Load or Paste Markup</div><p class="sdescb">Click a schema template to load an example, or paste your own JSON-LD directly into the input field. The character counter updates as you type.</p></div>
+    <div class="scard"><div class="snum">02</div><span class="sacc"></span><div class="stit">Run Validation</div><p class="sdescb">Click Validate Structured Data to run the full check. The tool validates JSON syntax, detects schema types, and checks required and recommended fields.</p></div>
+    <div class="scard"><div class="snum">03</div><span class="sacc"></span><div class="stit">Review Issues</div><p class="sdescb">The Issues tab lists every error, warning, and informational note with the affected field path. Errors block Rich Results; warnings reduce data quality.</p></div>
+    <div class="scard"><div class="snum">04</div><span class="sacc"></span><div class="stit">Check Rich Results</div><p class="sdescb">The Rich Results tab shows which Google Rich Result features your schema type is eligible for, based on the properties you've included.</p></div>
+    <div class="scard"><div class="snum">05</div><span class="sacc"></span><div class="stit">Format & Fix</div><p class="sdescb">Use Format / Pretty-Print to clean up messy JSON. Edit directly in the input field and re-run validation after each fix to track progress.</p></div>
+    <div class="scard"><div class="snum">06</div><span class="sacc"></span><div class="stit">Copy & Deploy</div><p class="sdescb">Download the formatted JSON-LD or copy it to clipboard. Wrap it in a &lt;script type="application/ld+json"&gt; tag and place it in your page &lt;head&gt;.</p></div>
+  </div>
+</section>
+
+<!-- ═══════════════ FAQ ═══════════════ -->
+<section class="faqs" id="faq">
+  <p class="slb">Common Questions</p>
+  <h2 class="stt">Frequently Asked<br><em>Questions</em></h2>
+  <div class="flist">
+    <div class="fio"><div class="fq" onclick="tfaq(this);">What is structured data and why does it matter for SEO? <span class="ico">+</span></div><div class="fa">Structured data is a standardized format — based on the schema.org vocabulary — that lets you label the content of a web page so search engines can understand it semantically, not just textually. Correct implementation can unlock rich results in Google Search: star ratings on product pages, FAQ dropdowns, breadcrumb trails, article datelines, event details, and more. Rich results can significantly increase click-through rates compared to plain blue links.</div></div>
+    <div class="fio"><div class="fq" onclick="tfaq(this);">What is JSON-LD and why is it Google's preferred format? <span class="ico">+</span></div><div class="fa">JSON-LD (JavaScript Object Notation for Linked Data) is a lightweight way to encode structured data in a &lt;script&gt; tag, completely separate from your visible HTML. Google recommends it because it is far easier to implement, maintain, and update than Microdata or RDFa, which require annotating HTML attributes throughout your markup. A single JSON-LD block in the &lt;head&gt; is all you need.</div></div>
+    <div class="fio"><div class="fq" onclick="tfaq(this);">What is the difference between required and recommended properties? <span class="ico">+</span></div><div class="fa">Required properties are the minimum fields Google needs to process the schema and consider a page for rich results. If any required property is missing or invalid, the entire schema type is disqualified from displaying enhanced results. Recommended properties are optional but improve the quality and completeness of the rich result shown. This validator flags missing required fields as Errors and missing recommended fields as Warnings.</div></div>
+    <div class="fio"><div class="fq" onclick="tfaq(this);">Will passing validation guarantee my page gets rich results? <span class="ico">+</span></div><div class="fa">No. Valid structured data is a necessary condition but not a sufficient one. Google applies additional editorial signals including content quality, site authority, and user experience metrics before deciding to show enhanced results. You should also ensure the data in your markup accurately reflects visible on-page content — Google may take manual action against sites that use structured data to misrepresent their content to users.</div></div>
+    <div class="fio"><div class="fq" onclick="tfaq(this);">Can I have multiple schema types on a single page? <span class="ico">+</span></div><div class="fa">Yes. A single page can have multiple JSON-LD blocks for different schema types. For example, a product page might include Product, BreadcrumbList, and FAQPage schemas simultaneously. Each block should be a separate &lt;script type="application/ld+json"&gt; tag. Alternatively, you can combine them in a single JSON-LD block using an array at the top level. This validator handles both single objects and arrays.</div></div>
+  </div>
+</section>
+
+<!-- ═══════════════ ABOUT ═══════════════ -->
+<section class="ds" id="about">
+  <p class="slb">About This Tool</p>
+  <h2 class="stt" style="color:var(--white);">What is a<br><em>Structured Data Validator?</em></h2>
+  <div class="dgrid">
+    <div class="db"><h3>The Tool</h3><p>The SEO HQ Structured Data Validator lets you paste any JSON-LD markup and instantly check it for syntax errors, detect schema.org types, validate required and recommended properties against Google's Rich Results guidelines, and see a formatted, readable version of your markup — all without sending data to an external server.</p></div>
+    <div class="db"><h3>Why It Matters</h3><p>Invalid or incomplete structured data silently blocks your pages from rich results — there is no on-page warning when something is wrong. A missed required field, a malformed URL, or a JSON syntax error is invisible to visitors but fatal to eligibility. Regular validation after any page or CMS change is essential for maintaining rich result performance.</p></div>
+    <div class="db"><h3>Key Features</h3><ul><li>JSON syntax validation with specific error messages</li><li>Automatic @type detection for single and array schemas</li><li>Required and recommended field checks per schema type</li><li>Google Rich Result eligibility overview</li><li>Pretty-print formatter with syntax highlighting</li><li>Schema templates for 9 common types</li></ul></div>
+    <div class="db"><h3>Supported Schema Types</h3><ul><li>Article, NewsArticle, BlogPosting</li><li>Product with AggregateRating and Offer</li><li>LocalBusiness, Organization</li><li>FAQPage, HowTo, Recipe</li><li>Event, BreadcrumbList</li><li>WebPage, WebSite, Person</li></ul></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer-container"></footer>
+
+<script src="components/header.js"></script>
+<script src="components/footer.js"></script>
+<script src="components/sidebar.js"></script>
+<script src="script.js"></script>
+
+<!-- ═══════════════ SCRIPT ═══════════════ -->
+<script>
+/* ═══════════════════════════════════════════════════════════
+   SCHEMA DEFINITIONS — required / recommended fields per type
+═══════════════════════════════════════════════════════════ */
+const SCHEMA_RULES = {
+  Article:{
+    required:['@context','@type','headline','author','datePublished'],
+    recommended:['dateModified','image','description','publisher','url','mainEntityOfPage'],
+    richResults:['Top Stories','Article Rich Result','Breadcrumbs'],
+  },
+  NewsArticle:{
+    required:['@context','@type','headline','author','datePublished','image'],
+    recommended:['dateModified','description','publisher','url'],
+    richResults:['Top Stories','News Article Rich Result'],
+  },
+  BlogPosting:{
+    required:['@context','@type','headline','author','datePublished'],
+    recommended:['dateModified','image','description','publisher','url'],
+    richResults:['Article Rich Result'],
+  },
+  Product:{
+    required:['@context','@type','name'],
+    recommended:['image','description','sku','brand','offers','aggregateRating','review'],
+    richResults:['Product Rich Result','Product Snippet','Merchant Listing'],
+  },
+  LocalBusiness:{
+    required:['@context','@type','name','address'],
+    recommended:['telephone','url','openingHours','image','geo','priceRange','aggregateRating','sameAs'],
+    richResults:['Local Business Result','Map Pack','Knowledge Panel'],
+  },
+  Organization:{
+    required:['@context','@type','name'],
+    recommended:['url','logo','contactPoint','sameAs','address','telephone','description'],
+    richResults:['Knowledge Panel','Sitelinks Searchbox','Logo Rich Result'],
+  },
+  FAQPage:{
+    required:['@context','@type','mainEntity'],
+    recommended:['name','url'],
+    richResults:['FAQ Rich Result','FAQ Dropdown'],
+  },
+  HowTo:{
+    required:['@context','@type','name','step'],
+    recommended:['description','image','totalTime','estimatedCost','supply','tool'],
+    richResults:['How-To Rich Result','Step-by-Step'],
+  },
+  Recipe:{
+    required:['@context','@type','name','image','author','datePublished','description','prepTime','cookTime','totalTime','recipeYield','recipeCategory','recipeCuisine','recipeIngredient','recipeInstructions'],
+    recommended:['aggregateRating','video','nutrition','keywords'],
+    richResults:['Recipe Rich Result','Recipe Carousel'],
+  },
+  Event:{
+    required:['@context','@type','name','startDate','location'],
+    recommended:['endDate','description','image','url','organizer','offers','performer','eventStatus','eventAttendanceMode'],
+    richResults:['Event Rich Result','Event Pack'],
+  },
+  BreadcrumbList:{
+    required:['@context','@type','itemListElement'],
+    recommended:[],
+    richResults:['Breadcrumb Rich Result'],
+  },
+  WebPage:{
+    required:['@context','@type','name'],
+    recommended:['url','description','author','datePublished','dateModified','breadcrumb'],
+    richResults:['Sitelinks','Breadcrumbs'],
+  },
+  WebSite:{
+    required:['@context','@type','name','url'],
+    recommended:['potentialAction','sameAs','description'],
+    richResults:['Sitelinks Searchbox','Website Rich Result'],
+  },
+  Person:{
+    required:['@context','@type','name'],
+    recommended:['url','image','jobTitle','worksFor','sameAs','description','email','telephone'],
+    richResults:['Knowledge Panel','Author Rich Result'],
+  },
+  VideoObject:{
+    required:['@context','@type','name','description','thumbnailUrl','uploadDate'],
+    recommended:['contentUrl','embedUrl','duration','expires','interactionStatistic','publisher'],
+    richResults:['Video Rich Result','Video Carousel'],
+  },
+  SoftwareApplication:{
+    required:['@context','@type','name','operatingSystem','applicationCategory'],
+    recommended:['aggregateRating','offers','screenshot','softwareVersion','author'],
+    richResults:['App Rich Result','Software App'],
+  },
+};
+
+/* ═══════════════════════════════════════════════════════════
+   TEMPLATES
+═══════════════════════════════════════════════════════════ */
+const TEMPLATES = [
+  {
+    key:'article', title:'Article', desc:'Blog post / news article',
+    json:{
+      "@context":"https://schema.org",
+      "@type":"Article",
+      "headline":"How to Improve Your Website's SEO in 2024",
+      "author":{"@type":"Person","name":"Jane Smith","url":"https://example.com/author/jane-smith"},
+      "datePublished":"2024-01-15T08:00:00+00:00",
+      "dateModified":"2024-06-01T10:30:00+00:00",
+      "image":{"@type":"ImageObject","url":"https://example.com/images/seo-guide.jpg","width":1200,"height":630},
+      "publisher":{"@type":"Organization","name":"Example Blog","logo":{"@type":"ImageObject","url":"https://example.com/logo.png"}},
+      "description":"A comprehensive guide to improving your website SEO rankings in 2024 with actionable tips and strategies.",
+      "mainEntityOfPage":{"@type":"WebPage","@id":"https://example.com/seo-guide"}
+    }
+  },
+  {
+    key:'product', title:'Product', desc:'E-commerce product page',
+    json:{
+      "@context":"https://schema.org",
+      "@type":"Product",
+      "name":"Wireless Noise-Cancelling Headphones",
+      "image":["https://example.com/headphones-1.jpg","https://example.com/headphones-2.jpg"],
+      "description":"Premium wireless headphones with 30-hour battery life and active noise cancellation.",
+      "sku":"WH-1000XM5",
+      "brand":{"@type":"Brand","name":"AudioPro"},
+      "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.8","reviewCount":"2847"},
+      "offers":{"@type":"Offer","url":"https://example.com/headphones","priceCurrency":"USD","price":"349.99","priceValidUntil":"2025-12-31","itemCondition":"https://schema.org/NewCondition","availability":"https://schema.org/InStock"}
+    }
+  },
+  {
+    key:'faq', title:'FAQ Page', desc:'Frequently asked questions',
+    json:{
+      "@context":"https://schema.org",
+      "@type":"FAQPage",
+      "mainEntity":[
+        {"@type":"Question","name":"What is structured data?","acceptedAnswer":{"@type":"Answer","text":"Structured data is a standardized format for providing information about a page to help search engines understand its content."}},
+        {"@type":"Question","name":"Does structured data improve rankings?","acceptedAnswer":{"@type":"Answer","text":"Structured data can improve your visibility in search results by enabling rich results, which can increase click-through rates."}},
+        {"@type":"Question","name":"What format should I use for structured data?","acceptedAnswer":{"@type":"Answer","text":"Google recommends JSON-LD as it is the easiest to implement and maintain."}}
+      ]
+    }
+  },
+  {
+    key:'localbusiness', title:'Local Business', desc:'Business location / store',
+    json:{
+      "@context":"https://schema.org",
+      "@type":"LocalBusiness",
+      "name":"The Coffee Corner",
+      "image":"https://example.com/coffee-corner.jpg",
+      "url":"https://example.com",
+      "telephone":"+1-555-234-5678",
+      "address":{"@type":"PostalAddress","streetAddress":"123 Main Street","addressLocality":"San Francisco","addressRegion":"CA","postalCode":"94102","addressCountry":"US"},
+      "geo":{"@type":"GeoCoordinates","latitude":37.7749,"longitude":-122.4194},
+      "openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"07:00","closes":"20:00"}],
+      "priceRange":"$$",
+      "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.5","reviewCount":"312"}
+    }
+  },
+  {
+    key:'recipe', title:'Recipe', desc:'Food recipe with steps',
+    json:{
+      "@context":"https://schema.org",
+      "@type":"Recipe",
+      "name":"Classic Chocolate Chip Cookies",
+      "image":"https://example.com/cookies.jpg",
+      "author":{"@type":"Person","name":"Mary Baker"},
+      "datePublished":"2024-03-10",
+      "description":"The best classic chocolate chip cookie recipe with crispy edges and chewy centres.",
+      "prepTime":"PT15M",
+      "cookTime":"PT12M",
+      "totalTime":"PT27M",
+      "recipeYield":"24 cookies",
+      "recipeCategory":"Dessert",
+      "recipeCuisine":"American",
+      "recipeIngredient":["2 cups all-purpose flour","1 tsp baking soda","1 cup butter, softened","3/4 cup sugar","2 eggs","2 cups chocolate chips"],
+      "recipeInstructions":[{"@type":"HowToStep","text":"Preheat oven to 375°F."},{"@type":"HowToStep","text":"Cream butter and sugar until light and fluffy."},{"@type":"HowToStep","text":"Mix in eggs and vanilla, then gradually blend in flour mixture."},{"@type":"HowToStep","text":"Stir in chocolate chips and drop by spoonfuls onto baking sheets."},{"@type":"HowToStep","text":"Bake 9-11 minutes or until golden brown."}],
+      "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"1543"}
+    }
+  },
+  {
+    key:'event', title:'Event', desc:'Concert / conference / meetup',
+    json:{
+      "@context":"https://schema.org",
+      "@type":"Event",
+      "name":"Annual SEO Conference 2025",
+      "startDate":"2025-09-15T09:00:00",
+      "endDate":"2025-09-17T18:00:00",
+      "eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode",
+      "eventStatus":"https://schema.org/EventScheduled",
+      "location":{"@type":"Place","name":"Moscone Center","address":{"@type":"PostalAddress","streetAddress":"747 Howard St","addressLocality":"San Francisco","addressRegion":"CA","postalCode":"94103","addressCountry":"US"}},
+      "image":"https://example.com/seo-conference.jpg",
+      "description":"The leading annual conference for SEO professionals covering the latest trends, tools, and strategies.",
+      "organizer":{"@type":"Organization","name":"SEO HQ","url":"https://seohq.github.io"},
+      "offers":{"@type":"Offer","url":"https://example.com/tickets","price":"499","priceCurrency":"USD","availability":"https://schema.org/InStock","validFrom":"2025-01-01T00:00:00"}
+    }
+  },
+  {
+    key:'organization', title:'Organization', desc:'Company / brand entity',
+    json:{
+      "@context":"https://schema.org",
+      "@type":"Organization",
+      "name":"Acme Corporation",
+      "url":"https://acme.example.com",
+      "logo":"https://acme.example.com/logo.png",
+      "description":"Acme Corporation is a global leader in innovative software solutions.",
+      "address":{"@type":"PostalAddress","streetAddress":"1600 Amphitheatre Pkwy","addressLocality":"Mountain View","addressRegion":"CA","postalCode":"94043","addressCountry":"US"},
+      "telephone":"+1-650-253-0000",
+      "sameAs":["https://twitter.com/acme","https://linkedin.com/company/acme","https://facebook.com/acme"],
+      "contactPoint":{"@type":"ContactPoint","telephone":"+1-650-253-0000","contactType":"customer service","availableLanguage":"English"}
+    }
+  },
+  {
+    key:'howto', title:'How-To', desc:'Step-by-step guide / tutorial',
+    json:{
+      "@context":"https://schema.org",
+      "@type":"HowTo",
+      "name":"How to Install a WordPress Plugin",
+      "description":"A step-by-step guide to installing plugins on your WordPress website.",
+      "image":"https://example.com/wordpress-plugin.jpg",
+      "totalTime":"PT10M",
+      "estimatedCost":{"@type":"MonetaryAmount","currency":"USD","value":"0"},
+      "step":[
+        {"@type":"HowToStep","name":"Log in to WordPress","text":"Navigate to your WordPress admin dashboard at yourdomain.com/wp-admin and log in with your credentials.","image":"https://example.com/step1.jpg"},
+        {"@type":"HowToStep","name":"Go to Plugins","text":"In the left sidebar, click on Plugins, then click Add New.","image":"https://example.com/step2.jpg"},
+        {"@type":"HowToStep","name":"Search and Install","text":"Search for the plugin by name, click Install Now, then click Activate.","image":"https://example.com/step3.jpg"}
+      ]
+    }
+  },
+  {
+    key:'breadcrumb', title:'Breadcrumb', desc:'Site navigation trail',
+    json:{
+      "@context":"https://schema.org",
+      "@type":"BreadcrumbList",
+      "itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Home","item":"https://example.com"},
+        {"@type":"ListItem","position":2,"name":"Blog","item":"https://example.com/blog"},
+        {"@type":"ListItem","position":3,"name":"SEO Tips","item":"https://example.com/blog/seo-tips"},
+        {"@type":"ListItem","position":4,"name":"Structured Data Guide"}
+      ]
+    }
+  },
+];
+
+/* ═══════════════════════════════════════════════════════════
+   STATE
+═══════════════════════════════════════════════════════════ */
+let lastParsed = null;
+let lastIssues = [];
+let curResultTab = 'issues';
+const $ = id => document.getElementById(id);
+
+/* ═══════════════════════════════════════════════════════════
+   INIT
+═══════════════════════════════════════════════════════════ */
+window.addEventListener('DOMContentLoaded', () => {
+  initPresets();
+  updateSidebar([], 0);
+});
+
+function initPresets(){
+  const grid = $('preset-grid');
+  grid.innerHTML = TEMPLATES.map(t =>
+    `<div class="pc" onclick="loadTemplate('${t.key}')">
+      <div class="pc-title">${t.title}</div>
+      <div class="pc-desc">${t.desc}</div>
+    </div>`
+  ).join('');
+}
+
+function loadTemplate(key){
+  const t = TEMPLATES.find(x=>x.key===key);
+  if(!t) return;
+  $('json-input').value = JSON.stringify(t.json, null, 2);
+  onInput($('json-input'));
+  validate();
+  document.querySelectorAll('.pc').forEach(c=>c.style.borderColor='');
+}
+
+/* ═══════════════════════════════════════════════════════════
+   INPUT HANDLER
+═══════════════════════════════════════════════════════════ */
+function onInput(el){
+  const len = el.value.length;
+  $('char-count').textContent = len.toLocaleString() + ' chars';
+  el.classList.remove('error','ok');
+}
+
+/* ═══════════════════════════════════════════════════════════
+   VALIDATE
+═══════════════════════════════════════════════════════════ */
+function validate(){
+  const raw = $('json-input').value.trim();
+  if(!raw){
+    showBanner('idle','⬆','No Input','Paste some JSON-LD and try again.');
+    return;
+  }
+
+  // ── Step 1: JSON syntax ──
+  let parsed;
+  try {
+    parsed = JSON.parse(raw);
+  } catch(e){
+    $('json-input').classList.add('error');
+    showBanner('invalid','✕','JSON Syntax Error', e.message);
+    $('result-tabs').style.display = 'none';
+    $('result-actions').style.display = 'none';
+    $('types-row').style.display = 'none';
+    $('rtab-issues').innerHTML = `
+      <div class="issue-list">
+        <div class="issue-item err">
+          <span class="ii-badge err">Error</span>
+          <div class="ii-body">
+            <div class="ii-title">JSON Syntax Error</div>
+            <div class="ii-msg">${escHTML(e.message)}</div>
+            <div class="ii-path">Root level — fix JSON syntax before re-validating</div>
+          </div>
+        </div>
+      </div>`;
+    $('result-pill').textContent = '1 error';
+    updateSidebar([{type:'err'}], 0);
+    schemaChecks([]);
+    return;
+  }
+
+  $('json-input').classList.remove('error');
+  $('json-input').classList.add('ok');
+  lastParsed = parsed;
+
+  // ── Step 2: Handle array vs object ──
+  const schemas = Array.isArray(parsed) ? parsed : [parsed];
+
+  // ── Step 3: Detect types ──
+  const detectedTypes = schemas.map(s => s['@type']).filter(Boolean);
+
+  // ── Step 4: Run checks ──
+  const issues = [];
+
+  // @context check
+  schemas.forEach((s, i) => {
+    const prefix = schemas.length > 1 ? `[${i}] ` : '';
+    if(!s['@context']){
+      issues.push({type:'err', title:'Missing @context', msg:'Every JSON-LD block must include @context set to "https://schema.org".', path:prefix+'@context'});
+    } else if(!String(s['@context']).includes('schema.org')){
+      issues.push({type:'wrn', title:'Non-standard @context', msg:`@context value "${s['@context']}" is not schema.org. Ensure this is intentional.`, path:prefix+'@context'});
+    }
+
+    if(!s['@type']){
+      issues.push({type:'err', title:'Missing @type', msg:'Every schema object must have an @type property specifying the schema.org type.', path:prefix+'@type'});
+      return;
+    }
+
+    const typeName = Array.isArray(s['@type']) ? s['@type'][0] : s['@type'];
+    const rules = SCHEMA_RULES[typeName];
+
+    if(!rules){
+      issues.push({type:'inf', title:`Unknown Type: ${typeName}`, msg:`"${typeName}" is not in the validator's ruleset. Basic JSON and @context checks still apply. Verify against schema.org documentation.`, path:prefix+'@type'});
+    } else {
+      // Required fields
+      rules.required.forEach(field => {
+        if(field === '@context' || field === '@type') return; // already checked
+        if(!hasField(s, field)){
+          issues.push({type:'err', title:`Missing Required: ${field}`, msg:`"${field}" is required for ${typeName} to be eligible for Rich Results. Add this property to your markup.`, path:prefix+field});
+        }
+      });
+
+      // Recommended fields
+      rules.recommended.forEach(field => {
+        if(!hasField(s, field)){
+          issues.push({type:'wrn', title:`Missing Recommended: ${field}`, msg:`"${field}" is recommended for ${typeName}. Including it improves the quality and completeness of the rich result.`, path:prefix+field});
+        }
+      });
+    }
+
+    // URL format checks
+    checkUrls(s, issues, prefix);
+
+    // Type-specific checks
+    typeSpecificChecks(s, typeName, issues, prefix);
+  });
+
+  lastIssues = issues;
+  const errCount  = issues.filter(i=>i.type==='err').length;
+  const wrnCount  = issues.filter(i=>i.type==='wrn').length;
+  const infCount  = issues.filter(i=>i.type==='inf').length;
+
+  // ── Step 5: Render ──
+  if(errCount > 0){
+    showBanner('invalid','✕',`${errCount} Error${errCount>1?'s':''}`,`${wrnCount} warning${wrnCount!==1?'s':''}, ${infCount} note${infCount!==1?'s':''} — Fix errors to enable Rich Results.`);
+    $('result-pill').textContent = errCount + ' error' + (errCount>1?'s':'');
+  } else if(wrnCount > 0){
+    showBanner('warn','⚠',`Valid with ${wrnCount} Warning${wrnCount>1?'s':''}`,`No errors found. Add recommended properties to improve Rich Result quality.`);
+    $('result-pill').textContent = wrnCount + ' warning' + (wrnCount>1?'s':'');
+  } else {
+    showBanner('valid','✓','Valid — All Checks Passed',`JSON-LD is syntactically correct with all required fields present.`);
+    $('result-pill').textContent = '✓ Valid';
+  }
+
+  // Types row
+  if(detectedTypes.length > 0){
+    $('types-row').style.display = '';
+    $('type-chips').innerHTML = detectedTypes.map(t => {
+      const isKnown = !!SCHEMA_RULES[t];
+      return `<span class="type-chip${isKnown?' rich':''}">${escHTML(t)}${isKnown?' ✓':''}</span>`;
+    }).join('');
+  } else {
+    $('types-row').style.display = 'none';
+  }
+
+  // Issues tab
+  if(issues.length === 0){
+    $('rtab-issues').innerHTML = `<div class="empty-st"><span class="ei">✓</span>No issues found.<br>All checks passed.</div>`;
+  } else {
+    $('rtab-issues').innerHTML = `<div class="issue-list">${issues.map(renderIssue).join('')}</div>`;
+  }
+
+  // Pretty-print
+  $('pretty-box').innerHTML = syntaxHighlight(JSON.stringify(parsed, null, 2));
+
+  // Rich results
+  renderRichResults(detectedTypes);
+
+  // Show tabs
+  $('result-tabs').style.display = '';
+  $('result-actions').style.display = '';
+  setResultTab('issues');
+
+  updateSidebar(issues, detectedTypes.length);
+  schemaChecks(issues, detectedTypes, schemas);
+}
+
+function hasField(obj, field){
+  if(obj === null || typeof obj !== 'object') return false;
+  if(Object.prototype.hasOwnProperty.call(obj, field)){
+    const val = obj[field];
+    if(val === null || val === undefined || val === '') return false;
+    if(Array.isArray(val) && val.length === 0) return false;
+    return true;
+  }
+  // Check nested
+  for(const key of Object.keys(obj)){
+    if(typeof obj[key] === 'object' && obj[key] !== null){
+      if(hasField(obj[key], field)) return true;
+    }
+  }
+  return false;
+}
+
+function checkUrls(obj, issues, prefix, path=''){
+  if(obj === null || typeof obj !== 'object') return;
+  const urlFields = ['url','image','logo','@id','thumbnailUrl','contentUrl','embedUrl','item'];
+  Object.keys(obj).forEach(key => {
+    const val = obj[key];
+    const fullPath = prefix + (path ? path+'.'+key : key);
+    if(urlFields.includes(key) && typeof val === 'string' && val && !val.startsWith('http')){
+      issues.push({type:'wrn', title:'Relative URL Detected', msg:`"${key}" should be an absolute URL (starting with https://). Relative URLs may not be processed correctly.`, path:fullPath});
+    }
+    if(typeof val === 'object' && val !== null && !Array.isArray(val)){
+      checkUrls(val, issues, '', fullPath);
+    }
+    if(Array.isArray(val)){
+      val.forEach((item,i) => {
+        if(typeof item === 'object' && item !== null) checkUrls(item, issues, '', fullPath+`[${i}]`);
+        if(urlFields.includes(key) && typeof item === 'string' && item && !item.startsWith('http')){
+          issues.push({type:'wrn', title:'Relative URL in Array', msg:`"${key}[${i}]" should be an absolute URL.`, path:fullPath+`[${i}]`});
+        }
+      });
+    }
+  });
+}
+
+function typeSpecificChecks(s, type, issues, prefix){
+  if(type === 'FAQPage'){
+    const me = s.mainEntity;
+    if(me && Array.isArray(me)){
+      me.forEach((q,i)=>{
+        if(!q.name) issues.push({type:'err', title:`FAQ Question ${i+1}: Missing name`, msg:'Each Question in mainEntity must have a "name" property (the question text).', path:prefix+`mainEntity[${i}].name`});
+        if(!q.acceptedAnswer) issues.push({type:'err', title:`FAQ Question ${i+1}: Missing acceptedAnswer`, msg:'Each Question must have an "acceptedAnswer" object with a "text" property.', path:prefix+`mainEntity[${i}].acceptedAnswer`});
+        else if(!q.acceptedAnswer.text) issues.push({type:'err', title:`FAQ Answer ${i+1}: Missing text`, msg:'acceptedAnswer must have a "text" property containing the answer.', path:prefix+`mainEntity[${i}].acceptedAnswer.text`});
+      });
+    }
+  }
+  if(type === 'HowTo'){
+    const steps = s.step;
+    if(steps && Array.isArray(steps)){
+      steps.forEach((st,i)=>{
+        if(!st.text && !st.name) issues.push({type:'err', title:`Step ${i+1}: Missing text`, msg:'Each HowToStep should have a "text" property describing the step action.', path:prefix+`step[${i}].text`});
+      });
+    }
+  }
+  if(type === 'BreadcrumbList'){
+    const items = s.itemListElement;
+    if(items && Array.isArray(items)){
+      items.forEach((item,i)=>{
+        if(item.position === undefined) issues.push({type:'err', title:`BreadcrumbList item ${i+1}: Missing position`, msg:'Each ListItem must have a "position" property (integer starting at 1).', path:prefix+`itemListElement[${i}].position`});
+        if(!item.name) issues.push({type:'err', title:`BreadcrumbList item ${i+1}: Missing name`, msg:'Each ListItem must have a "name" property for the breadcrumb label.', path:prefix+`itemListElement[${i}].name`});
+      });
+    }
+  }
+  if(type === 'Product'){
+    if(s.offers){
+      const offers = Array.isArray(s.offers) ? s.offers : [s.offers];
+      offers.forEach((offer,i)=>{
+        if(!offer.price && !offer.priceRange) issues.push({type:'wrn', title:'Offer missing price', msg:'Offers should include a "price" or "priceRange" for Product rich results.', path:prefix+`offers${offers.length>1?`[${i}]`:''}.price`});
+        if(!offer.priceCurrency) issues.push({type:'wrn', title:'Offer missing priceCurrency', msg:'"priceCurrency" is required with "price". Use ISO 4217 currency code (e.g. USD).', path:prefix+`offers${offers.length>1?`[${i}]`:''}.priceCurrency`});
+      });
+    }
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RICH RESULTS RENDERING
+═══════════════════════════════════════════════════════════ */
+function renderRichResults(detectedTypes){
+  const allRich = new Set();
+  const activeRich = new Set();
+
+  Object.values(SCHEMA_RULES).forEach(r => r.richResults.forEach(rr=>allRich.add(rr)));
+
+  detectedTypes.forEach(t => {
+    const rules = SCHEMA_RULES[t];
+    if(rules) rules.richResults.forEach(rr=>activeRich.add(rr));
+  });
+
+  const items = Array.from(allRich).sort();
+  $('rich-grid').innerHTML = items.map(rr => {
+    const active = activeRich.has(rr);
+    return `<div class="rre-item${active?' active':''}">
+      <div class="rre-dot" style="background:${active?'var(--ok)':'var(--g200)'};"></div>
+      <span class="rre-label">${escHTML(rr)}</span>
+    </div>`;
+  }).join('');
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SIDEBAR + CHECKS
+═══════════════════════════════════════════════════════════ */
+function updateSidebar(issues, typeCount){
+  const errCount = issues.filter(i=>i.type==='err').length;
+  const wrnCount = issues.filter(i=>i.type==='wrn').length;
+  const infCount = issues.filter(i=>i.type==='inf').length;
+  const total = issues.length;
+
+  const status = total===0 && typeCount>0 ? '✓ Valid' : errCount>0 ? `${errCount} Errors` : wrnCount>0 ? `${wrnCount} Warns` : '—';
+  $('sb-status').textContent = status;
+  $('sb-status').className = 'mv ' + (total===0&&typeCount>0?'good':errCount>0?'bad':wrnCount>0?'warn':'');
+  $('sb-status-s').textContent = typeCount>0 ? typeCount+' type'+(typeCount!==1?'s':'')+' detected' : 'No input yet';
+
+  $('sb-errors').textContent = errCount || '0';
+  $('sb-errors').className = 'mv ' + (errCount>0?'bad':'');
+  $('sb-errors-s').textContent = errCount>0 ? errCount+' must-fix issue'+(errCount!==1?'s':'') : 'No errors';
+
+  $('sb-warns').textContent = wrnCount || '0';
+  $('sb-warns').className = 'mv ' + (wrnCount>0?'warn':'');
+  $('sb-warns-s').textContent = wrnCount>0 ? wrnCount+' optional improvement'+(wrnCount!==1?'s':'') : 'No warnings';
+
+  const maxBar = Math.max(errCount, wrnCount, infCount, 1);
+  setBar('sf-err','sv-err', errCount, maxBar, 'var(--bad)');
+  setBar('sf-wrn','sv-wrn', wrnCount, maxBar, 'var(--warn)');
+  setBar('sf-inf','sv-inf', infCount, maxBar, '#79c0ff');
+}
+
+function setBar(fillId, valId, val, max, col){
+  const pct = max>0 ? Math.round((val/max)*100) : 0;
+  $(fillId).style.width = pct+'%';
+  $(fillId).style.background = val>0 ? col : 'var(--g200)';
+  $(valId).textContent = val;
+}
+
+function schemaChecks(issues, detectedTypes=[], schemas=[]){
+  const checks = [
+    {ok: schemas.length>0, label:'JSON Syntax Valid'},
+    {ok: schemas.length>0 && schemas.every(s=>s['@context']), label:'@context Present'},
+    {ok: schemas.length>0 && schemas.every(s=>s['@type']), label:'@type Declared'},
+    {ok: issues.filter(i=>i.type==='err'&&i.title.includes('Required')).length===0, label:'Required Fields Present'},
+    {ok: detectedTypes.length>0 && detectedTypes.every(t=>SCHEMA_RULES[t]), label:'Recognised Schema Type'},
+    {ok: issues.filter(i=>i.title.includes('Relative URL')).length===0, label:'All URLs Absolute'},
+    {ok: issues.filter(i=>i.type==='err').length===0, label:'No Errors — Rich Result Ready'},
+  ];
+
+  $('schema-checks').innerHTML = checks.map(c => `
+    <div class="chk-row">
+      <div style="width:8px;height:8px;flex-shrink:0;background:${c.ok?'var(--ok)':'var(--bad)'};"></div>
+      <span style="color:${c.ok?'var(--black)':'var(--bad)'}">${c.label}</span>
+    </div>
+  `).join('');
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RENDER HELPERS
+═══════════════════════════════════════════════════════════ */
+function showBanner(state, icon, title, sub){
+  const b = $('result-banner');
+  b.className = 'result-banner ' + state;
+  b.innerHTML = `<span class="rb-icon">${icon}</span><div><div class="rb-title">${escHTML(title)}</div><div class="rb-sub">${escHTML(sub)}</div></div>`;
+}
+
+function renderIssue(issue){
+  return `<div class="issue-item ${issue.type}">
+    <span class="ii-badge ${issue.type}">${issue.type==='err'?'Error':issue.type==='wrn'?'Warning':'Info'}</span>
+    <div class="ii-body">
+      <div class="ii-title">${escHTML(issue.title)}</div>
+      <div class="ii-msg">${escHTML(issue.msg)}</div>
+      ${issue.path?`<div class="ii-path">Property: ${escHTML(issue.path)}</div>`:''}
+    </div>
+  </div>`;
+}
+
+function syntaxHighlight(json){
+  return json
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, match => {
+      let cls = 'jn'; // number
+      if(/^"/.test(match)){
+        cls = /:$/.test(match) ? 'jk' : 'js';
+      } else if(/true|false/.test(match)){
+        cls = 'jb';
+      } else if(/null/.test(match)){
+        cls = 'jnull';
+      }
+      return `<span class="${cls}">${match}</span>`;
+    });
+}
+
+/* ═══════════════════════════════════════════════════════════
+   TABS / FORMAT / DOWNLOAD / COPY
+═══════════════════════════════════════════════════════════ */
+function setResultTab(tab){
+  curResultTab = tab;
+  document.querySelectorAll('.vtb').forEach(b => b.classList.toggle('active', b.dataset.tab===tab));
+  $('rtab-issues').style.display  = tab==='issues' ?'':'none';
+  $('rtab-pretty').style.display  = tab==='pretty' ?'':'none';
+  $('rtab-rich').style.display    = tab==='rich'   ?'':'none';
+}
+
+function formatJSON(){
+  const raw = $('json-input').value.trim();
+  if(!raw) return;
+  try {
+    const parsed = JSON.parse(raw);
+    $('json-input').value = JSON.stringify(parsed, null, 2);
+    onInput($('json-input'));
+  } catch(e){
+    alert('JSON syntax error — cannot format: ' + e.message);
+  }
+}
+
+function clearAll(){
+  $('json-input').value = '';
+  $('json-input').classList.remove('error','ok');
+  $('char-count').textContent = '0 chars';
+  lastParsed = null; lastIssues = [];
+  showBanner('idle','⬆','Awaiting Input','Paste JSON-LD above and click Validate to see results.');
+  $('types-row').style.display = 'none';
+  $('result-tabs').style.display = 'none';
+  $('result-actions').style.display = 'none';
+  $('rtab-issues').innerHTML = `<div class="empty-st"><span class="ei">✓</span>Run validation to see issues here.</div>`;
+  $('result-pill').textContent = '—';
+  updateSidebar([], 0);
+  schemaChecks([]);
+  document.querySelectorAll('.pc').forEach(c=>c.style.borderColor='');
+}
+
+function copyFormatted(){
+  const raw = $('json-input').value.trim();
+  if(!raw){alert('Nothing to copy.');return;}
+  let out = raw;
+  try{ out = JSON.stringify(JSON.parse(raw), null, 2); }catch(e){}
+  navigator.clipboard.writeText(out).then(()=>{
+    const btn = document.querySelector('.cb-btn[onclick="copyFormatted()"]');
+    if(!btn) return;
+    const orig = btn.textContent;
+    btn.textContent = '✓ Copied!';
+    btn.style.cssText = 'background:var(--ok);color:var(--white);border-color:var(--ok);';
+    setTimeout(()=>{btn.textContent=orig;btn.style.cssText='';},2000);
+  }).catch(()=>alert('Copy failed.'));
+}
+
+function downloadJSON(){
+  const raw = $('json-input').value.trim();
+  if(!raw){alert('Nothing to download.');return;}
+  let out = raw;
+  try{ out = JSON.stringify(JSON.parse(raw), null, 2); }catch(e){}
+  const blob = new Blob([`<script type="application/ld+json">\n${out}\n<\/script>`], {type:'text/html'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'structured-data.html';
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   UTILS
+═══════════════════════════════════════════════════════════ */
+function tfaq(el){ el.parentElement.classList.toggle('open'); }
+function escHTML(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+</script>
+</body>
+</html>
