@@ -34,6 +34,7 @@ function loadHeader() {
                             <li><a href="/robots-txt-generator" class="dropdown-item">Robots.txt Generator</a></li>
                             <li><a href="/hreflang-tag-generator" class="dropdown-item">Hreflang Tag Generator</a></li>
                             <li><a href="/structured-data-validator" class="dropdown-item">Structured Data Validator</a></li>
+                            <li><a href="/mobile-website-viewer" class="dropdown-item">Mobile Website Viewer</a></li>
                         </ul>
                     </li>                    
                     <li><a href="/about" class="nav-link">About</a></li>
