@@ -27,6 +27,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Mobile Website Viewer | SEO HQ">
 <meta name="twitter:description" content="Free tool to preview any website across mobile, tablet, and desktop screen sizes. No install needed.">
+<link rel="stylesheet" href="styles.css">  
 
 <!-- Schema: WebApplication -->
 <script type="application/ld+json">
@@ -281,10 +282,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 <body>
 
 <!-- ══════════════ HEADER ══════════════ -->
-<header class="sh">
-  <a class="sl" href="https://seohq.github.io/">SEO<span>HQ</span></a>
-  <span class="ht">Free Tools</span>
-</header>
+<header id="header-container"></header>
 
 <!-- ══════════════ HERO ══════════════ -->
 <div class="th">
@@ -661,10 +659,12 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 </div>
 
 <!-- ══════════════ FOOTER ══════════════ -->
-<footer class="ft">
-  <div class="ft-l">© 2025 <a href="https://seohq.github.io/">SEO HQ</a> — Free Mobile Website Viewer &amp; Responsive Design Tester</div>
-  <div class="ft-r">Mobile Website Viewer · Mobile View Tester · Responsive Preview Tool · Free SEO Tools</div>
-</footer>
+<footer id="footer-container"></footer>
+
+<script src="components/header.js"></script>
+<script src="components/footer.js"></script>
+<script src="components/sidebar.js"></script>
+<script src="script.js"></script>
 
 <!-- ══════════════ FULLSCREEN OVERLAY ══════════════ -->
 <div id="fs-overlay">
