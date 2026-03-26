@@ -1,6 +1,13 @@
 // components/latest-articles.js
 const latestArticlesData = [
     {
+        title: "AI Overviews Optimization 2026",
+        category: "Content Optimization",
+        readTime: "14 min read",
+        link: "/ai-overviews-optimization-2026",
+        date: "2026-03-26"
+    }, 
+    {
         title: "From SERP's to AERP's",
         category: "Ai in SEO",
         readTime: "16 min read",
@@ -27,14 +34,7 @@ const latestArticlesData = [
         readTime: "15 min read",
         link: "/answer-engine-optimization",
         date: "2026-02-06"
-    },
-    {
-        title: "The Ultimate Guide to Google Search Console",
-        category: "TECHNICAL SEO",
-        readTime: "12 min read",
-        link: "/google-search-console-guide",
-        date: "2026-01-28"
-    }    
+    }       
 ];
 
 function renderLatestArticles() {
