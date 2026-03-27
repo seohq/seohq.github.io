@@ -27,7 +27,7 @@ function loadFooter() {
                         <li><a href="semantic-seo">Semantic SEO</a></li>
                         <li><a href="content-optimization">Content Optimization</a></li>
                         <li><a href="case-studies">Case Studies</a></li>
-                        <li><a href="serp-simulator">SERP Simulator</a></li>
+                        <li><a href="tech-news">Tech News</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
