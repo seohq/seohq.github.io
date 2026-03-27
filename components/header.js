@@ -36,8 +36,9 @@ function loadHeader() {
                             <li><a href="/structured-data-validator" class="dropdown-item">Structured Data Validator</a></li>
                             <li><a href="/mobile-website-viewer" class="dropdown-item">Mobile Website Viewer</a></li>
                         </ul>
-                    </li>                    
-                    <li><a href="/about" class="nav-link">About</a></li>
+                    </li> 
+                    <li><a href="/tech-news" class="nav-link">Tech News</a></li>
+                    <li><a href="/about" class="nav-link">About</a></li>                    
                 </ul>
                 <div class="header-actions">
                     <a href="/contact" class="audit-btn">
