@@ -1,6 +1,13 @@
 // components/latest-articles.js
 const latestArticlesData = [
     {
+        title: "Case Study: Mobile Viewer Ranked in Google in 7 Days",
+        category: "AI In SEO",
+        readTime: "12 min read",
+        link: "/seo-case-study-mobile-viewer-2026",
+        date: "2026-03-28"
+    },
+    {
         title: "AI Overviews Optimization 2026",
         category: "Content Optimization",
         readTime: "14 min read",
@@ -27,14 +34,7 @@ const latestArticlesData = [
         readTime: "10 min read",
         link: "/essential-seo-tools",
         date: "2026-03-04"
-    },
-    {
-        title: "Answer Engine Optimization (AEO)",
-        category: "AI In SEO",
-        readTime: "15 min read",
-        link: "/answer-engine-optimization",
-        date: "2026-02-06"
-    }       
+    }           
 ];
 
 function renderLatestArticles() {
