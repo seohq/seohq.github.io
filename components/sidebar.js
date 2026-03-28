@@ -7,7 +7,7 @@ function loadSidebar() {
             <a href="/#popular-articles-container" class="sidebar-item">Popular</a>
             <a href="#" class="sidebar-item">Archive</a>
             <a href="services" class="sidebar-item">Services</a>
-            <a href="/serp-simulator" class="sidebar-item">SERP Simulator</a>
+            <a href="/tech-news" class="sidebar-item">Tech News</a>
             <a href="/seo-tools" class="sidebar-item">SEO Tools</a>
             
             <div class="sidebar-title" style="margin-top: var(--spacing-lg);">TAGS</div>
