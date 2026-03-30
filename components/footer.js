@@ -36,7 +36,7 @@ function loadFooter() {
                         <li><a href="#">Twitter</a></li>
                         <li><a href="https://www.linkedin.com/in/waqas-bukhari-6a5912389/">LinkedIn</a></li>
                         <li><a href="https://github.com/seohq/seohq.github.io">GitHub</a></li>
-                        <li><a href="#">Email</a></li>
+                        <li><a href="https://www.facebook.com/share/14cpQCUVncU/">Facebook</a></li>
                         <li><a href="https://wa.me/923402324446">Whatsapp</a></li>
                         <li><a href="/author">Author</a></li>
                     </ul>
