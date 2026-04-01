@@ -1,6 +1,12 @@
 // components/popular-articles.js
 const popularArticlesData = [
     {
+        title: "Anthropic Launches Claude Computer Use Agent",
+        category: "Tech News",
+        views: "100+ reads",
+        link: "anthropic-claude-computer-use-agent"
+    },
+    {
         title: "AI Agents and Autonomous Search",
         category: "Ai in SEO",
         views: "210+ reads",
