@@ -37,41 +37,45 @@
     <link rel="stylesheet" href="styles.css">
     
     <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
     {
-      "@context": "https://schema.org",
       "@type": "WebSite",
-      "name": "SEO HQ",
+      "@id": "https://seohq.github.io/#website",
       "url": "https://seohq.github.io/",
-      "description": "SEO blog covering Technical SEO, AI in SEO, Semantic SEO, Content Optimization, and Case Studies.",
+      "name": "SEO HQ",
+      "description": "SEO blog delivering raw, no-fluff insights on Technical SEO, AI in SEO, Semantic Search, Answer Engine Optimization (AEO), Core Web Vitals, and content strategy for 2026 and beyond.",
+      "inLanguage": "en-US",
       "publisher": {
-        "@type": "Organization",
-        "name": "SEO HQ",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://seohq.github.io/logo.svg"
-        }
+        "@id": "https://seohq.github.io/#organization"
       },
       "potentialAction": {
         "@type": "SearchAction",
-        "target": "https://seohq.github.io/search?q={search_term_string}",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://seohq.github.io/search?q={search_term_string}"
+        },
         "query-input": "required name=search_term_string"
       }
-    }
-    </script>
-    
-    <script type="application/ld+json">
+    },
     {
-      "@context": "https://schema.org",
-      "@type": "Blog",
+      "@type": "Organization",
+      "@id": "https://seohq.github.io/#organization",
       "name": "SEO HQ",
       "url": "https://seohq.github.io/",
-      "description": "SEO blog",
-      "publisher": {
-        "@type": "Organization",
-        "name": "SEO HQ"
-      }
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://seohq.github.io/logo.svg",
+        "width": 512,
+        "height": 512
+      },
+      "description": "SEO HQ is a no-BS technical SEO blog focused on practical strategies for AI-driven search, semantic optimization, and ranking in 2026.",
+      "sameAs": [https://www.linkedin.com/in/waqas-bukhari-6a5912389/, https://www.facebook.com/share/14cpQCUVncU/]   // Add your LinkedIn, X/Twitter, etc. here if available, e.g. "https://x.com/SyedWaqas11431"
     }
-    </script>
+  ]
+}
+</script>
 </head>
 <body>
     <header id="header-container"></header>
