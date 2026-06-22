@@ -2,9 +2,9 @@
  * @schema
  * {
  * "fileName": "header.js",
- * "description": "Header component with optimized WhatsApp-style Free Audit button sizing and colors, plus Useful Tools dropdown",
+ * "description": "Header component — Navy Intelligence Platform design system",
  * "components": ["loadHeader", "createMobileNavSection"],
- * "dependencies": ["var(--color-black)", "var(--color-white)", "var(--color-accent)"]
+ * "dependencies": ["styles.css"]
  * }
  */
 
@@ -55,17 +55,18 @@ function loadHeader() {
   const style = `
         <style>
             .header-nav {
-                border-bottom: 1px solid var(--color-black);
-                background: var(--color-white);
+                border-bottom: 1px solid var(--slate-100);
+                background: var(--surface-card);
                 position: sticky;
                 top: 0;
                 z-index: 100;
+                box-shadow: var(--shadow-sm);
             }
 
             .header-container {
-                max-width: 1400px;
+                max-width: 1360px;
                 margin: 0 auto;
-                padding: var(--spacing-md) var(--spacing-lg);
+                padding: var(--space-4) var(--space-8);
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
@@ -74,31 +75,32 @@ function loadHeader() {
             .header-actions {
                 display: flex;
                 align-items: center;
-                gap: var(--spacing-md);
+                gap: var(--space-4);
             }
 
             .audit-btn {
                 background-color: #25D366;
                 color: #ffffff !important;
-                padding: 12px 24px;
-                border-radius: 50px;
+                padding: var(--space-3) var(--space-6);
+                border-radius: 100px;
                 text-decoration: none;
-                font-size: 14px;
-                font-weight: 700;
-                text-transform: uppercase;
+                font-size: var(--text-sm);
+                font-weight: 600;
+                font-family: var(--font-body);
                 display: flex;
                 align-items: center;
-                gap: 10px;
-                transition: all 0.3s ease;
+                gap: var(--space-2);
+                transition: var(--transition);
                 box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
                 border: none;
                 white-space: nowrap;
+                letter-spacing: 0.02em;
             }
 
             .audit-btn:hover {
                 background-color: #1ebe57;
                 transform: translateY(-2px);
-                box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4);
+                box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
             }
 
             .logo-section {
@@ -107,44 +109,42 @@ function loadHeader() {
             }
 
             .logo {
-                font-size: var(--font-size-2xl);
+                font-family: var(--font-display);
+                font-size: var(--text-2xl);
                 font-weight: 700;
-                letter-spacing: 2px;
+                letter-spacing: -0.02em;
                 display: flex;
-                gap: 4px;
+                gap: var(--space-1);
+                text-decoration: none;
             }
 
             .logo-text {
-                border-bottom: 3px solid var(--color-black);
-                padding-bottom: 2px;
+                color: var(--text-primary);
             }
 
             .logo-accent {
-                color: var(--color-accent);
-                border-bottom: 3px solid var(--color-accent);
-                padding-bottom: 2px;
+                color: var(--teal-500);
             }
 
             .nav-list {
                 display: flex;
                 list-style: none;
-                gap: var(--spacing-lg);
+                gap: var(--space-8);
                 align-items: center;
                 margin: 0;
                 padding: 0;
             }
 
             .nav-link {
-                font-size: var(--font-size-sm);
-                text-transform: uppercase;
-                letter-spacing: 1px;
-                font-weight: 600;
-                border: none;
-                transition: all 0.2s ease;
-                position: relative;
-                color: var(--color-black);
+                font-family: var(--font-body);
+                font-size: var(--text-sm);
+                font-weight: 500;
+                color: var(--text-secondary);
                 text-decoration: none;
-                padding: 8px 0;
+                padding: var(--space-2) 0;
+                position: relative;
+                transition: var(--transition);
+                letter-spacing: 0.01em;
             }
 
             .nav-link::after {
@@ -154,8 +154,14 @@ function loadHeader() {
                 left: 0;
                 width: 0;
                 height: 2px;
-                background: var(--color-accent);
-                transition: width 0.3s ease;
+                background: var(--teal-500);
+                border-radius: 2px;
+                transition: width 0.25s ease;
+            }
+
+            .nav-link:hover,
+            .nav-link.active {
+                color: var(--text-primary);
             }
 
             .nav-link:hover::after,
@@ -171,12 +177,13 @@ function loadHeader() {
             .dropdown-toggle {
                 display: flex;
                 align-items: center;
-                gap: 4px;
+                gap: var(--space-1);
             }
 
             .dropdown-arrow {
-                font-size: 10px;
-                transition: transform 0.3s ease;
+                font-size: 9px;
+                transition: transform 0.25s ease;
+                color: var(--text-muted);
             }
 
             .dropdown:hover .dropdown-arrow {
@@ -185,20 +192,21 @@ function loadHeader() {
 
             .dropdown-menu {
                 position: absolute;
-                top: 100%;
+                top: calc(100% + var(--space-3));
                 left: 0;
                 min-width: 240px;
-                background: var(--color-white);
-                border: 1px solid var(--color-black);
-                border-top: 2px solid var(--color-accent);
-                padding: 8px 0;
+                background: var(--surface-card);
+                border: 1px solid var(--slate-100);
+                border-top: 2px solid var(--teal-500);
+                border-radius: 0 0 var(--radius-md) var(--radius-md);
+                padding: var(--space-2) 0;
                 margin: 0;
                 list-style: none;
                 opacity: 0;
                 visibility: hidden;
-                transform: translateY(10px);
-                transition: all 0.3s ease;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                transform: translateY(8px);
+                transition: var(--transition);
+                box-shadow: var(--shadow-md);
                 z-index: 1000;
             }
 
@@ -210,43 +218,51 @@ function loadHeader() {
 
             .dropdown-item {
                 display: block;
-                padding: 10px 16px;
-                font-size: var(--font-size-xs);
-                text-transform: uppercase;
-                letter-spacing: 0.5px;
-                color: var(--color-black);
+                padding: var(--space-3) var(--space-5);
+                font-size: var(--text-sm);
+                font-family: var(--font-body);
+                font-weight: 500;
+                color: var(--text-secondary);
                 text-decoration: none;
-                transition: all 0.2s ease;
+                transition: var(--transition);
                 white-space: nowrap;
+                letter-spacing: 0;
             }
 
             .dropdown-item:hover {
-                background: var(--color-accent);
-                color: var(--color-white);
-                padding-left: 20px;
+                background: var(--teal-glow);
+                color: var(--teal-500);
+                padding-left: var(--space-6);
             }
 
             .menu-toggle {
                 display: none;
                 background: none;
-                border: 1px solid var(--color-black);
-                padding: 8px 16px;
-                font-size: var(--font-size-xs);
+                border: 1.5px solid var(--slate-200);
+                padding: var(--space-2) var(--space-4);
+                font-size: var(--text-xs);
+                font-weight: 600;
                 text-transform: uppercase;
-                letter-spacing: 1px;
+                letter-spacing: 0.08em;
                 cursor: pointer;
-                font-family: var(--font-sans);
-                transition: all 0.2s ease;
-                color: var(--color-black);
+                font-family: var(--font-body);
+                transition: var(--transition);
+                color: var(--text-secondary);
+                border-radius: var(--radius-sm);
             }
 
             .menu-toggle:hover {
-                background: var(--color-black);
-                color: var(--color-white);
+                background: var(--navy-800);
+                color: var(--text-on-dark);
+                border-color: var(--navy-800);
             }
 
             /* Mobile Styles */
             @media (max-width: 992px) {
+                .header-container {
+                    padding: var(--space-4) var(--space-5);
+                }
+
                 .nav-list {
                     display: none;
                     position: absolute;
@@ -254,11 +270,12 @@ function loadHeader() {
                     left: 0;
                     right: 0;
                     flex-direction: column;
-                    background: var(--color-white);
-                    border-bottom: 1px solid var(--color-black);
-                    padding: var(--spacing-md);
-                    gap: var(--spacing-md);
+                    background: var(--surface-card);
+                    border-bottom: 1px solid var(--slate-100);
+                    padding: var(--space-4) var(--space-5);
+                    gap: var(--space-3);
                     align-items: flex-start;
+                    box-shadow: var(--shadow-md);
                 }
 
                 .nav-list.active {
@@ -275,12 +292,14 @@ function loadHeader() {
                     visibility: visible;
                     transform: none;
                     border: none;
-                    border-left: 2px solid var(--color-accent);
-                    margin: 8px 0 8px 20px;
-                    padding: 4px 0;
+                    border-left: 2px solid var(--teal-500);
+                    margin: var(--space-2) 0 var(--space-2) var(--space-5);
+                    padding: var(--space-1) 0;
                     box-shadow: none;
                     min-width: auto;
                     display: none;
+                    border-radius: 0;
+                    border-top: none;
                 }
 
                 .dropdown.active .dropdown-menu {
@@ -292,17 +311,10 @@ function loadHeader() {
                     justify-content: space-between;
                 }
 
-                .dropdown-arrow {
-                    transform: rotate(0deg);
-                }
-
-                .dropdown.active .dropdown-arrow {
-                    transform: rotate(180deg);
-                }
-
                 .dropdown-item {
                     white-space: normal;
-                    padding: 8px 16px;
+                    padding: var(--space-2) var(--space-4);
+                    font-size: var(--text-xs);
                 }
 
                 .menu-toggle {
@@ -310,10 +322,10 @@ function loadHeader() {
                 }
 
                 .audit-btn {
-                    padding: 8px 16px;
-                    font-size: 11px;
+                    padding: var(--space-2) var(--space-4);
+                    font-size: var(--text-xs);
                 }
-                
+
                 .audit-btn svg {
                     width: 16px;
                     height: 16px;
@@ -329,7 +341,7 @@ function loadHeader() {
   const headerContainer = document.getElementById("header-container")
   if (headerContainer) {
     headerContainer.innerHTML = style + headerHTML
-    
+
     // Initialize mobile dropdown functionality
     initializeMobileDropdowns()
   }
@@ -346,12 +358,10 @@ function loadHeader() {
 }
 
 function initializeMobileDropdowns() {
-  // Handle dropdown toggles on mobile
   const dropdownToggles = document.querySelectorAll('.dropdown-toggle')
-  
+
   dropdownToggles.forEach(toggle => {
     toggle.addEventListener('click', (e) => {
-      // Only prevent default on mobile
       if (window.innerWidth <= 992) {
         e.preventDefault()
         const dropdown = toggle.closest('.dropdown')
@@ -360,7 +370,6 @@ function initializeMobileDropdowns() {
     })
   })
 
-  // Close dropdowns when clicking outside
   document.addEventListener('click', (e) => {
     if (window.innerWidth <= 992) {
       if (!e.target.closest('.dropdown')) {
@@ -374,12 +383,12 @@ function initializeMobileDropdowns() {
 
 function createMobileNavSection() {
   const mobileNavHTML = `
-    <div class="mobile-nav-wrapper" style="display: flex; gap: var(--spacing-md); flex-wrap: wrap;">
-      <a href="/" class="nav-link-mobile" style="flex: 1; min-width: 120px; padding: var(--spacing-sm) var(--spacing-md); border: 1px solid var(--color-black); text-align: center; text-transform: uppercase; font-size: var(--font-size-xs); letter-spacing: 1px; color: var(--color-black); transition: all 0.2s ease;">Home</a>
-      <a href="/#latest-articles-container" class="nav-link-mobile" style="flex: 1; min-width: 120px; padding: var(--spacing-sm) var(--spacing-md); border: 1px solid var(--color-black); text-align: center; text-transform: uppercase; font-size: var(--font-size-xs); letter-spacing: 1px; color: var(--color-black); transition: all 0.2s ease;">Articles</a>
-      <a href="/services" class="nav-link-mobile" style="flex: 1; min-width: 120px; padding: var(--spacing-sm) var(--spacing-md); border: 1px solid var(--color-black); text-align: center; text-transform: uppercase; font-size: var(--font-size-xs); letter-spacing: 1px; color: var(--color-black); transition: all 0.2s ease;">Services</a>
-      <a href="/tools" class="nav-link-mobile" style="flex: 1; min-width: 120px; padding: var(--spacing-sm) var(--spacing-md); border: 1px solid var(--color-black); text-align: center; text-transform: uppercase; font-size: var(--font-size-xs); letter-spacing: 1px; color: var(--color-black); transition: all 0.2s ease;">Tools</a>
-      <a href="/about" class="nav-link-mobile" style="flex: 1; min-width: 120px; padding: var(--spacing-sm) var(--spacing-md); border: 1px solid var(--color-black); text-align: center; text-transform: uppercase; font-size: var(--font-size-xs); letter-spacing: 1px; color: var(--color-black); transition: all 0.2s ease;">About</a>
+    <div class="mobile-nav-wrapper" style="display: flex; gap: var(--space-3); flex-wrap: wrap;">
+      <a href="/" class="nav-link-mobile" style="flex: 1; min-width: 120px; padding: var(--space-3) var(--space-4); border: 1.5px solid var(--slate-200); border-radius: var(--radius-sm); text-align: center; font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-secondary); transition: var(--transition); font-family: var(--font-body);">Home</a>
+      <a href="/#latest-articles-container" class="nav-link-mobile" style="flex: 1; min-width: 120px; padding: var(--space-3) var(--space-4); border: 1.5px solid var(--slate-200); border-radius: var(--radius-sm); text-align: center; font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-secondary); transition: var(--transition); font-family: var(--font-body);">Articles</a>
+      <a href="/services" class="nav-link-mobile" style="flex: 1; min-width: 120px; padding: var(--space-3) var(--space-4); border: 1.5px solid var(--slate-200); border-radius: var(--radius-sm); text-align: center; font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-secondary); transition: var(--transition); font-family: var(--font-body);">Services</a>
+      <a href="/tools" class="nav-link-mobile" style="flex: 1; min-width: 120px; padding: var(--space-3) var(--space-4); border: 1.5px solid var(--slate-200); border-radius: var(--radius-sm); text-align: center; font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-secondary); transition: var(--transition); font-family: var(--font-body);">Tools</a>
+      <a href="/about" class="nav-link-mobile" style="flex: 1; min-width: 120px; padding: var(--space-3) var(--space-4); border: 1.5px solid var(--slate-200); border-radius: var(--radius-sm); text-align: center; font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-secondary); transition: var(--transition); font-family: var(--font-body);">About</a>
     </div>
   `
   const mobileNavSection = document.getElementById("mobile-nav-section")
@@ -389,12 +398,14 @@ function createMobileNavSection() {
     const mobileLinks = document.querySelectorAll(".nav-link-mobile")
     mobileLinks.forEach((link) => {
       link.addEventListener("mouseover", function () {
-        this.style.background = "var(--color-black)"
-        this.style.color = "var(--color-white)"
+        this.style.background = "var(--navy-800)"
+        this.style.color = "var(--teal-500)"
+        this.style.borderColor = "var(--navy-800)"
       })
       link.addEventListener("mouseout", function () {
         this.style.background = ""
-        this.style.color = "var(--color-black)"
+        this.style.color = "var(--text-secondary)"
+        this.style.borderColor = "var(--slate-200)"
       })
     })
   }
@@ -403,8 +414,7 @@ function createMobileNavSection() {
 document.addEventListener("DOMContentLoaded", () => {
   loadHeader()
   createMobileNavSection()
-  
-  // Re-initialize dropdowns on window resize
+
   window.addEventListener('resize', () => {
     if (window.innerWidth > 992) {
       document.querySelectorAll('.dropdown.active').forEach(dropdown => {
