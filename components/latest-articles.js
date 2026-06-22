@@ -43,16 +43,21 @@ function renderLatestArticles() {
 
     let html = `
         <section class="latest-articles">
-            <h2>LATEST INSIGHTS</h2>
+            <div class="section-label">Fresh Off the Press</div>
+            <h2 style="font-size: var(--text-2xl); color: var(--text-primary); margin: 0 0 var(--space-6) 0; border: none; padding: 0;">Latest Insights</h2>
             <div class="articles-list">
     `;
 
     latestArticlesData.forEach(article => {
         html += `
-            <div class="latest-article-item" style="border-bottom: 1px solid var(--color-black); padding: var(--spacing-md) 0;">
-                <p class="article-meta" style="margin-bottom: 4px;">${article.date} // ${article.category}</p>
-                <h3 style="margin: 0 0 var(--spacing-sm) 0;"><a href="${article.link}">${article.title}</a></h3>
-                <p class="read-more">${article.readTime} →</p>
+            <div class="latest-article-item" style="border-bottom: 1px solid var(--slate-100); padding: var(--space-5) 0; transition: var(--transition);">
+                <p class="article-meta">${article.date} &nbsp;·&nbsp; ${article.category}</p>
+                <h3 style="margin: 0 0 var(--space-3) 0; font-size: var(--text-lg); font-weight: 600; letter-spacing: -0.01em; line-height: 1.3;">
+                    <a href="${article.link}" style="color: var(--text-primary); text-decoration: none; transition: var(--transition);"
+                       onmouseover="this.style.color='var(--teal-500)'"
+                       onmouseout="this.style.color='var(--text-primary)'">${article.title}</a>
+                </h3>
+                <a href="${article.link}" class="read-more">${article.readTime} →</a>
             </div>
         `;
     });
