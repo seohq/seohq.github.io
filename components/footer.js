@@ -5,9 +5,8 @@ function loadFooter() {
             <div class="footer-content">
                 <div class="footer-section">
                     <h4>ABOUT</h4>
-                    <p>SEO HQ is a brutalist blog dedicated to raw insights on search engine optimization, AI integration, and content strategy.</p>
+                    <p>SEO HQ is a blog dedicated to raw insights on search engine optimization, AI integration, and content strategy.</p>
                 </div>
-                <!-- Added PAGES section before CATEGORIES -->
                 <div class="footer-section">
                     <h4>PAGES</h4>
                     <ul class="footer-links">
@@ -52,80 +51,94 @@ function loadFooter() {
   const style = `
         <style>
             footer {
-                border-top: 3px solid var(--color-black);
-                background: var(--color-white);
-                margin-top: var(--spacing-xl);
+                border-top: 1px solid var(--slate-100);
+                background: var(--navy-900);
+                margin-top: var(--space-20);
             }
 
             .footer-container {
-                max-width: 1400px;
+                max-width: 1360px;
                 margin: 0 auto;
-                padding: var(--spacing-xl) var(--spacing-lg);
+                padding: var(--space-16) var(--space-8);
             }
 
             .footer-content {
                 display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: var(--spacing-lg);
-                margin-bottom: var(--spacing-lg);
-                padding-bottom: var(--spacing-lg);
-                border-bottom: 1px solid var(--color-black);
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: var(--space-10);
+                margin-bottom: var(--space-10);
+                padding-bottom: var(--space-10);
+                border-bottom: 1px solid rgba(255,255,255,0.08);
             }
 
             .footer-section h4 {
-                font-size: var(--font-size-sm);
+                font-family: var(--font-body);
+                font-size: var(--text-xs);
                 text-transform: uppercase;
-                letter-spacing: 2px;
-                margin-bottom: var(--spacing-md);
-                color: var(--color-accent);
+                letter-spacing: 0.12em;
+                margin-bottom: var(--space-5);
+                color: var(--teal-500);
+                font-weight: 600;
             }
 
             .footer-section p {
-                font-size: var(--font-size-sm);
-                color: var(--color-gray-700);
-                line-height: 1.8;
+                font-size: var(--text-sm);
+                color: var(--text-on-dark-muted);
+                line-height: 1.75;
+                margin: 0;
             }
 
             .footer-links {
                 list-style: none;
+                padding: 0;
+                margin: 0;
             }
 
             .footer-links li {
-                margin-bottom: var(--spacing-sm);
+                margin-bottom: var(--space-3);
             }
 
             .footer-links a {
-                font-size: var(--font-size-sm);
-                text-transform: uppercase;
-                letter-spacing: 0.5px;
-                border: none;
-                color: var(--color-black);
-                transition: all 0.2s ease;
+                font-size: var(--text-sm);
+                font-weight: 500;
+                color: var(--text-on-dark-muted);
+                text-decoration: none;
+                transition: var(--transition);
+                display: inline-flex;
+                align-items: center;
+                gap: var(--space-2);
             }
 
             .footer-links a:hover {
-                color: var(--color-accent);
-                border-left: 2px solid var(--color-accent);
-                padding-left: 8px;
+                color: var(--teal-500);
+                gap: var(--space-3);
             }
 
             .footer-bottom {
                 text-align: center;
-                font-size: var(--font-size-xs);
-                color: var(--color-gray-500);
+                font-size: var(--text-xs);
+                color: var(--text-on-dark-muted);
                 text-transform: uppercase;
-                letter-spacing: 1px;
+                letter-spacing: 0.08em;
+                opacity: 0.6;
             }
 
             .footer-bottom p {
-                margin: 4px 0;
+                margin: var(--space-1) 0;
             }
 
             @media (max-width: 768px) {
                 .footer-container {
-                    padding: var(--spacing-lg) var(--spacing-md);
+                    padding: var(--space-12) var(--space-5);
                 }
 
+                .footer-content {
+                    grid-template-columns: 1fr 1fr;
+                    gap: var(--space-8);
+                }
+            }
+
+            @media (max-width: 480px) {
                 .footer-content {
                     grid-template-columns: 1fr;
                 }
