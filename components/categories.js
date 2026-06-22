@@ -12,44 +12,8 @@ function loadCategories() {
     )
     .join("")
 
-  const style = `
-        <style>
-            .categories-grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-                gap: var(--spacing-md);
-                margin-top: var(--spacing-lg);
-            }
-
-            .category-card {
-                border: 1px solid var(--color-black);
-                padding: var(--spacing-md);
-                text-align: center;
-                cursor: pointer;
-                transition: all 0.2s ease;
-                text-transform: uppercase;
-                font-weight: 700;
-                font-size: 11px;
-                letter-spacing: 1px;
-                user-select: none;
-            }
-
-            .category-card:hover {
-                background: var(--color-black);
-                color: var(--color-white);
-                border-color: var(--color-accent);
-            }
-
-            .category-card.active {
-                background: var(--color-accent);
-                color: var(--color-white);
-                border-color: var(--color-accent);
-            }
-        </style>
-    `
-
   const categoriesContainer = document.getElementById("categories-container")
-  categoriesContainer.innerHTML = style + '<div class="categories-grid">' + categoriesHTML + "</div>"
+  categoriesContainer.innerHTML = '<div class="categories-grid">' + categoriesHTML + "</div>"
 
   // Add filter functionality
   const categoryCards = document.querySelectorAll(".category-card")
