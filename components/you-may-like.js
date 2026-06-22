@@ -3,16 +3,16 @@
   "file": "you-may-like.js",
   "description": "Component script to render 'You May Like' articles and handle navigation logic.",
   "type": "JavaScript Component",
-  "version": "1.1.0"
+  "version": "1.2.0"
 }
 */
 
 // You May Like Component
 function loadYouMayLike() {
-  // We add 'data-url' attributes to each item to store the destination link
   const youMayLikeHTML = `
         <div class="you-may-like">
-            <h3 style="border: none; padding: 0; margin: 0 0 var(--spacing-lg) 0; font-size: var(--font-size-xl);">YOU MAY LIKE</h3>
+            <div class="section-label">Recommended</div>
+            <h2>You May Like</h2>
             <div class="you-may-like-items">
                 <div class="you-may-like-item" data-url="/understanding-eeat">
                     <h4>Understanding E-E-A-T</h4>
@@ -27,8 +27,8 @@ function loadYouMayLike() {
                     <p>Why mobile performance matters more than ever and how to optimize your site accordingly.</p>
                 </div>
                 <div class="you-may-like-item" data-url="/traditional-crawlers-vs-llms">
-                    <h4>Traditional Crawlers vs LLM's</h4>
-                    <p>A Comprehensive Comparison for SEO Professionals.</p>
+                    <h4>Traditional Crawlers vs LLMs</h4>
+                    <p>A comprehensive comparison for SEO professionals.</p>
                 </div>
             </div>
         </div>
@@ -39,16 +39,13 @@ function loadYouMayLike() {
     youMayLikeContainer.innerHTML = youMayLikeHTML
   }
 
-  // Updated click interactions to handle navigation
+  // Click interactions for navigation
   const items = document.querySelectorAll(".you-may-like-item")
   items.forEach((item) => {
-    // Add pointer cursor via JS if not in CSS
-    item.style.cursor = "pointer";
-
     item.addEventListener("click", () => {
-      const url = item.getAttribute("data-url");
+      const url = item.getAttribute("data-url")
       if (url) {
-        window.location.href = url;
+        window.location.href = url
       }
     })
   })
